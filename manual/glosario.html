@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="" >
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+          <title>Глосарій функцій</title>
+    <style>
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+      div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+      ul.task-list{list-style: none;}
+    </style>
+        <link rel="stylesheet" href="estilo.css" />
+        <script src="./manual.js" charset="utf-8"></script>
+      <div class="tc navegacion">
+  <a href="index.html">Повернутися до змісту</a>
+</div> 
+  </head>
+  <body>
+         <header id="title-block-header">
+      <h1 class="title">Функції</h1>
+            </header>
+      <script>
+document.addEventListener("DOMContentLoaded", function() {
+  var input = document.querySelector("#buscador");
+  var limpiar = document.querySelector("#limpiar");
+
+  var timeout = null;
+
+  /*
+   * Esta función permite lanzar una función dentro de un marco
+   * de tiempo donde podría cancelarse.
+   *
+   * Es muy útil para lanzar búsquedas mientras el usuario va
+   * escribiendo y evitando que la aplicación se vuelva super lenta.
+   */
+  function debounce(func, wait) {
+    if (timeout) {
+      clearTimeout(timeout);
+    }
+
+    timeout = setTimeout(() => {
+      func.call(this);  
+      timeout = null;
+    }, 200);
+  }
+
+  /*
+   * Esta función se encarga de mostrar u ocultar los bloques
+   * HTML del documento dependiento de si coinciden con una búsqueda
+   * o no.
+   *
+   * Por ejemplo, el documento podría ser de esta forma:
+   *
+   *    <div class="funcion">
+   *      ```
+   *      pilas.actores.nave()
+   *      ```
+   *
+   *      Permite crear una nave.
+   *    </div>
+   *
+   *    <div class="funcion">
+   *      ```
+   *      pilas.actores.pelota()
+   *      ```
+   *
+   *      Permite crear un actor pelota.
+   *    </div>
+   *
+   * Pero si se llama a esta función así `filtrar("pelota")`, solamente
+   * el segundo bloque debería verse en el navegador, el primer bloque
+   * que no tiene el texto "pelota" debería tener la clase "dn" (display none)
+   *
+   *    <div class="funcion dn">          <-- Se agregá la clase "dn"
+   *      ```
+   *      pilas.actores.nave()
+   *      ```
+   *
+   *      Permite crear una nave.
+   *    </div>
+   *
+   *    <div class="funcion">
+   *      ```
+   *      pilas.actores.pelota()
+   *      ```
+   *
+   *      Permite crear un actor pelota.
+   *    </div>
+   *
+   */
+  function filtrar(valor) {
+    var funciones = document.querySelectorAll(".funcion");
+    var cantidad_ocultos = 0;
+    var cantidad_visibles = 0;
+
+    funciones.forEach(elemento => {
+
+      if (elemento.firstElementChild.textContent.includes(valor)) {
+        elemento.classList.remove("dn");
+        cantidad_visibles += 1;
+      } else {
+        elemento.classList.add("dn");
+        cantidad_ocultos += 1;
+      }
+
+    });
+
+
+    var detalle = document.getElementById("detalle");
+    var total = cantidad_visibles + cantidad_ocultos;
+
+    if (cantidad_ocultos > 0) {
+      detalle.innerHTML = `Показано ${cantidad_visibles} з ${total}`;
+    } else {
+      detalle.innerHTML = "";
+    }
+  }
+
+  input.onkeydown = function(e) {
+    debounce(() => {
+      filtrar(this.value);
+    }, 500);
+  }
+
+  limpiar.onclick = function() {
+    input.value = "";
+    filtrar("");
+  }
+
+});
+</script>
+<div class="tr">
+<p><input id="buscador" placeholder="Пошук ..." class="input" autocomplete="off"></p>
+</div>
+<div class="tr">
+<p><span id="detalle" class="small"></span> <button id="limpiar" class="boton v-mid">Очистити</button></p>
+</div>
+<div class="funcion">
+<pre><code>mostrar(повідомлення)</code></pre>
+<p>Друкує повідомлення у вікні інтерпретатора. Також показує тип даних аргументу.</p>
+<p>Цю функцію також можна викликати за допомогою імені <code>print</code> замість <code>mostrar</code>.</p>
+<p>Приклади:</p>
+<pre><code>❯ mostrar(2 + 2)
+❮ 4                     (число)
+
+❯ mostrar(&quot;Hola &quot; + &quot;hugo&quot;)
+❮ Hola hugo             (рядок)</code></pre>
+</div>
+<div class="funcion">
+<pre><code>ingresar(&quot;тут текст для користувача, що вводити&quot;)</code></pre>
+<p>Зупиняє виконання програми і очікує введення тексту користувачем.</p>
+<p>Ця функція повертає <code>string</code> з повідомленням, який написав користувач, або <code>null</code> якщо ви скасували введення повідомлення.</p>
+<p>Приклади:</p>
+<pre><code>❯ ingresar(&quot;Як тебе звати?&quot;)
+❮ &quot;pepe&quot;                   (рядок)
+
+❯ ingresar(&quot;Скільки тобі років?&quot;)
+❮ &quot;14&quot;                     (рядок)</code></pre>
+<p>Зверніть увагу, що функція повертає текстові рядки (тип <code>string</code>). Якщо ви хочете прийняти відповідь користувача та обробити її як число, ви повинні додати <code>+</code> перед функцією або змінною, щоб перетворити її на число:</p>
+<pre><code>❯ +ingresar(&quot;Скільки тобі років?&quot;)
+❮ 14                     (число)
+
+❯ let edad = ingresar(&quot;Скільки тобі років?&quot;)
+❯ mostrar(edad)
+❮ &quot;14&quot;                   (рядок)
+
+❯ mostrar(+edad)
+❮ 14                     (число)</code></pre>
+</div>
+<div class="funcion">
+<pre><code>pilas.obtener_actores_en(x, y)</code></pre>
+<p>Шукає акторів за координатами <code>x</code> та <code>y</code>. Якщо в цій позиції є актори, повертає список із усіма покликаннями на цих акторів. Якщо в цій позиції немає жодного актора, повертається порожній список <code>[]</code>.</p>
+<p>Наприклад:</p>
+<pre><code>› pilas.obtener_actores_en(0, -94)
+‹ [
+    &lt;plataforma en (0.00, -90.00)&gt;,
+    &lt;pacman en (10.00, -92.00)&gt;,
+  ]
+
+› pilas.obtener_actores_en(200, 0)
+‹ []</code></pre>
+</div>
+<div class="funcion">
+<pre><code>pilas.obtener_actor_en(x, y)</code></pre>
+<p>Шукає акторів за координатами <code>x</code> та <code>y</code> і якщо є хоча б один, повертає його. Якщо є більше одного актора, буде повернено лише першого знайденого.</p>
+<p>Якщо актора немає, повертає значення <code>null</code>.</p>
+<p>Наприклад:</p>
+<pre><code>› pilas.obtener_actor_en(0, -94)
+‹ &lt;plataforma en (0.00, -90.00)&gt;
+
+› pilas.obtener_actor_en(200, 0)
+‹ null</code></pre>
+</div>
+<div class="funcion">
+<pre><code>pilas.escena
+pilas.escena_actual()</code></pre>
+<p>Повертає покликання на поточну сцену, звідки можна отримати доступ до акторів та інших властивостей сцени.</p>
+<p>Наприклад:</p>
+<pre><code>› pilas.escena.actores
+‹ &lt;plataforma en (0.00, -90.00)&gt;,&lt;caja en (96.00, -47.55)&gt;</code></pre>
+</div>
+<div class="funcion">
+<pre><code>pilas.control</code></pre>
+<p>Зберігає покликання на елемент керування клавіатури. Можна перевірити натискання клавіш.</p>
+<p>Важливо викликати цю функцію в блоці <code>actualizar</code> актора або сцени.</p>
+<p>Наприклад:</p>
+<pre><code>› pilas.control.izquierda
+‹ false
+
+› pilas.control.tecla_n
+‹ true</code></pre>
+</div>
+<div class="funcion">
+<pre><code>pilas.camara</code></pre>
+<p>Містить покливання на камеру сцени, звідки можна застосовувати рухи прокручування або ефекти.</p>
+<p>Наприклад:</p>
+<pre><code>› pilas.camara.x
+‹ 0
+
+› pilas.camara.y = 30
+‹ 30
+
+› pilas.camara.vibrar(2, 1)
+‹ Sin definir (undefined)</code></pre>
+<p>Ви навіть можете змінити масштаб за допомогою таких інструкцій, як:</p>
+<pre><code>› pilas.camara.escala = 2.5
+› pilas.camara.escala = 1</code></pre>
+</div>
+<div class="funcion">
+<pre><code>pilas.listar_imagenes()</code></pre>
+<p>Повертає список усіх зображень, зареєстрованих у проєкті, включаючи вбудовані, і ті, які користувач завантажив у редактор.</p>
+<p>Наприклад:</p>
+<pre><code>› pilas.listar_imagenes()
+‹ [
+    &quot;bloques:plataformas-marrones/plataforma-marron-1&quot;,
+    &quot;bloques:plataformas-marrones/plataforma-marron-10&quot;,
+    ...
+  ]</code></pre>
+</div>
+<div class="funcion">
+<pre><code>pilas.cambiar_escena(nombre)</code></pre>
+<p>Дозволяє перейти до нової сцени, вказавши її назву. Якщо вам буде запропоновано перейти до сцени, яка не існує, повертає помилку.</p>
+<p>Наприклад:</p>
+<pre><code>› pilas.cambiar_escena(&quot;opciones&quot;)
+‹ Sin definir (undefined)
+
+› pilas.cambiar_escena(&quot;cualquiera&quot;)
+‹ Error: No se puede encontrar la escena &quot;cualquiera&quot;.</code></pre>
+</div>
+<div class="funcion">
+<pre><code>pilas.reiniciar_escena()</code></pre>
+<p>Дозволяє перезапустити запущену сцену. Повторний запуск сцени відтворює всіх акторів у їх початковій позиції, і метод сцени <code>iniciar</code> виконується знову.</p>
+<p>Наприклад:</p>
+<pre><code>› pilas.reiniciar_escena()
+‹ Sin definir (undefined)</code></pre>
+</div>
+<div class="funcion">
+<pre><code>pilas.reproducir_sonido(nombre)</code></pre>
+<p>Відтворює звук із бібліотеки проєкту. Параметр імені має точно відповідати назві звуку.</p>
+<p>Наприклад:</p>
+<pre><code>› pilas.reproducir_sonido(&quot;saltar&quot;)
+‹ Sin definir (undefined)</code></pre>
+</div>
+<div class="funcion">
+<pre><code>pilas.obtener_actores()</code></pre>
+<p>Повертає список усіх акторів, які на цей момент присутні на сцені.</p>
+<p>Наприклад:</p>
+<pre><code>› pilas.obtener_actores()
+‹ [
+    &lt;plataforma en (0.00, -90.00)&gt;,
+    &lt;caja en (96.00, -47.55)&gt;
+  ]</code></pre>
+</div>
+<div class="funcion">
+<pre><code>pilas.obtener_actor_por_nombre(nombre)
+pilas.buscar_actor(nombre)</code></pre>
+<p>Знаходить усіх акторів на сцені, якщо є один із зазначеним іменем, і якщо так, повертає покликання на цього актора.</p>
+<p>Важливо, щоб при виклику цієї функції актор був активним, інакше функція поверне помилку.</p>
+<p>Наприклад:</p>
+<pre><code>› pilas.obtener_actor_por_nombre(&quot;plataforma&quot;)
+‹ &lt;plataforma en (0.00, -90.00)&gt;
+
+› var mi_plataforma = pilas.obtener_actor_por_nombre(&quot;plataforma&quot;)
+› mi_plataforma.decir(&quot;hola!&quot;)</code></pre>
+</div>
+<div class="funcion">
+<pre><code>pilas.existe_un_actor_llamado(nombre)</code></pre>
+<p>Повертає <code>true</code> чи <code>false</code> вказуючи, чи є актор із зазначеним іменем у поточній сцені. Ця функція корисна, щоб знати, чи можете ви викликати функцію <code>obtener_actor_por_nombre</code>.</p>
+<p>Наприклад:</p>
+<pre><code>› pilas.existe_un_actor_llamado(&quot;plataforma&quot;)
+‹ true
+
+› pilas.existe_un_actor_llamado(&quot;jugador&quot;)
+‹ false
+
+if (pilas.existe_un_actor_llamado(&quot;jugador&quot;)) {
+  actor.decir(&quot;El jugar está vivo!&quot;)
+} else {
+  actor.decir(&quot;Uh, el jugador no está, ¿se eliminó?&quot;)
+}</code></pre>
+</div>
+<div class="funcion">
+<pre><code>pilas.obtener_actor_por_etiqueta(etiqueta)</code></pre>
+<p>Повертає першого знайденого актора із зазначеною міткою. Текст мітки має бути записаний у лапках.</p>
+<p>Якщо актора із цією міткою не знайдено, функція повертає <code>undefined</code>.</p>
+<p>Наприклад:</p>
+<pre><code>› pilas.obtener_actor_por_etiqueta(&quot;enemigo&quot;)
+‹ &lt;alien en (0.00, -70.00)&gt;
+
+› pilas.obtener_actor_por_etiqueta(&quot;prueba&quot;)
+‹ Sin definir (undefined)</code></pre>
+</div>
+<div class="funcion">
+<pre><code>pilas.obtener_todos_los_actores_con_la_etiqueta(etiqueta)</code></pre>
+<p>Повертає список усіх акторів, які містять мітку, зазначену як параметр.</p>
+<p>Якщо немає актора з такою міткою, функція повертає порожній список.</p>
+<p>Наприклад:</p>
+<pre><code>› pilas.obtener_todos_los_actores_con_la_etiqueta(&quot;enemigo&quot;)
+‹ [
+    &lt;alien en (0.00, -70.00)&gt;,
+    &lt;fantasma en (20.00, -20.00)&gt;
+  ]
+
+› pilas.obtener_todos_los_actores_con_la_etiqueta(&quot;moneda&quot;)
+‹ []</code></pre>
+</div>
+<div class="funcion">
+<pre><code>pilas.obtener_cantidad_de_actores()</code></pre>
+<p>Повертає кількість акторів у поточній сцені.</p>
+<p>Наприклад:</p>
+<pre><code>› pilas.obtener_cantidad_de_actores()
+‹ 10</code></pre>
+</div>
+<div class="funcion">
+<pre><code>pilas.obtener_diccionario_de_actores()</code></pre>
+<p>Повертає структуру даних, подібну до словника, з усіма іменами та покликаннями на акторів.</p>
+<p>Наприклад:</p>
+<pre><code>› var diccionario = pilas.obtener_diccionario_de_actores()
+› diccionario.pelota
+‹ &lt;pelota en (-200, -40)</code></pre>
+</div>
+<div class="funcion">
+<pre><code>pilas.obtener_actores_en(x, y)</code></pre>
+<p>Повертає список усіх акторів, які розташовані в точці з координатами <code>x</code> та <code>y</code>.</p>
+<p>Якщо в цій точці з зазначеними координатами немає актора, функція повертає порожній список.</p>
+<p>Наприклад:</p>
+<pre><code>› pilas.obtener_actores_en(-190, -30)
+‹ [
+    &lt;pelota en (-200, -40)
+  ]
+
+› pilas.obtener_actores_en(0, 0)
+‹ []</code></pre>
+</div>
+<div class="funcion">
+<pre><code>pilas.existe_actor_en(x, y)</code></pre>
+<p>Повертає <code>true</code> якщо в точці з координатами <code>x</code> та <code>y</code> є актор.</p>
+<p>Наприклад:</p>
+<pre><code>› pilas.existe_actor_en(-190, -30)
+‹ true</code></pre>
+</div>
+<div class="funcion">
+<pre><code>pilas.existe_actor_con_etiqueta_en(etiqueta, x, y)</code></pre>
+<p>Повертає <code>true</code>, якщо актор з міткою, надісланою як параметр, знаходиться в точці з координатами <code>x</code> та <code>y</code>.</p>
+<p>Наприклад:</p>
+<pre><code>› pilas.existe_actor_con_etiqueta_en(&quot;pelota&quot;, -190, -30)
+‹ true
+
+› pilas.existe_actor_con_etiqueta_en(&quot;enemigo&quot;, -190, -30)
+‹ false</code></pre>
+</div>
+<div class="funcion">
+<pre><code>pilas.luego(duración, tarea)</code></pre>
+<p>Виконує функцію через кількість секунд, зазначену параметром <code>duración</code>.</p>
+<p>Важливо зазначити, що тривалість може бути цілим або дробовим десятковим числом. Функція може бути надіслана як покликання або як тип функції <code>arrow</code> як показано у прикладі.</p>
+<p>Наприклад, щоб актор привітався через 3 секунди:</p>
+<pre><code>› actor = pilas.actores.nave()
+› pilas.luego(3, () =&gt; {
+    actor.saludar(&quot;Hola!, luego de 3 segundos.&quot;);
+  }</code></pre>
+</div>
+<div class="funcion">
+<pre><code>pilas.cada(duración, tarea, veces)</code></pre>
+<p>Виконує функцію кілька разів через певні проміжки часу у секундах.</p>
+<p>Важливо зазначити, що тривалість має бути певною кількістю секунд, і що функція буде викликана стільки разів, скільки вказує аргумент <code>veces</code>. Якщо ви хочете виконувати цю функцію нескінченну кількість разів, ви можете не вказувати останній параметр.</p>
+<p>За бажанням ви також можете перервати наступні ітерації, якщо функція повертає <code>true</code>.</p>
+<p>Напркилад:</p>
+<pre><code>› actor = pilas.actores.nave()
+› pilas.cada(5, () =&gt; {
+    actor.saludar(&quot;¡Hola!, saludando cada 5 segundos&quot;);
+  }, 10);</code></pre>
+</div>
+<div class="funcion">
+<pre><code>pilas.azar(desde, hasta)</code></pre>
+<p>Повертає випадкове число в діапазоні від першого аргументу до другого включно.</p>
+<p>Наприклад:</p>
+<pre><code>› pilas.azar(1, 5)
+‹ 3
+
+› pilas.azar(1, 5)
+‹ 5
+
+› pilas.azar(1, 5)
+‹ 2</code></pre>
+</div>
+<div class="funcion">
+<pre><code>pilas.azar_excluyendo_un_valor(desde, hasta, valor_a_excluir)</code></pre>
+<p>Повертає випадкове число в діапазоні від першого аргументу до другого включно, але не містить значення, вказане в останньому аргументі.</p>
+<p>Наприклад:</p>
+<pre><code>› pilas.azar(1, 3, 2)
+‹ 1
+
+› pilas.azar(1, 3, 2)
+‹ 3
+
+› pilas.azar(5, 8, 6)
+‹ 7
+
+› pilas.azar(5, 8, 6)
+‹ 5
+
+› pilas.azar(5, 8, 6)
+‹ 8</code></pre>
+</div>
+<div class="funcion">
+<pre><code>pilas.azar_desde_lista(lista)</code></pre>
+<p>Випадково повертає один із елементів списку, який надсилається як параметр.</p>
+<p>Наприклад:</p>
+<pre><code>› pilas.azar_desde_lista([&#39;uno&#39;, &#39;dos&#39;, &#39;tres&#39;])
+‹ &#39;uno&#39;</code></pre>
+</div>
+<div class="funcion">
+<pre><code>pilas.subdividir_lista(lista, cantidad_de_elementos)</code></pre>
+<p>Повертає новий список, який міститиме лише ту кількість елементів, яку зазначає параметр. Будуть збережені елементи, які знаходяться на початку початкового списку.</p>
+<p>Наприклад:</p>
+<pre><code>› pilas.subdividir_lista([&#39;uno&#39;, &#39;dos&#39;, &#39;tres&#39;], 2)
+‹ [&#39;uno&#39;, &#39;dos&#39;]
+
+› pilas.subdividir_lista([3, 4, 5, 6], 3)
+‹ [3, 4, 5]
+
+› pilas.subdividir_lista([3, 4, 5, 6, 8, 2, 3], 1)
+‹ [3]</code></pre>
+</div>
+<div class="funcion">
+<pre><code>pilas.desordenar_lista(lista)</code></pre>
+<p>Повертає копію списку, надісланого як параметр, з усіма його елементами, які змінили свої місця випадковим чином.</p>
+<p>Наприклад:</p>
+<pre><code>› pilas.azar_desde_lista([1, 2, 3, 4, 5, 6])
+‹ [4, 6, 1, 3, 2, 5]</code></pre>
+</div>
+<div class="funcion">
+<pre><code>pilas.intercambiar_posiciones_al_azar(lista_de_actores)</code></pre>
+<p>Поміняйте між собою позицію акторів, надісланих у вигляді списку.</p>
+<pre><code>pilas.obtener_distancia_entre_puntos(x, y, x1, y1)</code></pre>
+<p>Повертає відстань, виміряну у пікселях, між двома точками, зазначеними відповідними координатами.</p>
+<p>Наприклад:</p>
+<pre><code>› pilas.obtener_distancia_entre_puntos(0, 0, 0, 100)
+‹ 100
+
+› pilas.obtener_distancia_entre_puntos(0, 0, 30, 40)
+‹ 50</code></pre>
+</div>
+<div class="funcion">
+<pre><code>pilas.obtener_distancia_entre_actores(actor1, actor2)</code></pre>
+<p>Повертає відстань у пікселях між двома акторами.</p>
+<p>Наприклад:</p>
+<pre><code>› nave = pilas.actores.nave()
+› pelota = pilas.actores.nave()
+› pilas.obtener_distancia_entre_actores(nave, pelota)
+‹ 69.5</code></pre>
+</div>
+<div class="funcion">
+<pre><code>pilas.obtener_angulo_entre_puntos(x, y, x2, y2)</code></pre>
+<p>Повертає кут у градусах, утворений кресленням лінії між точками з координатами.</p>
+<p>Наприклад:</p>
+<pre><code>› pilas.obtener_angulo_entre_puntos(0, 0, 40, 40)
+‹ 45
+
+› pilas.obtener_angulo_entre_puntos(0, 0, 100, 40)
+‹ 21.80</code></pre>
+</div>
+<div class="funcion">
+<pre><code>pilas.obtener_angulo_entre_actores(actor1, actor2)</code></pre>
+<p>Повертає кут у градусах, який утворюється шляхом проведення лінії між положенням одного актора та іншого.</p>
+<p>Наприклад:</p>
+<pre><code>› nave = pilas.actores.nave()
+› pelota = pilas.actores.nave()
+› pilas.obtener_angulo_entre_actores(nave, pelota)
+‹ 221</code></pre>
+</div>
+<div class="funcion">
+<pre><code>pilas.ocultar_cursor()</code></pre>
+<p>Робить вказівник миші невидимим.</p>
+<p>Наприклад:</p>
+<pre><code>› pilas.ocultar_cursor()</code></pre>
+</div>
+<div class="funcion">
+<pre><code>pilas.definir_cursor(nombre)</code></pre>
+<p>Дозволяє змінювати вказівник миші.</p>
+<p>Варіанти:</p>
+<ul>
+<li>normal</li>
+<li>pointer</li>
+<li>help</li>
+<li>none</li>
+<li>wait</li>
+<li>crosshair</li>
+<li>cell</li>
+<li>move</li>
+<li>text</li>
+<li>no-drop</li>
+</ul>
+</div>
+<div class="funcion">
+<pre><code>pilas.observar(nombre, variable)</code></pre>
+<p>Додає текст на екран для відображення значення змінної, надісланої параметром.</p>
+<p>Ця функція призначена для виклику всередині блоку <code>actualizar</code> для сцени і для актора. Якщо її викликати з іншого місця, значення змінної не буде оновлено, і вона залишиться з початковим значенням.</p>
+<p>Наприклад:</p>
+<pre><code>› pilas.observar(&quot;posicion_x&quot;, nave.x)
+› pilas.observar(&quot;rotacion de la nave&quot;, nave.rotacion)</code></pre>
+</div>
+<div class="funcion">
+<pre><code>pilas.clonar(nombre)</code></pre>
+<p>Дозволяє клонувати актора та розмістити цю копію актора на екрані. Ця функція створить нового актора в тій же позиції, що й оригінальний актор.</p>
+<p>Ви можете клонувати будь-якого актора зі сцени або з інших сцен, ви навіть можете клонувати акторів, які не є активними.</p>
+<p>Наприклад:</p>
+<pre><code>› var nave_nueva = pilas.clonar(&quot;nave&quot;)
+› nave_nueva.x = 100</code></pre>
+</div>
+<div class="funcion">
+<pre><code>pilas.clonar_en(nombre, x, y)</code></pre>
+<p>Дозволяє клонувати актора в потрібній позиції.</p>
+<p>Наприклад:</p>
+<pre><code>› var actor = pilas.actores.nave()
+› pilas.clonar_en(&quot;nave&quot;, 100, 100)
+‹ &lt;nave en (100, 100)&gt;</code></pre>
+</div>
+<div class="funcion">
+<pre><code>pilas.clonar_en_la_posión_del_cursor(nombre)</code></pre>
+<p>Дозволяє клонувати актора в позиції миші.</p>
+<p>Наприклад:</p>
+<pre><code>› var actor = pilas.actores.nave()
+
+› pilas.cursor_x
+‹ 24
+
+› pilas.cursor_y
+‹ -139
+
+› pilas.clonar_en_la_posión_del_cursor(&quot;nave&quot;)
+‹ &lt;nave en (24, -139)&gt;</code></pre>
+</div>
+<div class="funcion">
+<pre><code>pilas.clonar_en_posicion_al_azar(nombre)</code></pre>
+<p>Дозволяє клонувати актора у випадковій позиції на екрані.</p>
+<p>Наприклад:</p>
+<pre><code>› pilas.actores.nave()
+‹ &lt;nave en (131, 183)&gt;</code></pre>
+</div>
+<div class="funcion">
+<pre><code>pilas.es_multiplo(a, b)</code></pre>
+<p>Визначте, чи одне число кратне іншому.</p>
+<p>Наприклад:</p>
+<pre><code>› pilas.es_multiplo(12, 3)
+‹ true
+
+› pilas.es_multiplo(3, 2)
+‹ false</code></pre>
+</div>
+<div class="funcion">
+<pre><code>pilas.enviar_mensaje_global(mensaje, datos)</code></pre>
+<p>Надішліть повідомлення всім акторам і поточній сцені.</p>
+<p>Щоб захопити ці повідомлення від акторів або сцени, вам потрібно створити метод у формі «when_the_message_name_arrives», де «name» має бути повідомленням, яке ви хочете захопити.</p>
+<p>Наприклад, якщо актор викликає наступну функцію <code>this.pilas.enviar_mensaje_global('ganar')</code> ви матимете можливість перехопити це повідомлення від будь-якого актора чи сцени, оголосивши метод «when_win_message_arrives».</p>
+<p>Аргумент <code>datos</code> є необов’язковим і може використовуватися для надсилання додаткових параметрів разом із повідомленням. Цей аргумент даних буде надіслано безпосередньо всім акторам, які беруть участь у повідомленні, але бажано, щоб це був словник. Наприклад, якщо ви хочете надіслати два значення, ви можете створити такий словник:</p>
+<pre><code>pilas.enviar_mensaje_global(&quot;empujar&quot;, {fuerza: 10, mi_posicion: this.x})</code></pre>
+<p>і від будь-якого іншого актора ви можете виконувати цю функцію, створивши наступний метод</p>
+<pre><code>class actor {
+
+  cuando_llega_el_mensaje_empujar(datos) {
+    this.impulsar(0, datos.fuerza);
+
+    this.decir(`el otro parámetro era x: ${datos.mi_posicion}`);
+  }</code></pre>
+</div>
+<div class="funcion">
+<pre><code>pilas.alternar_modo_pantalla_completa()
+pilas.solicitar_modo_pantalla_completa()
+pilas.solicitar_modo_ventana()</code></pre>
+<p>Дозволяє змінити режим екрана на повноекранний або віконний.</p>
+<p>Якщо користувач переходить у повноекранний режим, користувач може повернутися до віконного режиму, натиснувши клавішу <code>ESC</code>.</p>
+<p>Наприклад:</p>
+<pre><code>› pilas.alternar_modo_pantalla_completa()</code></pre>
+</div>
+<div class="funcion">
+<pre><code>pilas.alinear(numero, grilla)
+pilas.ajustar(numero, grilla)</code></pre>
+<p>Встановлює число в масштабі сітки, дуже корисно в іграх, де гравець може переміщатися по жорстких мозаїчних сценах або дошках.</p>
+<p>Наприклад:</p>
+<pre><code>› pilas.alienar(130, 64)
+‹ 28</code></pre>
+</div>
+<div class="funcion">
+<pre><code>pilas.pausar()</code></pre>
+<p>Повністю зупиняє гру та чекає, поки користувач натисне пропуск або клікне мишкою, щоб продовжити.</p>
+</div>
+<div class="funcion">
+<pre><code>pilas.reproducir_musica(nombre)</code></pre>
+<p>Починає відтворювати музику із зазначеним ім'ям та повторює її знову, коли вона автоматично закінчується.</p>
+<p>Якщо відтворюється інша музика, ця функція зупиняє її та починає відтворення нової музики.</p>
+<p>Зверніть увагу, що музика продовжуватиме грати, навіть коли ви змінюєте сцени.</p>
+</div>
+<div class="funcion">
+<pre><code>pilas.detener_musica()</code></pre>
+<p>Зупинити всю музику, яка зараз відтворюється.</p>
+</div>
+<div class="funcion">
+<pre><code>pilas.esta_reproduciendo_musica()</code></pre>
+<p>Повертає <code>true</code>, якщо в цей момент грає музика, інакше вона відповідає значенню <code>false</code>.</p>
+</div>
+<div class="funcion">
+<pre><code>pilas.definir_mapa(diccionario)</code></pre>
+<p>Дозволяє описати, як актори будуть представлені на карті сценарію. Ця функція майже завжди використовується на початку гри або перед викликом функції <code>pilas.crear_mapa</code>.</p>
+<p>Приклад виклику виглядає наступним чином:</p>
+<pre><code>this.pilas.definir_mapa({
+                x: &quot;ladrillo&quot;,
+                n: &quot;nave&quot;
+            });</code></pre>
+<p>і після визначення символів ви можете створити таку карту:</p>
+<pre><code>this.pilas.crear_mapa(`
+          xxxxxxx
+          x.....x
+          x..n..x
+          x.....x
+          xxxxxxx
+        `);</code></pre>
+</div>
+<div class="funcion">
+<pre><code>pilas.crear_mapa(mapa, grilla, origen_x, origen_y)</code></pre>
+<p>Дозволяє створити карту зі словника символів, попередньо створених за допомогою цієї функції <code>pilas.definir_mapa</code>.</p>
+<p>Аргумент map має бути текстовим рядком із описом сценарію. За бажанням для розділення елементів карти можна використовувати символи крапки (.) або дефіса (-). Для зручності читання можна використовувати пропуски - функція буде їх ігнорувати.</p>
+<p>Наприклад, це може бути виклик цієї функції <code>crear_mapa</code>:</p>
+<pre><code>this.pilas.crear_mapa(`
+          x.....x
+          x..n..x
+        `);</code></pre>
+<p>Потім ця функція приймає як аргументи розмір сітки (64 пікселів за замовчуванням) і координати, за якими має бути намальована карта (x=0, y=0 за замовчуванням).</p>
+</div>
+<div class="funcion">
+<pre><code>pilas.laser(actor, x, y, x_final, y_final)</code></pre>
+<p>Ця функція виконує «миттєвий» лазер для розпізнавання всіх акторів, які стикаються по прямій лінії від точки (x, y) до точки (x_final, y_final).</p>
+<p>Після того, як функція буде виконана, вона поверне список цієї форми:</p>
+<pre><code>[
+   {
+      x: 10,
+      y: 10,
+      actor: &lt;actor&gt;
+      distancia: 30
+   },
+   ...
+ ]</code></pre>
+</div>
+<div class="funcion">
+<pre><code>pilas.laser_al_primer_actor(actor, x, y, x_final, y_final, etiqueta)</code></pre>
+<p>Подібна до функції «лазер», але вона повертатиме лише першого актора, який зустрічається під час трасування лазера від позиції (x, y) до позиції (x_final, y_final).</p>
+<p>Додатково цій функції можна присвоїти мітку, щоб вона враховувала лише зіткнення з акторами, які мають цю мітку.</p>
+</div>  <div class="tc navegacion">
+  <div>
+    <a href="#" onclick="document.documentElement.scrollTo(0, 0);">Вгору</a>
+  </div>
+
+  <div>
+    <a href="index.html">Повернутися до змісту</a>
+  </div>
+</div> 
+  </body>
+</html>
