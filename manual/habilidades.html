@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="generator" content="pandoc" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-          <title>Habilidades</title>
+          <title>Навички акторів</title>
     <style>
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
@@ -77,47 +77,47 @@
         <link rel="stylesheet" href="estilo.css" />
         <script src="./manual.js" charset="utf-8"></script>
       <div class="tc navegacion">
-  <a href="index.html">Regresar al índice</a>
+  <a href="index.html">Повернутися до змісту</a>
 </div> 
   </head>
   <body>
          <header id="title-block-header">
-      <h1 class="title">Habilidades</h1>
+      <h1 class="title">Навички акторів</h1>
             </header>
-      <p>Cuando realizamos juegos hay ciertos comportamientos que son tan comunes que ni siquiera necesitamos programarlos escribiendo código.</p>
-<p>Un ejemplo de estos comportamientos comunes incluyen “hacer que un actor se mueva con el teclado”, “poder arrastrar y soltar un actor con el mouse” etc…</p>
-<p>A todos estos comportamientos los llamamos “habilidades”, y lo interesante es que podemos tomar a cualquier actor y “enseñarle” cualquier de las habilidades para mejorar nuestro juego.</p>
-<h2 id="desde-el-editor">Desde el editor</h2>
-<p>Una opción para incorporarle habilidades a un actor es usar el inspector del actor. Hay una propiedad llamada “Habilidades” en donde cargar una o más habilidades que busquemos enseñarle a un actor al momento de iniciar la escena.</p>
+      <p>При створенні ігор актори мають певну повідінку, яка настільки поширена, що нам не потрібно програмувати її за допомогою коду.</p>
+<p>Прикладами цієї типової поведінки може бути можливість змусити актора рухатися за допомогою клавіатури, перетягнути актора за допомогою миші тощо.</p>
+<p>Ми називаємо цю поведінку "Навичками", і цікаво те, що ми можемо взяти будь-якого актора та "навчити" його будь-яких навичок, щоб покращити нашу гру.</p>
+<h2 id="desde-el-editor">Додаємо навички із редактора</h2>
+<p>Одним із варіантів додавання навичок актору є використання властивостей акторів. Одна з таких властивостей називається "Навички", для якої ми зазначаємо одну або кілька навичок, яким хочемо навчити актора на початку сцени.</p>
 <p><img src="imagenes/habilidades/habilidades.png" /></p>
-<h2 id="desde-el-código">Desde el código</h2>
-<p>Otra opción, es enseñarle una habilidad al actor desde el código.</p>
-<p>Imaginá que buscamos crear un juego de cartas, donde el usuario tiene que poder mover una carta por la pantalla usando el mouse o gestos del dispositivo mobile. El primer paso es crear el actor, con la imagen que nos interesa:</p>
+<h2 id="desde-el-código">Додаємо навички за допомогою коду</h2>
+<p>Інший варіант - навчити актора умінню за допомогою коду.</p>
+<p>Уявіть, що ми хочемо створити карткову гру, де користувач повинен мати можливість переміщувати картку по екрану за допомогою миші або дотику на мобільному пристрої. Першим кроком є ​​створення актора з образом, який нас цікавить:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb1-1"><a href="#cb1-1"></a>let mi_actor <span class="op">=</span> pilas<span class="op">.</span><span class="at">actores</span><span class="op">.</span><span class="fu">actor</span>()<span class="op">;</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a>mi_actor<span class="op">.</span><span class="at">imagen</span> <span class="op">=</span> <span class="st">&quot;imagenes:cartas/carta&quot;</span><span class="op">;</span></span></code></pre></div>
-<p>Y aquí lo interesante, para hacer que el usuario pueda mover este actor por la pantalla simplemente tenemos que “enseñarle” al actor la habilidad arrastrable así:</p>
+<p>І ось що цікаво: щоб гравець міг переміщувати цього актора по екрану, ми просто повинні "навчити" актора можливості перетягування:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb2-1"><a href="#cb2-1"></a>mi_actor<span class="op">.</span><span class="fu">aprender</span>(<span class="st">&quot;arrastrable&quot;</span>)<span class="op">;</span></span></code></pre></div>
-<p>La lista de habilidades disponibles dentro de pilas es la siguiente:</p>
+<p>Нижче наведено список доступних навичок:</p>
 <ul>
-<li>“arrastrable”</li>
-<li>“mover con el teclado”</li>
-<li>“oscilar rotacion”</li>
-<li>“oscilar transparencia”</li>
-<li>“oscilar verticalmente”</li>
-<li>“rotar constantemente”</li>
-<li>“seguir al mouse lentamente”</li>
-<li>“seguir al mouse”</li>
+  <li>перетягуватися мишкою ("arrastrable")</li>
+  <li>постійно обертатися ("rotar constantemente")</li>
+  <li>керуватися клавіатурою ("mover con el teclado")</li>
+  <li>повільно рухатися за мишкою ("seguir al mouse lentamente")</li>
+  <li>рухатися з мишкою ("seguir al mouse")</li>
+  <li>коливатися вертикально ("oscilar verticalmente")</li>
+  <li>коливатися обертами ("oscilar rotacion")</li>
+  <li>зникати та з'являтися ("oscilar transparencia")</li>  
 </ul>
-<h2 id="olvidar-o-eliminar-habilidades">Olvidar o eliminar habilidades</h2>
-<p>Si en algún momento quieres eliminar una habilidad de un actor, simplemente se puede llamar a la función <code>olvidar</code> así:</p>
+<h2 id="olvidar-o-eliminar-habilidades">"Забути" або видалити навички</h2>
+<p>Якщо в будь-який момент ви захочете видалити навички актора, ви можете просто викликати функцію <code>olvidar</code> таким чином:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb3-1"><a href="#cb3-1"></a>mi_actor<span class="op">.</span><span class="fu">olvidar</span>(<span class="st">&quot;arrastrable&quot;</span>)<span class="op">;</span></span></code></pre></div>
-<h2 id="habilidades-personalizadas">Habilidades personalizadas</h2>
-<p>Pilas también te permite crear tus propias habilidades.</p>
-<p>Primero, deberías crear una clase que herede de <code>Habilidad</code> e implementar los métodos <code>iniciar</code>, <code>actualizar</code> y <code>terminar</code>.</p>
-<p>Por ejemplo, aquí tenemos el código de una habilidad que se debería colocar en la parte inferior de cuaquier actor:</p>
+<h2 id="habilidades-personalizadas">Спеціальні навички</h2>
+<p>Для акторів також можна створювати спеціальні навички.</p>
+<p>По-перше, ви повинні створити клас, який успадковує від <code>Habilidad</code> і реалізувати методи <code>iniciar</code>, <code>actualizar</code> і <code>terminar</code>.</p>
+<p>Наприклад, ось код навички, який слід розмістити внизу будь-якого актора:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb4-1"><a href="#cb4-1"></a>class GirarMuyRapido extends Habilidad {</span>
 <span id="cb4-2"><a href="#cb4-2"></a>  iniciar() {</span>
-<span id="cb4-3"><a href="#cb4-3"></a>    <span class="co">// aquí puedes acceder a this.actor</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a>    <span class="co">// тут ви можете отримати доступ до this.actor</span></span>
 <span id="cb4-4"><a href="#cb4-4"></a>  }</span>
 <span id="cb4-5"><a href="#cb4-5"></a>  </span>
 <span id="cb4-6"><a href="#cb4-6"></a>  actualizar() {</span>
@@ -125,20 +125,20 @@
 <span id="cb4-8"><a href="#cb4-8"></a>  }</span>
 <span id="cb4-9"><a href="#cb4-9"></a>  </span>
 <span id="cb4-10"><a href="#cb4-10"></a>  terminar() {</span>
-<span id="cb4-11"><a href="#cb4-11"></a>    <span class="co">// aquí puedes acceder a this.actor</span></span>
+<span id="cb4-11"><a href="#cb4-11"></a>    <span class="co">// тут ви можете отримати доступ до this.actor</span></span>
 <span id="cb4-12"><a href="#cb4-12"></a>  }</span>
 <span id="cb4-13"><a href="#cb4-13"></a>}</span></code></pre></div>
-<p>Luego, puedes tomar algún actor de tu juego y enseñarle esta habilidad usando dos sentecias como estas:</p>
-<pre><code>this.pilas.habilidades.vincular(&quot;girar muy rapido&quot;, GirarMuyRapido);
-this.aprender(&quot;girar muy rapido&quot;);</code></pre>
-<p>Lo bueno de estas habilidades es que una vez que las declaras se pueden usar en cualquier otro actor, lo único que deberías hacer es agregar este código al método <code>iniciar</code> del actor:</p>
-<pre><code>this.aprender(&quot;girar muy rapido&quot;);</code></pre>  <div class="tc navegacion">
+<p>Потім ви можете взяти якогось актора зі своєї гри і навчити його цій навичці за допомогою двох інструкцій:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode typescript"><code>this.pilas.habilidades.vincular(&quot;girar muy rapido&quot;, GirarMuyRapido);
+this.aprender(&quot;girar muy rapido&quot;);</code></pre></div>
+<p>Як тільки ви оголосите нові навички в коді, вони можуть бути використані для будь-якого іншого актора. Все, що вам потрібно зробити, це додати наступний код до методу <code>iniciar</code> обраного актора ("girar muy rapido" - обертатися дуже швидко):</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode typescript"><code>this.aprender(&quot;girar muy rapido&quot;);</code></pre></div>  <div class="tc navegacion">
   <div>
-    <a href="#" onclick="document.documentElement.scrollTo(0, 0);">Subir</a>
+    <a href="#" onclick="document.documentElement.scrollTo(0, 0);">Нагору</a>
   </div>
 
   <div>
-    <a href="index.html">Regresar al índice</a>
+    <a href="index.html">Повернутися до змісту</a>
   </div>
 </div> 
   </body>

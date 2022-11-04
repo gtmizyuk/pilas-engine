@@ -51,7 +51,7 @@
     { "nombre": "aprender-y-olvidar", "desde": "2.0.91" },
     { "nombre": "nave_contra_aliens", "desde": "2.0.90" },
     { "nombre": "explosion_al_colisionar", "desde": "2.0.84" },
-    { "nombre": "huesos", "desde": "2.0.79" },
+    { "nombre": "bones", "desde": "2.0.79" },
     { "nombre": "flappy", "desde": "2.0.78" },
     { "nombre": "controles", "desde": "2.0.78" },
     { "nombre": "angulo-entre-actores", "desde": "2.0.77" },

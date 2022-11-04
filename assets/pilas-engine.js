@@ -3493,8 +3493,8 @@
       this.bus.trigger("actualizar_enumeraciones", {
         animaciones: animaciones.map(e => e.nombre),
         sonidos: sonidos.map(e => e.nombre),
-        teclas: ["izquierda", //
-        "derecha", "arriba", "abajo", "espacio", "tecla_0", "tecla_1", "tecla_2", "tecla_3", "tecla_4", "tecla_5", "tecla_6", "tecla_7", "tecla_8", "tecla_9", "tecla_a", "tecla_b", "tecla_c", "tecla_d", "tecla_e", "tecla_f", "tecla_g", "tecla_h", "tecla_i", "tecla_j", "tecla_k", "tecla_l", "tecla_m", "tecla_n", "tecla_ñ", "tecla_o", "tecla_p", "tecla_q", "tecla_r", "tecla_s", "tecla_t", "tecla_u", "tecla_v", "tecla_w", "tecla_x", "tecla_y", "tecla_z"]
+        teclas: ["стрілка ліворуч", //
+        "стрілка праворуч", "стрілка вгору", "стрілка вниз", "пропуск", "клавіша_0", "клавіша_1", "клавіша_2", "клавіша_3", "клавіша_4", "клавіша_5", "клавіша_6", "клавіша_7", "клавіша_8", "клавіша_9", "клавіша_a", "клавіша_b", "клавіша_c", "клавіша_d", "клавіша_e", "клавіша_f", "клавіша_g", "клавіша_h", "клавіша_i", "клавіша_j", "клавіша_k", "клавіша_l", "клавіша_m", "клавіша_n", "клавіша_ñ", "клавіша_o", "клавіша_p", "клавіша_q", "клавіша_r", "клавіша_s", "клавіша_t", "клавіша_u", "клавіша_v", "клавіша_w", "клавіша_x", "клавіша_y", "клавіша_z"]
       });
     },
 
@@ -15091,8 +15091,8 @@
   _exports.default = void 0;
 
   var _default = Ember.HTMLBars.template({
-    "id": "L2DpxUuK",
-    "block": "{\"symbols\":[\"parrafo\"],\"statements\":[[7,\"div\"],[11,\"class\",\"vh-100 w-100 dt\"],[9],[0,\"\\n  \"],[7,\"div\"],[11,\"class\",\"flex flex-column vh-100\"],[9],[0,\"\\n\\n    \"],[7,\"div\"],[11,\"class\",\"bb b--black-10 pa2\"],[9],[0,\"\\n      \"],[1,[23,\"pilas-boton-regresar\"],false],[0,\"\\n    \"],[10],[0,\"\\n\\n    \"],[7,\"div\"],[11,\"class\",\"overflow-auto\"],[9],[0,\"\\n      \"],[7,\"div\"],[11,\"class\",\"center mw7 ph4 lato lh-copy pb6\"],[9],[0,\"\\n\\n        \"],[7,\"h2\"],[9],[1,[29,\"t\",[\"about.title\"],null],false],[10],[0,\"\\n\\n\"],[4,\"each\",[[25,[\"parrafos\"]]],null,{\"statements\":[[0,\"          \"],[7,\"p\"],[9],[1,[24,1,[]],false],[10],[0,\"\\n\"]],\"parameters\":[1]},null],[0,\"\\n        \"],[7,\"p\"],[9],[0,\"\\n          \"],[1,[29,\"t\",[\"about.end\"],null],false],[0,\"\\n        \"],[10],[0,\"\\n\\n        \"],[7,\"ul\"],[9],[0,\"\\n          \"],[7,\"li\"],[9],[1,[29,\"t\",[\"about.web.link\"],null],false],[0,\": \"],[4,\"pilas-link\",null,[[\"url\"],[\"http://pilas-engine.com.ar\"]],{\"statements\":[[0,\"pilas-engine.com.ar\"]],\"parameters\":[]},null],[10],[0,\"\\n          \"],[7,\"li\"],[9],[1,[29,\"t\",[\"about.forum.link\"],null],false],[0,\": \"],[4,\"pilas-link\",null,[[\"url\"],[\"http://foro.pilas-engine.com.ar\"]],{\"statements\":[[0,\"foro.pilas-engine.com.ar\"]],\"parameters\":[]},null],[10],[0,\"\\n        \"],[10],[0,\"\\n\\n        \"],[7,\"p\"],[11,\"class\",\"tc gray pt3\"],[9],[0,\"\\n          © Hugo Ruscitti\\n        \"],[10],[0,\"\\n\\n      \"],[10],[0,\"\\n    \"],[10],[0,\"\\n\\n  \"],[10],[0,\"\\n\\n\"],[10],[0,\"\\n\"]],\"hasEval\":false}",
+    "id": "NsremYxV",
+    "block": "{\"symbols\":[\"parrafo\"],\"statements\":[[7,\"div\"],[11,\"class\",\"vh-100 w-100 dt\"],[9],[0,\"\\n  \"],[7,\"div\"],[11,\"class\",\"flex flex-column vh-100\"],[9],[0,\"\\n\\n    \"],[7,\"div\"],[11,\"class\",\"bb b--black-10 pa2\"],[9],[0,\"\\n      \"],[1,[23,\"pilas-boton-regresar\"],false],[0,\"\\n    \"],[10],[0,\"\\n\\n    \"],[7,\"div\"],[11,\"class\",\"overflow-auto\"],[9],[0,\"\\n      \"],[7,\"div\"],[11,\"class\",\"center mw7 ph4 lato lh-copy pb6\"],[9],[0,\"\\n\\n        \"],[7,\"h2\"],[9],[1,[29,\"t\",[\"about.title\"],null],false],[10],[0,\"\\n\\n\"],[4,\"each\",[[25,[\"parrafos\"]]],null,{\"statements\":[[0,\"          \"],[7,\"p\"],[9],[1,[24,1,[]],false],[10],[0,\"\\n\"]],\"parameters\":[1]},null],[0,\"\\n        \"],[7,\"p\"],[9],[0,\"\\n          \"],[7,\"em\"],[9],[1,[29,\"t\",[\"about.Ukrainian.translation\"],null],false],[10],[0,\"\\n        \"],[10],[0,\"\\n\\n        \"],[7,\"p\"],[9],[0,\"\\n          \"],[1,[29,\"t\",[\"about.end\"],null],false],[0,\"\\n        \"],[10],[0,\"\\n\\n        \"],[7,\"ul\"],[9],[0,\"\\n          \"],[7,\"li\"],[9],[1,[29,\"t\",[\"about.web.link\"],null],false],[0,\": \"],[4,\"pilas-link\",null,[[\"url\"],[\"http://pilas-engine.com.ar\"]],{\"statements\":[[0,\"pilas-engine.com.ar\"]],\"parameters\":[]},null],[10],[0,\"\\n          \"],[7,\"li\"],[9],[1,[29,\"t\",[\"about.forum.link\"],null],false],[0,\": \"],[4,\"pilas-link\",null,[[\"url\"],[\"http://foro.pilas-engine.com.ar\"]],{\"statements\":[[0,\"foro.pilas-engine.com.ar\"]],\"parameters\":[]},null],[10],[0,\"\\n        \"],[10],[0,\"\\n\\n        \"],[7,\"p\"],[11,\"class\",\"tc gray pt3\"],[9],[0,\"\\n          © Hugo Ruscitti\\n        \"],[10],[0,\"\\n\\n      \"],[10],[0,\"\\n    \"],[10],[0,\"\\n\\n  \"],[10],[0,\"\\n\\n\"],[10],[0,\"\\n\"]],\"hasEval\":false}",
     "meta": {
       "moduleName": "pilas-engine/templates/components/pilas-acerca-de.hbs"
     }
@@ -18090,7 +18090,7 @@
 
   function recetasActorCuandoColisionaEliminarAlOtroActor() {
     return {
-      titulo: "При зіткненні вибухають",
+      titulo: "Вибухнути при зіткнення",
       icono: "receta_colision",
       para: "actor",
       etiquetas: ["colisión", "toca", "golpea", "explosion"],

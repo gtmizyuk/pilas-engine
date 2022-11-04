@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="generator" content="pandoc" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-          <title>Comportamientos</title>
+          <title>Поведінка</title>
     <style>
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
@@ -77,73 +77,72 @@
         <link rel="stylesheet" href="estilo.css" />
         <script src="./manual.js" charset="utf-8"></script>
       <div class="tc navegacion">
-  <a href="index.html">Regresar al índice</a>
+  <a href="index.html">Повернутися до змісту</a>
 </div> 
   </head>
   <body>
          <header id="title-block-header">
-      <h1 class="title">Comportamientos</h1>
+      <h1 class="title">Поведінка</h1>
             </header>
-      <p>En el desarrollo de videojuegos es conveniente tener una forma de indicarle a los actores una rutina o tarea para que la realicen.</p>
-<p>En pilas usamos el concepto de comportamiento. Un comportamiento es un objeto que simboliza una acción a realizar por un actor.</p>
-<p>La utilidad de usar componentes es que puedes asociarlos y intercambiarlos libremente para lograr efectos útiles.</p>
-<p>Por ejemplo: un guardia de un juego de acción puede ir de un lado a otro en un pasillo:</p>
+      <p>При розробці ігор зручно мати спосіб повідомити акторам певне завдання, яке вони повинні виконати.</p>
+<p>У цьому раі використовується поняття поведінки. Поведінка - це об'єкт, який символізує дію, яку повинен виконати актор.</p>
+<p>Наприклад: охоронець у грі може ходити туди-сюди по коридору:</p>
 <ul>
-<li>caminar hacia la izquierda hasta el fin del pasillo.</li>
-<li>dar una vuelta completa.</li>
-<li>caminar hacia la derecha hasta el fin del pasillo.</li>
-<li>dar una vuelta completa.</li>
-<li>etc…</li>
+<li>йти ліворуч до кінця коридору</li>
+<li>зробити повний поворот</li>
+<li>йти праворуч до кінця коридору</li>
+<li>зробити повний поворот</li>
+<li>і т. д.</li>
 </ul>
-<p>En este caso hay 4 comportamientos, y queda en nuestro control si queremos que luego de los 4 comportamientos comience nuevamente.</p>
-<h2 id="realizando-comportamientos">Realizando comportamientos</h2>
-<p>Para indicarle a un actor que realice un comportamiento tenemos que llamar a la función <code>hacer</code> indicándole el nombre del comportamiento:</p>
+<p>У цьому випадку поведінка містить 4 дії, а завданням є охорона коридору. За потреби, ми можемо контролювати таку поведінку, наприклад, повторювати її чи ні.</p>
+<h2 id="realizando-comportamientos">Реалізація поведінки</h2>
+<p>Щоб вказати актору на виконання певної поведінки, ми повинні викликати функцію <code>hacer</code>, зазначивши назву поведінки:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb1-1"><a href="#cb1-1"></a>let mi_actor <span class="op">=</span> pilas<span class="op">.</span><span class="at">actores</span><span class="op">.</span><span class="fu">actor</span>()<span class="op">;</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a>mi_actor<span class="op">.</span><span class="fu">hacer</span>(<span class="st">&quot;aparecer&quot;</span>)<span class="op">;</span></span></code></pre></div>
-<p>Ten en cuenta que los comportamientos se pueden encadenar para lograr efectos o animaciones una detrás de otra. Por ejemplo, si queremos mostrar y ocultar un actor podemos hacerlo así:</p>
+<p>Зауважте, що різні поведінки можна об'єднувати, щоб отримати ефекти або анімацію, що відбуваються по черзі. Наприклад, якщо ми хочемо показати або приховати актора, ми можемо зробити це так:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb2-1"><a href="#cb2-1"></a>let mi_actor <span class="op">=</span> pilas<span class="op">.</span><span class="at">actores</span><span class="op">.</span><span class="fu">actor</span>()<span class="op">;</span></span>
 <span id="cb2-2"><a href="#cb2-2"></a>mi_actor<span class="op">.</span><span class="fu">hacer</span>(<span class="st">&quot;aparecer&quot;</span>)<span class="op">;</span></span>
 <span id="cb2-3"><a href="#cb2-3"></a>mi_actor<span class="op">.</span><span class="fu">hacer</span>(<span class="st">&quot;desaparecer&quot;</span>)<span class="op">;</span></span></code></pre></div>
-<p>Incluso, algunas habilidades reciben parámetros para indicar velocidad, posición etc…</p>
-<p>Por ejemplo, si queremos hacer que el actor desaparezca y aparezca varias veces muy rápidamente podemos escribir algo así:</p>
+<p>Деякі поведінки отримують параметри для швидкості, позиції тощо.</p>
+<p>Наприклад, якщо ми хочемо, щоб актор зникав і з’являвся кілька разів дуже швидко, ми можемо написати щось подібне:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb3-1"><a href="#cb3-1"></a>let mi_actor <span class="op">=</span> pilas<span class="op">.</span><span class="at">actores</span><span class="op">.</span><span class="fu">actor</span>()<span class="op">;</span></span>
 <span id="cb3-2"><a href="#cb3-2"></a></span>
 <span id="cb3-3"><a href="#cb3-3"></a>for (i<span class="op">=</span><span class="dv">0</span><span class="op">;</span> i<span class="op">&lt;</span><span class="dv">50</span><span class="op">;</span> i<span class="op">++</span>) {</span>
 <span id="cb3-4"><a href="#cb3-4"></a>  mi_actor<span class="op">.</span><span class="fu">hacer</span>(<span class="st">&quot;aparecer&quot;</span><span class="op">,</span> {velocidad<span class="op">:</span> <span class="dv">10</span>})<span class="op">;</span></span>
 <span id="cb3-5"><a href="#cb3-5"></a>  mi_actor<span class="op">.</span><span class="fu">hacer</span>(<span class="st">&quot;desaparecer&quot;</span><span class="op">,</span> {velocidad<span class="op">:</span> <span class="dv">10</span>})<span class="op">;</span></span>
 <span id="cb3-6"><a href="#cb3-6"></a>}</span></code></pre></div>
-<h2 id="comportamientos-incluidos-en-pilas">Comportamientos incluidos en pilas</h2>
-<p>Esta es la lista de comportamientos que incluye pilas:</p>
+<h2 id="comportamientos-incluidos-en-pilas">Вбудована поведінка</h2>
+<p>Це список містить вбудовані типи поведінки:</p>
 <ul>
-<li>desaparecer (parámetros: velocidad)</li>
-<li>aparecer (parámetros: velocidad)</li>
-<li>eliminar (sin parámetros)</li>
-<li>mover (parámetros: x, y, demora)</li>
+<li>desaparecer (параметри: velocidad) - зникнути (параметри: швидкість)</li>
+<li>aparecer (параметри: velocidad) - з'являтися (параметри: швидкість)</li>
+<li>eliminar (без параметрів) - видалити (без параметрів)</li>
+<li>mover (параметри: x, y, demora) - переміщення (параметри: x, y, затримка)</li>
 </ul>
-<h2 id="comportamientos-personalizados">Comportamientos personalizados</h2>
-<p>Si quieres crear tus propios comportamientos podrías abordarlo de la siguiente forma:</p>
-<p>Primero, deberías crear una clase que herede de <code>Comportamientos</code> y tenga al menos un método iniciar y actualizar así:</p>
+<h2 id="comportamientos-personalizados">Спеціальна поведінка</h2>
+<p>Якщо ви хочете створити власну поведінку, ви можете підійти до цього наступним чином.</p>
+<p>По-перше, ви повинні створити клас, який успадковує від <code>Comportamientos</code> і мати принаймні один такий метод запуску й оновлення:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb4-1"><a href="#cb4-1"></a>class MiComportamiento extends Comportamiento {</span>
 <span id="cb4-2"><a href="#cb4-2"></a></span>
 <span id="cb4-3"><a href="#cb4-3"></a>  iniciar(argumentos) {</span>
 <span id="cb4-4"><a href="#cb4-4"></a>  }</span>
 <span id="cb4-5"><a href="#cb4-5"></a></span>
 <span id="cb4-6"><a href="#cb4-6"></a>  actualizar() {</span>
-<span id="cb4-7"><a href="#cb4-7"></a>    <span class="co">// retornar true para detener el comportamiento.</span></span>
+<span id="cb4-7"><a href="#cb4-7"></a>    <span class="co">// повернути true, щоб зупинити поведінку.</span></span>
 <span id="cb4-8"><a href="#cb4-8"></a>  }</span>
 <span id="cb4-9"><a href="#cb4-9"></a></span>
 <span id="cb4-10"><a href="#cb4-10"></a>  terminar() {}</span>
 <span id="cb4-11"><a href="#cb4-11"></a>}</span></code></pre></div>
-<p>Luego, deberías vincularlo al módulo de comportamientos:</p>
+<p>Тоді ви повинні зв’язати його з модулем поведінки:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb5-1"><a href="#cb5-1"></a>pilas<span class="op">.</span><span class="at">comportamientos</span><span class="op">.</span><span class="fu">vincular</span>(<span class="st">&quot;mi comportamiento&quot;</span><span class="op">,</span> MiComportamiento)<span class="op">;</span></span></code></pre></div>
-<p>y por último asignárselo a un actor:</p>
+<p>і, нарешті, призначити його акторові ("mi comportamiento" - моя поведінка):</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb6-1"><a href="#cb6-1"></a>mi_actor<span class="op">.</span><span class="fu">hacer</span>(<span class="st">&quot;mi_comportamiento&quot;</span>)<span class="op">;</span></span></code></pre></div>  <div class="tc navegacion">
   <div>
-    <a href="#" onclick="document.documentElement.scrollTo(0, 0);">Subir</a>
+    <a href="#" onclick="document.documentElement.scrollTo(0, 0);">Нагору</a>
   </div>
 
   <div>
-    <a href="index.html">Regresar al índice</a>
+    <a href="index.html">Повернутися до змісту</a>
   </div>
 </div> 
   </body>

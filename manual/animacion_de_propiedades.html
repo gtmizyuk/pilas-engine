@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="generator" content="pandoc" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-          <title>Animación de propiedades</title>
+          <title>Властивості анімації</title>
     <style>
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
@@ -77,33 +77,33 @@
         <link rel="stylesheet" href="estilo.css" />
         <script src="./manual.js" charset="utf-8"></script>
       <div class="tc navegacion">
-  <a href="index.html">Regresar al índice</a>
+  <a href="index.html">Повернутися до змісту</a>
 </div> 
   </head>
   <body>
          <header id="title-block-header">
-      <h1 class="title">Animación de propiedades</h1>
+      <h1 class="title">Властивості анімації</h1>
             </header>
-      <p>Todos los actores tienen una serie de propiedades como <code>x</code>, <code>y</code>, <code>rotacion</code> y <code>transparencia</code>. En total hay mas de 10 propiedades listas para modificar, tanto desde el editor como desde el código.</p>
-<p>Ahora bien, si cambiamos progresivamente estas propiedades podemos lograr animaciones interesantes. Por ejemplo podríamos cambiar progresivamente la rotación de un actor para que parezca estar en movimiento así:</p>
+      <p>Усі актори мають низку властивостей, як-от координати <code>x</code> та <code>y</code>, <code>rotacion</code> (обертання) і <code>transparencia</code> (прозорість). Загалом є більше 10 властивостей, готових до зміни, як за допомогою редактора, так і за допомогою коду.</p>
+<p>Якщо поступово змінювати ці властивості, то можна отримати доволі цікаві анімації. Наприклад, якщо поступово змінювати значення обертання, то актор буде здійснювати обертальний рух:</p>
 <figure>
 <img src="imagenes/animacion_de_propiedades/rotacion.gif" alt="" /><figcaption>rotacion</figcaption>
 </figure>
-<p>Y lo mismo con las otras propiedades, si queremos que un actor se mueva hacia la derecha de la pantalla podemos cambiar muchas veces su propiedad <code>x</code> para que parezca “moverse” hacia un costado de la pantalla.</p>
-<p>Sin embargo, hacer animaciones cambiando propiedades una a una se puede volver tedioso si realmente queremos hacer animaciones completas, así que pilas tienen una forma de simplificar esto.</p>
-<h2 id="usando-la-función-animar">Usando la función “animar”</h2>
-<p>Todos los actores tienen una función llamada <code>animar</code> parar facilitar la creación de animaciones, o movimientos, mediante el cambio de propiedades de un actor.</p>
-<p>Si queremos lograr que un actor gire infinitas veces como mostramos en la animación de más arriba podemos escribir lo siguiente:</p>
+<p>Те ж саме з іншими властивостями: якщо ми хочемо, щоб актор переміщувався праворуч від екрана, ми можемо змінювати значення його координати <code>x</code> багато разів, щоб здавалося, що він "переміщується" у певний бік на екрані.</p>
+<p>Однак, створення анімацій, змінюючи властивості одна за одною, може бути втомливим, якщо ми дійсно хочемо робити повну анімацію. Є спосіб, який може спростити це.</p>
+<h2 id="usando-la-función-animar">Використання функції "animar"</h2>
+<p>Усім акторам доступна функція, яка називається <code>animar</code> (анімація). Вона полегшує створення анімації або рухів шляхом зміни властивостей актора.</p>
+<p>Якщо ми хочемо, щоб актор повертався безліч разів, як показано в анімації вище, ми можемо написати наступний код:</p>
 <figure>
 <img src="imagenes/animacion_de_propiedades/sentencia-de-animacion.png" alt="" /><figcaption>image-20200617173113502</figcaption>
 </figure>
-<p>La función <code>this.animar</code> iniciará una animación sobre las propiedades del actor. Primero espera dos argumentos:</p>
+<p>Функція <code>this.animar</code> запускає анімацію актора. Функція приймає два аргументи:</p>
 <ul>
-<li>El tipo de animación que se realizará, esta puede ser <code>Tipo.lineal</code>, <code>Tipo.desborde</code>, <code>Tipo.suave</code>, <code>Tipo.elastico</code>, <code>Tipo.rebote</code>. Vamos a ver esto en la siguiente sección.</li>
-<li>La cantidad de veces que se ejecutará la animación: aquí se puede poner un número como 5 para que la animación de rotación se haga <code>5</code> veces, o como valor especial se puede colocar <code>-1</code> para que la animación se haga por siembre.</li>
+<li>Тип анімації: <code>Tipo.lineal</code> (лінійна), <code>Tipo.desborde</code> (відхилення і повернення), <code>Tipo.suave</code> (уповільнення), <code>Tipo.elastico</code> (еластична), <code>Tipo.rebote</code> (відскок). Ми розглянемо типи анімації в наступному розділі.</li>
+<li>Скільки разів анімація буде виконана: тут ви можете поставити число, наприклад 5, щоб анімація обертання була виконана <code>5</code> разів або як спеціальне значення ви можете зазначити <code>-1</code>, щоб анімація тривала безперервно.</li>
 </ul>
-<p>Lo siguiente que se coloca después de la llamada a <code>this.animar()</code> es una secuencia de animaciones a realizar.</p>
-<p>Por ejemplo, en este ejemplo se le pide al actor que se mueva a la derecha, gire 180 grados y luego regrese al punto <code>(0, 0)</code> una vez:</p>
+<p>Після виклику <code>this.animar()</code> можна вказати послідовність анімацій для виконання за допомогою крапкової нотації.</p>
+<p>Наприклад, у наступному прикладі актора просять переміститися праворуч, повернутися на 180 градусів, а потім один раз повернутися до точки <code>(0, 0)</code>:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">this</span><span class="op">.</span><span class="fu">animar</span>(Tipo<span class="op">.</span><span class="at">suave</span><span class="op">,</span> <span class="dv">1</span>)</span>
 <span id="cb1-2"><a href="#cb1-2"></a>  <span class="op">.</span><span class="fu">rotar</span>(<span class="dv">180</span>)</span>
 <span id="cb1-3"><a href="#cb1-3"></a>  <span class="op">.</span><span class="fu">mover_x</span>(<span class="dv">200</span>)</span>
@@ -112,15 +112,15 @@
 <figure>
 <img src="imagenes/animacion_de_propiedades/animacion-de-nave.gif" alt="" /><figcaption>animacion-de-nave</figcaption>
 </figure>
-<h2 id="animaciones-soportadas">Animaciones soportadas</h2>
-<p>Existen varias propiedades que se pueden animar, como la posición de los actores, la rotación, transparencia etc…</p>
-<p>Para ver el listado completo de estas animaciones te recomiendo mirar la ayuda que te ofrece el editor justo después cerrar el paréntesis que inicia la animación:</p>
+<h2 id="animaciones-soportadas">Підтримка анімації</h2>
+<p>Є кілька властивостей, які можна анімувати, наприклад положення акторів, обертання, прозорість тощо.</p>
+<p>Щоб побачити повний список анімацій, введіть круглі дужки, крапку і редактор запропонує вам відкрий список анімацій:</p>
 <figure>
 <img src="imagenes/animacion_de_propiedades/animaciones.png" alt="" /><figcaption>animacion-de-nave</figcaption>
 </figure>
-<p>Algunas animaciones esperan parámetros, como el valor esperado para la propiedad y la duración total de la animación, así que nuevamente ten en cuenta que el editor te ayudará a conocer los parámetros que espera cada una de las animaciones.</p>
-<h2 id="tipos-de-animaciones">Tipos de animaciones</h2>
-<p>El primer argumento de la función <code>this.animar</code> pude ser uno de estos:</p>
+<p>Деякі анімації приймають такі параметри, як очікуване значення для властивості та загальна тривалість анімації. Не хвилюйтеся, редактор допоможе вам дізнатися параметри, які очікує кожна анімація.</p>
+<h2 id="tipos-de-animaciones">Типи анімації</h2>
+<p>Перший аргумент функції <code>this.animar</code> може мати одне із значень:</p>
 <ul>
 <li><code>Tipo.lineal</code></li>
 <li><code>Tipo.suave</code></li>
@@ -128,52 +128,52 @@
 <li><code>Tipo.rebote</code></li>
 <li><code>Tipo.elastico</code></li>
 </ul>
-<p>Ahora bien, ¿qué significan estos valores?, ¿En qué se diferencian?: Las animaciones son básicamente transformaciones que se le hacen a las propiedades a través del tiempo, así que estos tipos de animaciones se diferencian en cómo la animación progresará en el tiempo.</p>
-<p>Veamos el tipo de animación <code>Tipo.lineal</code> primero, que es uno de los más sencillos:</p>
+<p>Що означають ці значення? Чим вони відрізняються? Анімації - це, в основному, перетворення властивостей з плином часу, тому ці типи анімацій відрізняються тим, як анімація розвиватиметься з часом.</p>
+<p>Давайте розглянемо тип анімації <code>Tipo.lineal</code> (лінійна), який є одним із найпростіших.</p>
 <h3 id="tipo.lineal">Tipo.Lineal</h3>
-<p>Imagina que tenemos un actor y le pedimos hacer un movimiento en el eje <code>x</code> de forma lineal con este código:</p>
+<p>Уявіть, що у нас є актор, і ми просимо його зробити лінійний рух по осі <code>x</code> за допомогою цього коду:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">this</span><span class="op">.</span><span class="fu">animar</span>(Tipo<span class="op">.</span><span class="at">lineal</span>)<span class="op">.</span><span class="fu">mover_x</span>(<span class="dv">350</span>)<span class="op">;</span></span></code></pre></div>
-<p>Si dibujamos cómo se mueve un actor en el tiempo usando una animación de tipo <code>lineal</code> vamos a ver que el movimiento se hace de forma constante, avanzando siempre a la misma velocidad:</p>
+<p>Якщо намалювати, як актор рухається в часі за допомогою анімації типу <code>linear</code>, ми побачимо, що рух відбувається постійно, завжди з однаковою швидкістю:</p>
 <p><img src="imagenes/animacion_de_propiedades/tipo-lineal.png" /></p>
-<p>¿Y cómo son el resto de las animaciones?.</p>
+<p>А як там решта анімацій?</p>
 <h3 id="tipo.suave">Tipo.Suave</h3>
-<p>La animación de tipo <code>suave</code> es similar a la lineal, pero hace que el actor se mueva con cierta desaceleración:</p>
+<p>Тип анімації <code>suave</code> (уповільнення) схожий на лінійний, але змушує актора рухатися з певним уповільненням:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">this</span><span class="op">.</span><span class="fu">animar</span>(Tipo<span class="op">.</span><span class="at">suave</span>)<span class="op">.</span><span class="fu">mover_x</span>(<span class="dv">350</span>)<span class="op">;</span></span></code></pre></div>
 <p><img src="imagenes/animacion_de_propiedades/tipo-suave.png" /></p>
-<p>Esto se puede notar porque los puntos por los que pasó el actor se ven cada vez más juntos.</p>
+<p>Уповільнення можна помітити, оскільки точки, через які пройшов актор, розташовуються ближче одна до одної.</p>
 <h3 id="tipo.desborde">Tipo.desborde</h3>
-<p>La animación de tipo <code>desborde</code> superará el punto de llegada, pero retomará la posición para corregir el desvío.</p>
+<p>Тип анімації <code>desborde</code> (відхилення і повернення) змусить актора рухатися далі кінцевої точки, але із поверненням у неї.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">this</span><span class="op">.</span><span class="fu">animar</span>(Tipo<span class="op">.</span><span class="at">desborde</span>)<span class="op">.</span><span class="fu">mover_x</span>(<span class="dv">350</span>)<span class="op">;</span></span></code></pre></div>
-<p>Para que este gráfico se vea un poco mejor, se combinó con un movimiento vertical:</p>
+<p>Щоб цей графік виглядав трохи краще, його поєднали з вертикальним рухом:</p>
 <p><img src="imagenes/animacion_de_propiedades/tipo-desborde.png" /></p>
-<p>Observa como cerca del punto de llegada el personaje superó la coordenada 350, a la que le habíamos pedido que se mueva, pero suavemente retomó para corregir el desborde:</p>
+<p>Зверніть увагу, персонаж пройшов повз кінцеву координату x = 350, до якої ми зазначили йому переміститися, але обережно піднявшись вище, повернувся у кінцеву точку:</p>
 <p><img src="imagenes/animacion_de_propiedades/tipo-desborde-analisis.png" /></p>
 <h3 id="tipo.rebote">Tipo.rebote</h3>
-<p>La animación de tipo rebote llegará al punto solicitado pero va a regresar y corregir la posición varias veces:</p>
+<p>Анімація типу "rebote" (відскок) досягне потрібної точки, але повернеться назад і кілька разів виправить положення:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">this</span><span class="op">.</span><span class="fu">animar</span>(Tipo<span class="op">.</span><span class="at">rebote</span>)<span class="op">.</span><span class="fu">mover_x</span>(<span class="dv">350</span>)<span class="op">;</span></span></code></pre></div>
 <p><img src="imagenes/animacion_de_propiedades/tipo-rebote.png" /></p>
-<p>Es ideal para movimiento que aparenten ser mecánicos, como giros de engranajes o palancas.</p>
+<p>Цей тип анімації ідеально підходить для рухів, які здаються механічними, наприклад, обертання передач або важелів.</p>
 <h3 id="tipo.elastico">Tipo.elastico</h3>
-<p>Las animaciones elásticas son las más llamativas cuando se utilizan en movimientos y rotaciones:</p>
+<p>Еластичні (пружні) анімації типу "elastico" є найбільш вражаючими, коли використовуються в рухах і обертаннях:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">this</span><span class="op">.</span><span class="fu">animar</span>(Tipo<span class="op">.</span><span class="at">elastico</span>)<span class="op">.</span><span class="fu">mover_x</span>(<span class="dv">350</span>)<span class="op">;</span></span></code></pre></div>
 <p><img src="imagenes/animacion_de_propiedades/tipo-elastico.png" /></p>
-<p>Este tipo de animaciones también se ven muy bien cuando se aplican a escalas, por ejemplo si quieres hacer que un actor parezca “esponjoso” podrías lograrlo combinando dos animaciones así:</p>
+<p>Цей тип анімації також виглядає чудово, якщо застосувати його до масштабів, наприклад, якщо ви хочете зробити актора "губчастим", ви можете досягти цього, об’єднавши дві подібні анімації:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">this</span><span class="op">.</span><span class="at">escala_x</span> <span class="op">=</span> <span class="fl">0.6</span><span class="op">;</span></span>
 <span id="cb7-2"><a href="#cb7-2"></a><span class="kw">this</span><span class="op">.</span><span class="at">escala_y</span> <span class="op">=</span> <span class="fl">1.4</span><span class="op">;</span></span>
 <span id="cb7-3"><a href="#cb7-3"></a><span class="kw">this</span><span class="op">.</span><span class="fu">animar</span>(Tipo<span class="op">.</span><span class="at">elastico</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">5</span>)<span class="op">.</span><span class="fu">escalar_x_hasta</span>(<span class="dv">1</span>)<span class="op">;</span></span>
 <span id="cb7-4"><a href="#cb7-4"></a><span class="kw">this</span><span class="op">.</span><span class="fu">animar</span>(Tipo<span class="op">.</span><span class="at">elastico</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">5</span>)<span class="op">.</span><span class="fu">escalar_y_hasta</span>(<span class="dv">1</span>)<span class="op">;</span></span></code></pre></div>
 <p><img src="imagenes/animacion_de_propiedades/escala-elastica.gif" /></p>
-<h2 id="comparando-tipos-de-animaciones">Comparando tipos de animaciones</h2>
-<p>Una forma de ayudarte a reconocer los tipos de animaciones es probar el ejemplo “tipos de animación” de los ejemplos de pilas:</p>
+<h2 id="comparando-tipos-de-animaciones">Порівняння типів анімацій</h2>
+<p>Один із способів допомогти вам розпізнати типи анімації - спробувати приклад "tipos_de_animacion" із розділу <b>Приклади</b>:</p>
 <p><img src="imagenes/animacion_de_propiedades/ejemplo-tipos-de-animacion.png" /></p>
-<p>Sin embargo, mi recomendación es que pruebes qué tipo de animación funciona mejor en el juego que estés haciendo, recuerda que cuando escribas el código el propio editor te guiará por todas las opciones disponibles:</p>
+<p>Однак, ви можете перевірити, який тип анімації найкраще працює у грі, яку ви створюєте. Пам’ятайте, що коли ви пишете код, редактор сам визначить усі доступні параметри анімації:</p>
 <p><img src="imagenes/animacion_de_propiedades/autocompletado.png" /></p>  <div class="tc navegacion">
   <div>
-    <a href="#" onclick="document.documentElement.scrollTo(0, 0);">Subir</a>
+    <a href="#" onclick="document.documentElement.scrollTo(0, 0);">Нагору</a>
   </div>
 
   <div>
-    <a href="index.html">Regresar al índice</a>
+    <a href="index.html">Повернутися до змісту</a>
   </div>
 </div> 
   </body>

@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="generator" content="pandoc" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-          <title>Eventos del mouse</title>
+          <title>Події миші</title>
     <style>
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
@@ -77,52 +77,52 @@
         <link rel="stylesheet" href="estilo.css" />
         <script src="./manual.js" charset="utf-8"></script>
       <div class="tc navegacion">
-  <a href="index.html">Regresar al índice</a>
+  <a href="index.html">Повернутися до змісту</a>
 </div> 
   </head>
   <body>
          <header id="title-block-header">
-      <h1 class="title">Eventos del mouse</h1>
+      <h1 class="title">Події миші</h1>
             </header>
-      <p>En pilas llamamos “eventos” a las señales que emiten desde dispositivos como el mouse o teclado. Por ejemplo, un “click” del mouse es un evento al igual que la pulsación de una tecla.</p>
-<p>Y lo interesante de los eventos es que podemos capturarlos y disparar alguna acción dentro del juego para responder. Por ejemplo, en un juego de acción, el “click” del mouse podría realizar una explosión o hacer que un personaje salte.</p>
-<h2 id="antes-de-empezar-el-caso-más-común">Antes de empezar, el caso más común</h2>
-<p>Si bien esta sección habla de eventos y cómo hacer uso por completo del mouse, casi siempre se quiere saber la posición del mouse para mover actores o crear objetos. Si ese es tu caso, te comentamos que pilas tiene 4 atributos para conocer en qué posición se encuentra el cursor del mouse en todo momento:</p>
+      <p>Ми називаємо "подіями" сигнали, які утворюють такі пристрої, як миша або клавіатура. Наприклад, "click" (натискання) - є подією миші, як і натискання клавіші.</p>
+<p>І найкрутіша річ у подіях полягає в тому, що ми можемо їх фіксувати та запускати певні дії в грі, щоб реагувати на них. Наприклад, у грі натискання миші може спричинити вибух або призвести до стрибка персонажу.</p>
+<h2 id="antes-de-empezar-el-caso-más-común">Перш ніж почати, найпоширеніший випадок</h2>
+<p>Незважаючи на те, що в цьому розділі йдеться про події та використання миші, ви майже завжди хочете знати положення вказівника миші, щоб переміщувати акторів або створювати об’єкти. Якщо це ваш випадок, то ви можете використовувати 4 параметри, щоб завжди знати, у якому положенні знаходиться вказівник миші:</p>
 <ul>
-<li>pilas.cursor_x: posición horizontal del mouse.</li>
-<li>pilas.cursor_y: posición vertical del mouse.</li>
-<li>pilas.cursor_x_absoluta: posición horizontal del mouse pero sin tener en cuenta la posición de la cámara. La coordenada corresponderá a la coordenada física de la ventana.</li>
-<li>pilas.cursor_y_absoluta: posición vertical del mouse pero sin tener en cuenta la posición de la cámara.</li>
+<li>pilas.cursor_x: горизонтальне положення миші.</li>
+<li>pilas.cursor_y: вертикальне положення миші.</li>
+<li>pilas.cursor_x_absoluta: горизонтальне положення миші, але без урахування положення камери. Координата буде відповідати фізичній координаті вікна.</li>
+<li>pilas.cursor_y_absoluta: вертикальне положення миші, але без урахування положення камери.</li>
 </ul>
-<p>Y estos atributos, se puede usar generalmente directamente desde la función actualizar de los actores:</p>
+<p>І ці параметри, як правило, можна використовувати безпосередньо з функції "actualizar" (оновлення) акторів:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb1-1"><a href="#cb1-1"></a>class actor extends Actor {</span>
 <span id="cb1-2"><a href="#cb1-2"></a>  iniciar() {}</span>
 <span id="cb1-3"><a href="#cb1-3"></a></span>
 <span id="cb1-4"><a href="#cb1-4"></a>  actualizar() {</span>
-<span id="cb1-5"><a href="#cb1-5"></a>    <span class="co">// la sentencias a continuación hacen que el actor siga la</span></span>
-<span id="cb1-6"><a href="#cb1-6"></a>    <span class="co">// posición del cursor del mouse en todo momento</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a>    <span class="co">// наведені нижче твердження змушують актора слідувати</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a>    <span class="co">// у положення вказівника миші</span></span>
 <span id="cb1-7"><a href="#cb1-7"></a>    this<span class="op">.</span><span class="at">x</span> <span class="op">=</span> this<span class="op">.</span><span class="at">pilas</span><span class="op">.</span><span class="at">cursor_x</span><span class="op">;</span></span>
 <span id="cb1-8"><a href="#cb1-8"></a>    this<span class="op">.</span><span class="at">y</span> <span class="op">=</span> this<span class="op">.</span><span class="at">pilas</span><span class="op">.</span><span class="at">cursor_y</span><span class="op">;</span></span>
 <span id="cb1-9"><a href="#cb1-9"></a>  }</span>
 <span id="cb1-10"><a href="#cb1-10"></a>}</span></code></pre></div>
-<h2 id="cómo-capturar-un-evento-del-mouse">¿Cómo capturar un evento del mouse?</h2>
-<p>Para capturar un evento desde el mouse simplemente hay que declarar alguna de estas funciones en el código:</p>
+<h2 id="cómo-capturar-un-evento-del-mouse">Як "зловити" подію миші?</h2>
+<p>Щоб зафіксувати подію від миші, вам просто потрібно оголосити одну з цих функцій у коді:</p>
 <ul>
 <li>cuando_hace_click(x, y, evento_original)</li>
 <li>cuando_termina_de_hacer_click(x, y, evento_original)</li>
 <li>cuando_mueve(x, y, evento_original)</li>
 <li>cuando_sale(x, y, evento_original)</li>
 </ul>
-<p>Estas funciones se pueden crear en el código de una escena o de un actor. La diferencia es que en las escenas el “click” o el movimiento se van a detectar en toda la pantalla, mientras que en el código del actor solo se detectarán si el mouse apunta al actor.</p>
-<p>Si desde un actor necesitas detectar el click del mouse en la pantalla deberías usar este otro método:</p>
+<p>Ці функції можуть бути створені в коді сцени або актора. Різниця полягає в тому, що в сценах "натискання" або рух буде виявлено на всьому екрані, тоді як у коді актора лише тоді, якщо миша вкаже на актора.</p>
+<p>Якщо від актора вам потрібно розпізнати клацання миші на екрані, вам слід скористатися іншим методом:</p>
 <ul>
 <li>cuando_hace_click_en_la_pantalla(x, y, evento_original)</li>
 </ul>
-<p>o bien:</p>
+<p>чи:</p>
 <ul>
 <li>cuando_termina_de_hacer_click_en_la_pantalla(x, y, evento_original)</li>
 </ul>
-<p>Veamos un ejemplo, imaginá que queremos crear actores de la clase “Pelota” cada vez que el usuario hace “click” sobre la pantalla. Podríamos hacerlo colocando este código en la escena:</p>
+<p>Уявіть, що ми хочемо створювати акторів класу "Pelota" (м’яч) кожного разу, коли користувач робить "click" по екрану. Ми могли б зробити це, розмістивши цей код у сцені:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb2-1"><a href="#cb2-1"></a>class escena2 extends Escena {</span>
 <span id="cb2-2"><a href="#cb2-2"></a>  iniciar() {}</span>
 <span id="cb2-3"><a href="#cb2-3"></a></span>
@@ -136,18 +136,18 @@
 <span id="cb2-11"><a href="#cb2-11"></a>    pelota<span class="op">.</span><span class="at">y</span> <span class="op">=</span> y<span class="op">;</span></span>
 <span id="cb2-12"><a href="#cb2-12"></a>  }</span>
 <span id="cb2-13"><a href="#cb2-13"></a>}</span></code></pre></div>
-<h2 id="cómo-desactivar-clicks">¿Cómo desactivar clicks?</h2>
-<p>Si quieres que un actor deje de responder a clicks, no hace falta eliminar la función <code>cuando_hace_click</code> sino que puedes llamar a la siguiente función:</p>
-<pre><code>this.desactivar_clicks();</code></pre>
-<p>Cuando a un actor se le pide que desactive sus clicks, los eventos <code>click</code> pasarán a actor que esté detrás de él. No se llamará a la función <code>cuando_hace_click</code> ni se podrá arrastrar y soltar a ese actor.</p>
-<p>Luego, si quieres volver a activar los clicks deberías llamar a esta función:</p>
-<pre><code>this.activar_clicks();</code></pre>
-<p>Hay un ejemplo llamado <code>desactivar_clicks</code> en donde se muestra cómo usar esta función.</p>
-<h2 id="cómo-capturar-eventos-del-mouse-en-un-actor">¿Cómo capturar eventos del mouse en un actor?</h2>
-<p>Para capturar eventos en el contexto de un actor, tenemos que usar las mismas funciones, pero declarándolas dentro del código del actor.</p>
-<p>Por ejemplo, imaginá que estamos haciendo un juego de cartas y queremos que la carta se pueda hacer girar con un “click” de mouse y que cambie de transparencia cuando el mouse esté sobre ella:</p>
+<h2 id="cómo-desactivar-clicks">Як відключити кліки?</h2>
+<p>Якщо ви хочете, щоб актор перестав реагувати на натискання, вам не потрібно видаляти цю функцію <code>cuando_hace_click</code>, замість цього ви можете викликати наступну функцію:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode typescript"><code class="sourceCode typescript">this.desactivar_clicks();</code></pre></div>
+<p>Коли актора просять вимкнути його натискання, події <code>click</code> будуть передані актору, який стоїть за ним. Не буде викликана функція <code>cuando_hace_click</code> і ви також не зможете перетягнути цього актора.</p>
+<p>Якщо потрібно знову ввімкнути натискання, вам слід викликати цю функцію:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode typescript"><code class="sourceCode typescript">this.activar_clicks();</code></pre></div>
+<p>Перегляньте приклад, який називається "desactivar-clicks", в якому демонструється, як використовувати цю функцію.</p>
+<h2 id="cómo-capturar-eventos-del-mouse-en-un-actor">Як захопити події миші в акторі?</h2>
+<p>Щоб зафіксувати події в контексті актора, ми повинні використовувати ті самі функції, але оголосити їх у коді актора.</p>
+<p>Наприклад, уявіть, що ми створюємо карткову гру і хочемо, щоб картку можна було обертати натисканням миші та змінювати прозорість, коли миша на неї наведена:</p>
 <p><img src="imagenes/assets/carta_con_eventos.gif" /></p>
-<p>El código del actor debería quedarnos algo similar a lo siguiente:</p>
+<p>Код актора має бути приблизно таким:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">class</span> actor <span class="kw">extends</span> Actor {</span>
 <span id="cb5-2"><a href="#cb5-2"></a>  propiedades <span class="op">=</span> {}<span class="op">;</span></span>
 <span id="cb5-3"><a href="#cb5-3"></a></span>
@@ -173,9 +173,9 @@
 <span id="cb5-23"><a href="#cb5-23"></a></span>
 <span id="cb5-24"><a href="#cb5-24"></a>  cuando_termina_de_hacer_click(x<span class="op">,</span> y<span class="op">,</span> evento_original) {}</span>
 <span id="cb5-25"><a href="#cb5-25"></a>}</span></code></pre></div>
-<p>Los manejadores de eventos como <code>cuando_mueve</code>, <code>cuando_sale</code> y <code>cuando_hace_click</code> van a ser llamados internamente cuando se produzcan esos eventos sobre el actor.</p>
-<h2 id="capturar-eventos-de-forma-global-con-manejadores">Capturar eventos de forma global, con manejadores</h2>
-<p>Otra forma de capturar eventos más sofisticada es utilizando el módulo <code>eventos</code> de la escena.</p>
+<p>Обробники подій, як <code>cuando_mueve</code>, <code>cuando_sale</code> і <code>cuando_hace_click</code> будуть викликані всередині, коли ці події відбуватимуться на акторі.</p>
+<h2 id="capturar-eventos-de-forma-global-con-manejadores">Запис подій глобально за допомогою обробників</h2>
+<p>Ще один складніший спосіб фіксації подій - використання модуля <code>eventos</code> сцени.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb6-1"><a href="#cb6-1"></a>pilas<span class="op">.</span><span class="at">eventos</span><span class="op">.</span><span class="fu">conectar</span>(<span class="st">&quot;mueve_mouse&quot;</span><span class="op">,</span> (x<span class="op">,</span> y) <span class="kw">=&gt;</span> {</span>
 <span id="cb6-2"><a href="#cb6-2"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&quot;mueve&quot;</span><span class="op">,</span> x<span class="op">,</span> y)<span class="op">;</span></span>
 <span id="cb6-3"><a href="#cb6-3"></a>})<span class="op">;</span></span>
@@ -187,18 +187,18 @@
 <span id="cb6-9"><a href="#cb6-9"></a>pilas<span class="op">.</span><span class="at">eventos</span><span class="op">.</span><span class="fu">conectar</span>(<span class="st">&quot;termina_click&quot;</span><span class="op">,</span> (x<span class="op">,</span> y) <span class="kw">=&gt;</span> {</span>
 <span id="cb6-10"><a href="#cb6-10"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&quot;mueve&quot;</span><span class="op">,</span> x<span class="op">,</span> y)<span class="op">;</span></span>
 <span id="cb6-11"><a href="#cb6-11"></a>})<span class="op">;</span></span></code></pre></div>
-<p>Esta es la lista de eventos completa:</p>
+<p>Це повний список подій:</p>
 <ul>
 <li><code>mueve_mouse</code>: x, y</li>
 <li><code>click_de_mouse</code>: x, y, boton_izquierdo, boton_derecho</li>
 <li><code>termina_click</code>: x, y, boton_izquierdo, boton_derecho</li>
 </ul>  <div class="tc navegacion">
   <div>
-    <a href="#" onclick="document.documentElement.scrollTo(0, 0);">Subir</a>
+    <a href="#" onclick="document.documentElement.scrollTo(0, 0);">Нагору</a>
   </div>
 
   <div>
-    <a href="index.html">Regresar al índice</a>
+    <a href="index.html">Повернутися до змісту</a>
   </div>
 </div> 
   </body>

@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="generator" content="pandoc" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-          <title>Manejo de tiempo</title>
+          <title>Час</title>
     <style>
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
@@ -77,41 +77,41 @@
         <link rel="stylesheet" href="estilo.css" />
         <script src="./manual.js" charset="utf-8"></script>
       <div class="tc navegacion">
-  <a href="index.html">Regresar al índice</a>
+  <a href="index.html">Повернутися до змісту</a>
 </div> 
   </head>
   <body>
          <header id="title-block-header">
-      <h1 class="title">Manejo de tiempo</h1>
+      <h1 class="title">Час</h1>
             </header>
-      <p>Pilas ofrece varias formas de ejecutar funciones cada determinado tiempo. Esto es útil para crear enemigos, crear relojes para hacer más desafiante un juego o incluso para aumentar la dificultad de un juego.</p>
-<h2 id="funciones-manejar-el-tiempo">Funciones manejar el tiempo</h2>
-<p>Hay dos funciones principales en el temporizador de pilas:</p>
+      <p>Pilas Engine пропонує кілька способів для багаторазового виконання функцій. Це корисно для створення ворогів, створення годинників, загалом, щоб зробити гру складнішою і цікавішою.</p>
+<h2 id="funciones-manejar-el-tiempo">Функції управління часом</h2>
+<p>Є дві основні функції таймера:</p>
 <ul>
-<li><code>pilas.luego(cantidad_de_segundos_a_esperar, función)</code></li>
-<li><code>pilas.cada(segundos_para_el_intervalo, función, veces_a_repetir: opcional)</code></li>
+<li><code>pilas.luego(кількість_секунд_чекати, функція)</code></li>
+<li><code>pilas.cada(через_скільки_секунд, функція, повторити_разів: необов'язковий параметр)</code></li>
 </ul>
-<p>La primer función permite ejecutar una función luego de un periodo de tiempo. Por ejemplo, si queremos hacer que un actor diga algo luego de 3 segundos una vez que se coloca en pantalla podemos hacerlo escribiendo esta sentencia dentro del método <code>iniciar</code> del actor así:</p>
+<p>Перша функція таймеру дозволяє виконати вказану функцію через певний період часу. Наприклад, якщо ми хочемо змусити актора сказати щось через 3 секунди після того, як він буде розміщений на екрані, ми можемо зробити це, написавши цю функцію таймеру у методі <code>iniciar</code> такого актора:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb1-1"><a href="#cb1-1"></a>iniciar() {</span>
 <span id="cb1-2"><a href="#cb1-2"></a></span>
 <span id="cb1-3"><a href="#cb1-3"></a>  this<span class="op">.</span><span class="at">pilas</span><span class="op">.</span><span class="fu">luego</span>(<span class="dv">3</span><span class="op">,</span> () <span class="kw">=&gt;</span> {</span>
-<span id="cb1-4"><a href="#cb1-4"></a>    this<span class="op">.</span><span class="fu">decir</span>(<span class="st">&quot;¡Han pasado 3 segundos!&quot;</span>)<span class="op">;</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a>    this<span class="op">.</span><span class="fu">decir</span>(<span class="st">&quot;Минуло 3 секунди!&quot;</span>)<span class="op">;</span></span>
 <span id="cb1-5"><a href="#cb1-5"></a>  })<span class="op">;</span></span>
 <span id="cb1-6"><a href="#cb1-6"></a></span>
 <span id="cb1-7"><a href="#cb1-7"></a>}</span></code></pre></div>
-<p>Hay que tener en cuenta que esta función se ejecutará una sola vez.</p>
-<p>La segunda función, llamada <code>pilas.cada</code>, permite invocar una función cada determinada cantidad de segundos, muy similar a la anterior, pero invoca la función que le pidamos varias veces.</p>
-<p>Por ejemplo, imagina que queremos crear actores <code>pelota</code> cada medio segundo, podemos hacer algo así:</p>
+<p>Зверніть увагу, що функція, яка записується другим аргументом, буде виконана лише один раз.</p>
+<p>Друга функція таймеру, <code>pilas.cada</code>, дозволяє викликати кілька разів зазначену функцію у другому аргументі щоразу через певну кількість секунд.</p>
+<p>Наприклад, уявіть, що ми хочемо створювати акторів <code>pelota</code> (м'ячі) кожні півсекунди. Для цього ми можемо написати щось подібне:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb2-1"><a href="#cb2-1"></a>pilas<span class="op">.</span><span class="fu">cada</span>(<span class="fl">0.5</span><span class="op">,</span> () <span class="kw">=&gt;</span> {</span>
 <span id="cb2-2"><a href="#cb2-2"></a>  var pelota <span class="op">=</span> pilas<span class="op">.</span><span class="at">actores</span><span class="op">.</span><span class="fu">pelota</span>()<span class="op">;</span></span>
 <span id="cb2-3"><a href="#cb2-3"></a>  pelota<span class="op">.</span><span class="at">y</span> <span class="op">=</span> <span class="dv">100</span><span class="op">;</span></span>
 <span id="cb2-4"><a href="#cb2-4"></a>  pelota<span class="op">.</span><span class="at">x</span> <span class="op">=</span> pilas<span class="op">.</span><span class="fu">azar</span>(<span class="op">-</span><span class="dv">200</span><span class="op">,</span> <span class="dv">200</span>)<span class="op">;</span></span>
 <span id="cb2-5"><a href="#cb2-5"></a>})<span class="op">;</span></span></code></pre></div>
-<p>Si ejecutas esas instrucciones, vas a ver en pantalla algo así. Cada medio segundo se creará un actor pelota en una posición diferente:</p>
+<p>Якщо ви виконаєте ці інструкції, кожні півсекунди буде створюватися м'яч щоразу в іншій позиції:</p>
 <p><img src="imagenes/tiempo.assets/PilasEngine_tiempo.png" /></p>
-<h2 id="cancelar-repeticiones-o-eliminar-temporizadores">Cancelar repeticiones o eliminar temporizadores</h2>
-<p>Si utilizas la función <code>pilas.cada</code> para repetir una acción varias veces, es probable que ante una determinada condición quieras dejas de repetir la ejecución de la función.</p>
-<p>Una forma de lograr esto es diciéndole a pilas cuantas veces tiene que repetir la función, por ejemplo, para llamar 5 veces una función cada dos segundos deberías llamar a la función así:</p>
+<h2 id="cancelar-repeticiones-o-eliminar-temporizadores">Скасовування повторень або видалення таймерів</h2>
+<p>Якщо ви використовуєте функцію <code>pilas.cada</code>, щоб повторити дію кілька разів, ймовірно, що за певної умови потрібно припинити повторення виконання функції, вказаної другим аргументом.</p>
+<p>Один із способів досягти цього - зазначити, скільки разів повторювати функцію у другому аргументі. Наприклад, викличемо функцію у другому аргументі 5 разів кожні дві секунди:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb3-1"><a href="#cb3-1"></a>var actor <span class="op">=</span> pilas<span class="op">.</span><span class="at">actores</span><span class="op">.</span><span class="fu">aceituna</span>()<span class="op">;</span></span>
 <span id="cb3-2"><a href="#cb3-2"></a></span>
 <span id="cb3-3"><a href="#cb3-3"></a>pilas<span class="op">.</span><span class="fu">cada</span>(</span>
@@ -121,40 +121,40 @@
 <span id="cb3-7"><a href="#cb3-7"></a>  }<span class="op">,</span></span>
 <span id="cb3-8"><a href="#cb3-8"></a>  <span class="dv">5</span></span>
 <span id="cb3-9"><a href="#cb3-9"></a>)<span class="op">;</span></span></code></pre></div>
-<p>Otra opción, es detener el temporizador directamente desde la función retornando <code>true</code>:</p>
-<p>Por ejemplo, imagina que tienes un actor que se mueve 50 pixeles a la derecha cada 2 segundos, pero que quieres que deje de moverse cuando llegue a la posición x igual a 200. Podrías implementarlo de esta forma:</p>
+<p>Інший варіант - зупинити таймер безпосередньо з функції, повернувши <code>true</code>.</p>
+<p>Наприклад, уявіть, що у вас є актор, який пересувається на 50 пікселів праворуч кожні 2 секунди, але ви хочете, щоб він припинив рух, коли він досягне позиції <code>x</code>, що дорівнює 200. Ви можете реалізувати це так:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb4-1"><a href="#cb4-1"></a>var actor <span class="op">=</span> pilas<span class="op">.</span><span class="at">actores</span><span class="op">.</span><span class="fu">aceituna</span>()<span class="op">;</span></span>
 <span id="cb4-2"><a href="#cb4-2"></a></span>
 <span id="cb4-3"><a href="#cb4-3"></a>pilas<span class="op">.</span><span class="fu">cada</span>(<span class="dv">2</span><span class="op">,</span> () <span class="kw">=&gt;</span> {</span>
 <span id="cb4-4"><a href="#cb4-4"></a>  actor<span class="op">.</span><span class="at">x</span> <span class="op">+=</span> <span class="dv">50</span><span class="op">;</span></span>
 <span id="cb4-5"><a href="#cb4-5"></a></span>
 <span id="cb4-6"><a href="#cb4-6"></a>  if (actor<span class="op">.</span><span class="at">x</span> <span class="op">&gt;</span> <span class="dv">200</span>) {</span>
-<span id="cb4-7"><a href="#cb4-7"></a>    <span class="co">// retornar este valor &#39;true&#39; hace que</span></span>
-<span id="cb4-8"><a href="#cb4-8"></a>    <span class="co">// la función deje de llamarse cada</span></span>
-<span id="cb4-9"><a href="#cb4-9"></a>    <span class="co">// dos segundos.</span></span>
+<span id="cb4-7"><a href="#cb4-7"></a>    <span class="co">// якщо повернути значення &#39;true&#39;,</span></span>
+<span id="cb4-8"><a href="#cb4-8"></a>    <span class="co">// функція припиняє викликатися кожен раз</span></span>
+<span id="cb4-9"><a href="#cb4-9"></a>    <span class="co">// щодві секунди</span></span>
 <span id="cb4-10"><a href="#cb4-10"></a>    return true<span class="op">;</span></span>
 <span id="cb4-11"><a href="#cb4-11"></a>  }</span>
 <span id="cb4-12"><a href="#cb4-12"></a>})<span class="op">;</span></span></code></pre></div>
-<h2 id="métodos-especiales">Métodos especiales</h2>
-<p>También existe un método llamado <code>cada_segundo</code> que los actores pueden utilizar para disparar una acción cada vez que transcurre un segundo en el juego. Por ejemplo, si queremos crear un actor que aumente su tamaño cada un segundo podemos definir el método así:</p>
+<h2 id="métodos-especiales">Спеціальні методи</h2>
+<p>Також існує метод під назвою <code>cada_segundo</code>, який актори можуть використовувати для запуску дії щоразу, коли минає секунда гри. Наприклад, якщо ми хочемо створити актора, який щосекунди збільшує свій розмір, ми можемо визначити метод таким чином:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb5-1"><a href="#cb5-1"></a>class caja extends Actor {</span>
 <span id="cb5-2"><a href="#cb5-2"></a>  cada_segundo() {</span>
 <span id="cb5-3"><a href="#cb5-3"></a>    this<span class="op">.</span><span class="at">escala</span> <span class="op">+=</span> <span class="fl">0.5</span><span class="op">;</span></span>
 <span id="cb5-4"><a href="#cb5-4"></a>  }</span>
 <span id="cb5-5"><a href="#cb5-5"></a>}</span></code></pre></div>
-<p>O bien, si ya tenemos la referencia al actor también sería válido escribir algo así:</p>
+<p>Або, якщо ми вже маємо покликання на актора, також було б правильно написати щось подібне:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb6-1"><a href="#cb6-1"></a>var mi_actor <span class="op">=</span> pilas<span class="op">.</span><span class="fu">obtener_actor_por_nombre</span>(<span class="st">&quot;caja&quot;</span>)<span class="op">;</span></span>
 <span id="cb6-2"><a href="#cb6-2"></a></span>
 <span id="cb6-3"><a href="#cb6-3"></a>mi_actor<span class="op">.</span><span class="at">cada_segundo</span> <span class="op">=</span> () <span class="kw">=&gt;</span> {</span>
 <span id="cb6-4"><a href="#cb6-4"></a>  mi_actor<span class="op">.</span><span class="at">escala</span> <span class="op">+=</span> <span class="fl">0.5</span><span class="op">;</span></span>
-<span id="cb6-5"><a href="#cb6-5"></a>  mi_actor<span class="op">.</span><span class="fu">decir</span>(<span class="st">&quot;¡pasó un segundo!&quot;</span>)<span class="op">;</span></span>
+<span id="cb6-5"><a href="#cb6-5"></a>  mi_actor<span class="op">.</span><span class="fu">decir</span>(<span class="st">&quot;пройшла секунда!&quot;</span>)<span class="op">;</span></span>
 <span id="cb6-6"><a href="#cb6-6"></a>}<span class="op">;</span></span></code></pre></div>  <div class="tc navegacion">
   <div>
-    <a href="#" onclick="document.documentElement.scrollTo(0, 0);">Subir</a>
+    <a href="#" onclick="document.documentElement.scrollTo(0, 0);">Нагору</a>
   </div>
 
   <div>
-    <a href="index.html">Regresar al índice</a>
+    <a href="index.html">Повернутися до змісту</a>
   </div>
 </div> 
   </body>

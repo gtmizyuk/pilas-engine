@@ -3290,7 +3290,7 @@ var ActorBase = (function () {
         this._fondo = null;
         this._fondo_imagen = "";
         this._dialogo = null;
-        this._fuente = "color-blanco-con-sombra";
+        this._fuente = "color-blanco-con-sombra"; 
         this._texto_con_borde = false;
         this._color_de_texto = "white";
         this.propiedades_base = {
@@ -5535,7 +5535,7 @@ var nave = (function (_super) {
         }
         if (this.pilas.control.arriba) {
             this.avanzar(this.rotacion, this.velocidad);
-            this.animacion = "nave_avanzando";
+            this.animacion = "nave_avanzando"; 
         }
         else {
             if (!this.pilas.control.izquierda && !this.pilas.control.derecha) {
@@ -8465,7 +8465,7 @@ var Modo = (function (_super) {
         }
     };
     Modo.prototype.crear_indicadores_de_rendimiento_fps = function () {
-        this.fps = this.add.bitmapText(5, 10, "color-blanco-con-sombra", "");
+        this.fps = this.add.bitmapText(5, 10, "color-blanco-con-sombra", ""); 
         this.fps.scrollFactorX = 0;
         this.fps.scrollFactorY = 0;
         this.fps.depth = 999999;
@@ -9493,11 +9493,10 @@ var ModoEditor = (function (_super) {
                 var y = this.pilas.cursor_y;
                 this.fps.text = [
                     "FPS: " + Math.round(this.pilas.game.loop["actualFps"]),
-                    "Cantidad de actores: " + this.actores.length,
+                    "Number of actors: " + this.actores.length,
                     "Cursor X: " + x,
                     "Cursor Y: " + y                    
                 ].join("\n");
-                //console.log(this.fps);
             }
             else {
                 this.fps.alpha = 0;
@@ -10183,13 +10182,13 @@ var ModoError = (function (_super) {
             .trim()
             .replace("- ", "") + "(...)";
         texto = "El error se produjo cuando se llam\u00F3 al m\u00E9todo: \n" + funcion + " \n\n" + texto;
-        var fuente = "color-blanco-con-sombra";
+        var fuente = "color-blanco-con-sombra"; 
         var texto_stack = this.add.bitmapText(10, espaciado, fuente, texto).setInteractive({ cursor: "pointer" });
         var modo = this;
         texto_stack.on("pointerdown", function () {
             this.destroy();
             var mensaje = datos.stacktrace.replace(/Error: /g, "");
-            modo.add.bitmapText(10, espaciado, "color-blanco-con-sombra", mensaje).setDepth(500000);
+            modo.add.bitmapText(10, espaciado, "color-blanco-con-sombra", mensaje).setDepth(500000); 
         });
         texto_stack.setDepth(500001);
         texto_stack.setScrollFactor(0, 0);
@@ -10216,7 +10215,7 @@ var ModoPausa = (function (_super) {
         return _this;
     }
     ModoPausa.prototype.crear_indicador_de_texto = function () {
-        this.indicador_de_texto = this.add.bitmapText(5, 10, "color-blanco-con-sombra", "");
+        this.indicador_de_texto = this.add.bitmapText(5, 10, "color-blanco-con-sombra", ""); 
         this.indicador_de_texto.scrollFactorX = 0;
         this.indicador_de_texto.scrollFactorY = 0;
         this.indicador_de_texto.depth = 999999;

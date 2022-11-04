@@ -56,7 +56,7 @@
 
     <script>
       var HOST = "file://";
-      window.valores_dropdown = { teclas: [["A", "A"]] };
+      window.valores_dropdown = { teclas: [["A", "A"]] }; 
 
       if (window.location.host) {
         HOST = window.location.protocol + "//" + window.location.host;
@@ -185,13 +185,13 @@
 
         if (message.data.message === "actualizar-enumeraciones") {
           //console.log("en blockly-editor.html, debo actualizar enumeraciones", message.data.data);
-
+         
           window.valores_dropdown = {
             animaciones: convertir_en_dropdown(message.data.data.animaciones),
             sonidos: convertir_en_dropdown(message.data.data.sonidos),
             teclas: convertir_en_dropdown(message.data.data.teclas),
           };
-
+          //console.log(message.data.data);
           //console.log("en blockly-editor.html se actualiza valores_dropdown");
           //console.log(window.valores_dropdown);
         }

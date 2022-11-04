@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="generator" content="pandoc" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-          <title>Código de proyecto</title>
+          <title>Код проєкту</title>
     <style>
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
@@ -77,22 +77,22 @@
         <link rel="stylesheet" href="estilo.css" />
         <script src="./manual.js" charset="utf-8"></script>
       <div class="tc navegacion">
-  <a href="index.html">Regresar al índice</a>
+  <a href="index.html">Повернутися до змісту</a>
 </div> 
   </head>
   <body>
          <header id="title-block-header">
-      <h1 class="title">Código de proyecto</h1>
+      <h1 class="title">Код проєкту</h1>
             </header>
-      <p>En un proyecto de pilas hay varios elementos que pueden contener su propio código: Tanto las escenas como los actores tienen su propio código asociado.</p>
-<p>Ahora bien, en alguna situaciones necesitamos poder guardar variables en algún lugar común que sobreviva más allá de los actores y la escena actual. Por ejemplo si queremos almacenar la cantidad de vidas disponibles que tiene un actor cuando pasa de una escena a otra.</p>
-<h2 id="un-ejemplo-breve">Un ejemplo breve</h2>
-<p>Para ejemplificar cómo podemos usar el código de la escena voy a dar un ejemplo. Imagina que tenemos un juego en el que tenemos que recolectar monedas con el mouse, pero queremos que la cantidad de monedas persista entre un nivel y otro.</p>
-<p>Primero tenemos que seleccionar el proyecto desde el panel de propiedades:</p>
+      <p>У проєкті сцени і актори маєть власний, асоційований з ними, код.</p>
+<p>У деяких ситуаціях нам потрібно мати можливість зберігати змінні в якомусь загальному місці, яке існує за межами акторів і поточної сцени. Наприклад, якщо ми хочемо зберігати кількість доступних життів актора, коли він переходить від однієї сцени до іншої.</p>
+<h2 id="un-ejemplo-breve">Простий приклад</h2>
+<p>Щоб продемонструвати, як ми можемо використовувати код проєкту, розглянемо приклад, у якому ми повинні збирати монети за допомогою миші за умови, що кількість монет не буде змінюватися між рівнями.</p>
+<p>Спочатку ми повинні вибрати назву "Проєкт" на панелі властивостей:</p>
 <p><img src="imagenes/codigo-de-proyecto/panel-de-propiedades.png" /></p>
-<p>Luego, vamos a ver que en el panel de código aparece el código del proyecto:</p>
+<p>Потім ми побачимо, що код проєкту з’являється на панелі коду:</p>
 <p><img src="imagenes/codigo-de-proyecto/codigo-1.png" /></p>
-<p>El código está casi vacío, así que vamos a crear el contador de monedas recolectadas y vamos a darle un valor inicial:</p>
+<p>Код майже порожній, тому давайте створимо лічильник зібраних монет і надамо йому початкове значення:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb1-1"><a href="#cb1-1"></a>class Proyecto {</span>
 <span id="cb1-2"><a href="#cb1-2"></a>  monedas<span class="op">:</span> <span class="dt">number</span><span class="op">;</span></span>
 <span id="cb1-3"><a href="#cb1-3"></a></span>
@@ -100,13 +100,13 @@
 <span id="cb1-5"><a href="#cb1-5"></a>    this<span class="op">.</span><span class="at">monedas</span> <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
 <span id="cb1-6"><a href="#cb1-6"></a>  }</span>
 <span id="cb1-7"><a href="#cb1-7"></a>}</span></code></pre></div>
-<p>Ahora vamos a crear un actor para “visualizar” ese contador directamente en pantalla.</p>
-<p>Pulsá el botón “Crear actor” y luego seleccioná al actor “puntaje”:</p>
+<p>Тепер ми збираємося створити актора, щоб "відобразити" цей лічильник прямо на екрані.</p>
+<p>Натисніть кнопку "Створити актора", а потім виберіть актора "puntaje":</p>
 <p><img src="imagenes/codigo-de-proyecto/puntaje.png" /></p>
-<p>Ahora editemos el código para que este actor pueda acceder a la variable puntaje del proyecto. Tenemos que cambiar estas lineas de código:</p>
+<p>Тепер давайте відредагуємо код, щоб цей актор міг отримати доступ до змінної "puntaje" проєкту. Ми повинні змінити ці рядки коду:</p>
 <p><img src="imagenes/codigo-de-proyecto/codigo-modificado.png" /></p>
-<p>Observá que desde un actor podemos acceder directamente al proyecto usando el código <code>this.proyecto</code>, y por supuesto vamos a poder acceder a todas las variables o métodos del proyecto directamente.</p>
-<p>El código completo debería quedarte así:</p>
+<p>Зверніть увагу, що з коду актора ми можемо отримати прямий доступ до проєкту за допомогою коду <code>this.proyecto</code>, і, звичайно, ми зможемо отримати доступ до всіх змінних або методів проекту.</p>
+<p>Повний код буде виглядати так:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb2-1"><a href="#cb2-1"></a><span class="co">// @ts-ignore</span></span>
 <span id="cb2-2"><a href="#cb2-2"></a>class puntaje extends ActorTextoBase {</span>
 <span id="cb2-3"><a href="#cb2-3"></a>  iniciar() {</span>
@@ -119,12 +119,12 @@
 <span id="cb2-10"><a href="#cb2-10"></a>  }</span>
 <span id="cb2-11"><a href="#cb2-11"></a></span>
 <span id="cb2-12"><a href="#cb2-12"></a>  actualizar_texto() {</span>
-<span id="cb2-13"><a href="#cb2-13"></a>    this<span class="op">.</span><span class="at">texto</span> <span class="op">=</span> <span class="vs">`MONEDAS: </span><span class="sc">${</span>this<span class="op">.</span><span class="at">proyecto</span><span class="op">.</span><span class="at">monedas</span><span class="sc">}</span><span class="vs">`</span><span class="op">;</span></span>
+<span id="cb2-13"><a href="#cb2-13"></a>    this<span class="op">.</span><span class="at">texto</span> <span class="op">=</span> <span class="vs">`МОНЕТИ: </span><span class="sc">${</span>this<span class="op">.</span><span class="at">proyecto</span><span class="op">.</span><span class="at">monedas</span><span class="sc">}</span><span class="vs">`</span><span class="op">;</span></span>
 <span id="cb2-14"><a href="#cb2-14"></a>  }</span>
 <span id="cb2-15"><a href="#cb2-15"></a>}</span></code></pre></div>
-<p>y una vez que ejecutamos el juego debería verse así:</p>
+<p>Коли ми запускаємо гру, вона має виглядати так:</p>
 <p><img src="imagenes/codigo-de-proyecto/contador-en-pantalla-1.png" /></p>
-<p>Ahora creá un actor de tipo moneda, con este código:</p>
+<p>Тепер створіть актора типу "moneda" (монета) з цим кодом:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb3-1"><a href="#cb3-1"></a><span class="co">// @ts-ignore</span></span>
 <span id="cb3-2"><a href="#cb3-2"></a>class moneda extends Actor {</span>
 <span id="cb3-3"><a href="#cb3-3"></a>  cuando_hace_click() {</span>
@@ -132,34 +132,34 @@
 <span id="cb3-5"><a href="#cb3-5"></a>    this<span class="op">.</span><span class="fu">eliminar</span>()<span class="op">;</span></span>
 <span id="cb3-6"><a href="#cb3-6"></a>  }</span>
 <span id="cb3-7"><a href="#cb3-7"></a>}</span></code></pre></div>
-<p>y luego duplica ese actor unas 5 veces desde el menú:</p>
+<p>а потім скопіюйте цього актора 5 разів за допомогою меню:</p>
 <p><img src="imagenes/codigo-de-proyecto/clonar-actor-moneda.png" /></p>
-<p>Y ya casi lo tenemos listo, si ejecutas el proyecto vas a ver cómo el contador de monedas almacena y muestra la variable <code>monedas</code> directamente desde el proyecto:</p>
+<p>Якщо ви запустите проєкт, ви побачите, як лічильник монет зберігає та відображає змінну <code>monedas</code> безпосередньо з проекту:</p>
 <p><img src="imagenes/codigo-de-proyecto/recolectando-monedas.gif" /></p>
-<p>Ahora bien, lo más interesante de almacenar variables en el proyecto es que conservarán su valor incluso si cambiamos de una escena a otra.</p>
-<p>Hagamos la prueba: pulsa el botón “crear escena” y en el código de la escena coloca este código para que el usuario pueda ver el puntaje cuando ingresa a esta escena:</p>
+<p>Найцікавішим у збереженні змінних у проєкті є те, що вони збережуть своє значення, навіть якщо ми переходимо з однієї сцени на іншу.</p>
+<p>Давайте протестуємо: натисніть кнопку "Створити сцену" і в код сцени вставте цей код, щоб користувач бачив кількість монет, коли він заходить на цю сцену:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb4-1"><a href="#cb4-1"></a>class escena2 extends Escena {</span>
 <span id="cb4-2"><a href="#cb4-2"></a>  iniciar() {</span>
 <span id="cb4-3"><a href="#cb4-3"></a>    this<span class="op">.</span><span class="at">pilas</span><span class="op">.</span><span class="fu">clonar</span>(<span class="st">&quot;puntaje&quot;</span>)<span class="op">;</span></span>
 <span id="cb4-4"><a href="#cb4-4"></a>  }</span>
 <span id="cb4-5"><a href="#cb4-5"></a>}</span></code></pre></div>
-<p>y luego, en la escena principal, pulsa el botón “crear actor” para crear un actor de tipo “botón”:</p>
+<p>Потім у головній сцені натисніть кнопку "Створити актора", щоб створити актора типу "botón" (кнопка):</p>
 <p><img src="imagenes/codigo-de-proyecto/actor-boton.png" /></p>
-<p>y por último, cambia el código de este actor para que nos permita pasar a la siguiente escena cuando se pulsa:</p>
+<p>І, нарешті, змініть код цього актора, щоб можна було переходити до наступної сцени після натискання:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb5-1"><a href="#cb5-1"></a><span class="co">// @ts-ignore</span></span>
 <span id="cb5-2"><a href="#cb5-2"></a>class boton extends ActorTextoBase {</span>
 <span id="cb5-3"><a href="#cb5-3"></a>  cuando_hace_click() {</span>
 <span id="cb5-4"><a href="#cb5-4"></a>    this<span class="op">.</span><span class="at">pilas</span><span class="op">.</span><span class="fu">cambiar_escena</span>(<span class="st">&quot;escena2&quot;</span>)<span class="op">;</span></span>
 <span id="cb5-5"><a href="#cb5-5"></a>  }</span>
 <span id="cb5-6"><a href="#cb5-6"></a>}</span></code></pre></div>
-<p>Si bien este ejemplo es muy simple, es un punto de partida para poder mantener los datos del jugador durante toda su partida.</p>
-<p>Te recomiendo mirar el proyecto “mantener-valores-entre-escenas” de la sección “ejemplos” de pilas para que veas cómo se puede mejorar este mismo proyecto que realizamos acá.</p>  <div class="tc navegacion">
+<p>Хоча цей приклад дуже простий, він є відправною точкою для того, щоб мати можливість доступу до даних гравця протягом усієї гри.</p>
+<p>Перегляньте проєкт "mantener-valores-entre-escenas" у розділі <b>Приклади</b>, щоб ви могли побачити, як можна покращити проєкт, який ми виконували у цьому розділі.</p>  <div class="tc navegacion">
   <div>
-    <a href="#" onclick="document.documentElement.scrollTo(0, 0);">Subir</a>
+    <a href="#" onclick="document.documentElement.scrollTo(0, 0);">Нагору</a>
   </div>
 
   <div>
-    <a href="index.html">Regresar al índice</a>
+    <a href="index.html">Повернутися до змісту</a>
   </div>
 </div> 
   </body>

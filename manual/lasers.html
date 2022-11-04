@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="generator" content="pandoc" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-          <title>Lasers</title>
+          <title>Лазери</title>
     <style>
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
@@ -77,66 +77,66 @@
         <link rel="stylesheet" href="estilo.css" />
         <script src="./manual.js" charset="utf-8"></script>
       <div class="tc navegacion">
-  <a href="index.html">Regresar al índice</a>
+  <a href="index.html">Повернутися до змісту</a>
 </div> 
   </head>
   <body>
          <header id="title-block-header">
-      <h1 class="title">Lasers</h1>
+      <h1 class="title">Лазери</h1>
             </header>
-      <p>Los lasers nos permiten detectar distancias y colisiones entre un actor y otros mediante rectas.</p>
-<p>Por ejemplo, en la siguiente imagen tenemos un actor con un laser para detectar si existen plataformas debajo de sus pies:</p>
+      <p>Лазери дозволяють нам виявляти відстані та зіткнення між акторами за допомогою ліній.</p>
+<p>Наприклад, на наступному зображенні ми маємо актора з лазером, який визначає, чи є платформа під його ногами:</p>
 <p><img src="imagenes/lasers/intro.png" /></p>
-<p>Cada actor puede tener tantos lasers como quiera, la idea de esta característica de pilas es que podamos permitirle a los actores detectar distancias y futuras colisiones para reaccionar a ellas.</p>
-<h2 id="cómo-crear-lasers">Cómo crear lasers</h2>
-<p>Los lasers se pueden crear directamente desde el editor, tenemos que seleccionar un actor y luego pulsar el botón “crear laser” dentro del panel de propiedades:</p>
+<p>Кожен актор може мати скільки завгодно лазерів. Ідея використання лазерів полягає в тому, що ми можемо дозволити акторам виявляти відстані та реагувати на майбутні зіткнення.</p>
+<h2 id="cómo-crear-lasers">Створення лазерів</h2>
+<p>Лазери можна створювати безпосередньо із редактора. Для цього ми повинні вибрати актора, а потім натиснути кнопку "Створити лазер" на панелі властивостей:</p>
 <p><img src="imagenes/lasers/crear-un-laser.png" /></p>
-<p>Una vez creado el laser, se tiene que ajustar la longitud y la rotación:</p>
+<p>Після того, як лазер створено, ви повинні відрегулювати довжину та обертання:</p>
 <p><img src="imagenes/lasers/crear-un-laser-2.png" /></p>
-<p>Por ejemplo, si nos interesa saber si el actor está cerca de tocar el suelo o no, podemos reducir la longitud y colocar la rotación en <code>-90 grados</code> para que el laser apunte hacia abajo:</p>
+<p>Наприклад, якщо ми хочемо знати, чи актор знаходиться близько до поверхні землі чи ні, ми можемо зменшити значення довжини та встановити поворот на <code>-90 градусів</code>, щоб лазер був спрямований донизу:</p>
 <p><img src="imagenes/lasers/crear-un-laser-3.png" /></p>
-<p>Vas a notar que los lasers reaccionan rápidamente a las colisiones con otros actores dentro del editor. La linea del laser mostrará círculos en cada contacto que realice contra otros actores:</p>
+<p>Лазери швидко реагують на зіткнення з іншими об'єктами. Лінія лазера вказує на точки усіх контактів з іншими акторами:</p>
 <p><img src="imagenes/lasers/distancias-1.png" /></p>
-<p>Eso sí, el laser solo detectará el contacto con aquellos actores que tengan una figura física asignada. Por ejemplo aquí se reconocen colisiones con una caja y la plataforma, pero no con la manzana (ya que no tiene figura física).</p>
+<p>Звичайно, лазер виявить контакт лише з тими акторами, які мають певну фізичну форму. Наприклад, тут розпізнаються зіткнення з ящиком і платформою, а не з яблуком, оскільки воно не має фізичної форми:</p>
 <p><img src="imagenes/lasers/distancias-2.png" /></p>
-<h2 id="accediendo-a-los-lasers-desde-el-código">Accediendo a los lasers desde el código</h2>
-<p>Una vez que creamos el laser desde el editor, podemos escribir código para comenzar a interactuar con los lasers cuando el juego esté en funcionamiento.</p>
-<p>Veamos esto con un ejemplo, queremos que nuestro personaje detecte si está sobre una plataforma o no. Así que podemos crear un laser llamado “pies” y colocarlo en dirección al suelo así:</p>
+<h2 id="accediendo-a-los-lasers-desde-el-código">Доступ до лазерів із коду</h2>
+<p>Після створення лазера в редакторі ми можемо написати код, щоб почати взаємодіяти з лазерами під час гри.</p>
+<p>Давайте розглянемо це на прикладі, в якому персонаж буде визначати, чи знаходиться він на платформі чи ні. Таким чином, ми можемо створити лазер під назвою "pies" (ноги) і направити його на землю:</p>
 <p><img src="imagenes/lasers/ejemplo-editor.png" /></p>
-<p>Ahora podemos ir al código del actor, crear un atributo llamado <code>pies</code> y luego vincularle el laser llamando a la función <code>obtener_laser</code> así:</p>
+<p>Тепер ми можемо перейти до коду актора і створити властивість під назвою <code>pies</code>, а потім зв’язати з нею лазер, викликавши функцію <code>obtener_laser</code> таким чином:</p>
 <p><img src="imagenes/lasers/ejemplo-codigo-1.png" /></p>
-<p>Y con ese código, ahora vamos a poder hacerle consultas en cualquier momento al laser que vinculamos. Estas son algunas de las funciones que incluyen los lasers:</p>
+<p>За допомогою цього коду тепер ми зможемо в будь-який час отримати значення лазера, який ми зв’язуємо із властивістю. Ось деякі з функцій для роботи з лазерами:</p>
 <p><img src="imagenes/lasers/autocompletado.png" /></p>
-<p>Tenemos funciones para consultar cuántos actores se encuentran en el camino del laser, cual es el más cercano, a qué distancia está cada actor y muchas cosas más.</p>
-<p>Por ejemplo, podríamos hacer que el actor diga en todo momento a qué distancia está el suelo usando esta función dentro del método <code>actualizar</code>:</p>
+<p>У нас є функції, щоб перевірити, скільки акторів на шляху лазера, як далеко кожен актор і багато іншого.</p>
+<p>Наприклад, ми могли б змусити актора постійно говорити, як далеко знаходиться земля, використовуючи цю функцію в методі <code>actualizar</code>:</p>
 <p><img src="imagenes/lasers/decir-distancia.png" /></p>
-<p>Y lo que deberíamos ver en la pantalla del juego, o ingresando en modo pausa, es que el laser nos informa que hay <code>55 pixeles</code> entre el actor (desde donde comienza el laser) hasta la primer colisión con la plataforma:</p>
+<p>На ігровому екрані або в режимі паузи ми побачимо, що лазер інформує нас про те, що між актором (звідки починається лазер) до першого зіткнення з платформою є <code>55 пікселів</code>:</p>
 <p><img src="imagenes/lasers/distancia-en-modo-pausa.png" /></p>
-<p>Ten en cuenta que la función <code>distancia_al_actor_mas_cercado</code> del laser, siempre nos retornará un número. Y en caso de que no exista ningún actor cercano, el número que nos retornará será igual a la longitud del laser.</p>
-<p>En este caso, como la longitud del laser es <code>100</code>, si no encuentra colisión con nada nos retornará ese valor:</p>
+<p>Зверніть увагу, що функція <code>distancia_al_actor_mas_cercado</code> завжди повертає число. А якщо поруч немає актора, число, яке повертається, дорівнюватиме довжині лазера.</p>
+<p>У цьому разі, оскільки довжина лазера становить <code>100</code>, якщо він не відшукає зіткнення з чимось, він поверне це значення:</p>
 <p><img src="imagenes/lasers/sin-colision.png" /></p>
-<p>Al principio parece raro que nos retorne la longitud del laser, pero de hecho es algo muy práctico, porque casi siempre las distancias se van a evaluar usando la palabra reservada <code>if</code> y con alguna comparación.</p>
-<p>Observá este ejemplo, si queremos animar al actor de acuerdo a la distancia con la plataforma podemos escribir un código en el método <code>actualizar</code> como este:</p>
+<p>Спочатку здається дивним, що він повертає довжину лазера, але насправді це щось дуже практичне, тому що майже завжди відстані будуть оцінюватися за допомогою вказівки розгалуження <code>if</code> і з деяким порівнянням.</p>
+<p>Подивіться на цей приклад, якщо ми хочемо анімувати актора відповідно до відстані від платформи, ми можемо написати код у методі <code>actualizar</code>:</p>
 <p><img src="imagenes/lasers/codigo-de-animacion.png" /></p>
-<p>y el resultado va a ser similar a este:</p>
+<p>Результат буде таким:</p>
 <p><img src="imagenes/lasers/animacion-laser.gif" /></p>
-<p>Es decir, gracias a que el laser nos retorna la distancia como un número, podemos decirle al actor que si la distancia es menor a <code>40</code> queremos que muestre la animación “correr” y si esa distancia es mayor a <code>40</code> queremos que muestre la animación de “salto”.</p>
-<h2 id="avanzado-lasers-instantáneos-desde-el-código">Avanzado: Lasers instantáneos desde el código</h2>
-<p>Los lasers que creamos desde el editor son ideales para visualizar, configurar y comprender fácilmente de qué se trata este concepto de distancia y colisiones en linea recta.</p>
-<p>Sin embargo, hay casos muy puntales en donde nos interesa calcular distancias o colisiones pero directamente desde el código. Para estos casos pilas incorpora lasers “instantáneos”.</p>
-<p>Los lasers “instantáneos” se pueden crear con la función <code>laser</code>, que espera la referencia a un actor, un punto inicial y uno final. Y como resultado nos retornará una lista con todas las colisiones que se produzcan en el camino del laser:</p>
+<p>Тобто, завдяки тому факту, що лазер повертає відстань у вигляді числа, ми можемо "сказати" акторові, що якщо відстань менша за <code>40</code>, ми хочемо, щоб він показував анімацію "correr" (біг), і якщо ця відстань більша, ніж <code>40</code>, ми хочемо, щоб він показував анімацію "salto" (стрибок).</p>
+<h2 id="avanzado-lasers-instantáneos-desde-el-código">Миттєві лазери за допомогою коду</h2>
+<p>Лазери, які ми створюємо за допомогою редактора, ідеально підходять для візуалізації, налаштування та легкого розуміння суті концепції відстані та зіткнень по прямій лінії.</p>
+<p>Однак є дуже специфічні випадки, коли ми зацікавлені в обчисленні відстаней або зіткнень безпосередньо з коду. Для цих випадків використовують "instantáneos" (миттєві) лазери.</p>
+<p>Лазери "instantáneos" можна створити за допомогою функції <code>laser</code>, яка отримує покликання на актора, координати початкової та кінцевої точок. І в результаті функція повертає список із усіма зіткненнями, які відбуваються на шляху лазера:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">let</span> resultado <span class="op">=</span> <span class="kw">this</span><span class="op">.</span><span class="at">pilas</span><span class="op">.</span><span class="fu">laser</span>(<span class="kw">this</span><span class="op">,</span> <span class="kw">this</span><span class="op">.</span><span class="at">x</span><span class="op">,</span> <span class="kw">this</span><span class="op">.</span><span class="at">y</span><span class="op">,</span> <span class="kw">this</span><span class="op">.</span><span class="at">x</span> <span class="op">+</span> <span class="dv">400</span><span class="op">,</span> <span class="kw">this</span><span class="op">.</span><span class="at">y</span>)<span class="op">;</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a></span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="kw">this</span><span class="op">.</span><span class="at">pilas</span><span class="op">.</span><span class="fu">observar</span>(<span class="st">&quot;resultado&quot;</span><span class="op">,</span> resultado)<span class="op">;</span></span>
 <span id="cb1-4"><a href="#cb1-4"></a><span class="kw">this</span><span class="op">.</span><span class="at">pilas</span><span class="op">.</span><span class="fu">observar</span>(<span class="st">&quot;cantidad de colisiones&quot;</span><span class="op">,</span> resultado<span class="op">.</span><span class="at">length</span>)<span class="op">;</span></span></code></pre></div>
-<p>También hay otra función muy similar llamada <code>laser_al_primer_actor</code> que además acepta una etiqueta, para que podamos detectar distancias contra un tipo de actor en especial.</p>
-<p>Estas dos funciones son bastante avanzadas, si queres saber más acerca de ellas te recomendamos ver el glosario de funciones.</p>  <div class="tc navegacion">
+<p>Існує ще одна дуже схожа функція, яка називається <code>laser_al_primer_actor</code>, яка також приймає мітку, щоб ми могли виявити відстані до певного типу акторів.</p>
+<p>Ці дві функції досить потужні, тому, якщо ви хочете дізнатися про них більше, рекомендуємо вам переглянути довідку по функціям.</p>  <div class="tc navegacion">
   <div>
-    <a href="#" onclick="document.documentElement.scrollTo(0, 0);">Subir</a>
+    <a href="#" onclick="document.documentElement.scrollTo(0, 0);">Нагору</a>
   </div>
 
   <div>
-    <a href="index.html">Regresar al índice</a>
+    <a href="index.html">Повернутися до змісту</a>
   </div>
 </div> 
   </body>

@@ -77,78 +77,78 @@
         <link rel="stylesheet" href="estilo.css" />
         <script src="./manual.js" charset="utf-8"></script>
       <div class="tc navegacion">
-  <a href="index.html">Regresar al índice</a>
+  <a href="index.html">Повернутися до змісту</a>
 </div> 
   </head>
   <body>
          <header id="title-block-header">
-      <h1 class="title">Actores</h1>
+      <h1 class="title">Актори</h1>
             </header>
-      <p>En pilas llamamos “actores” a los objetos que aparecen en la pantalla y pueden interactuar con el escenario.</p>
-<p>Cuando abrís pilas por primera vez vas a notar que en la pantalla hay tres actores principales, cada uno de estos actores tiene una imagen, posición y comportamiento diferente:</p>
+      <p>«Актори» - це об’єкти, які з’являються на екрані та можуть взаємодіяти зі сценою.</p>
+<p>Коли ви вперше відкриваєте редактор, ви помітите, що на екрані є три головних актори і кожен з цих акторів має свій образ (зовнішній вигляд), позицію на екрані та певну поведінку:</p>
 <p><img src="imagenes/actores/actores.png" /></p>
-<p>Sin embargo, lo más interesante de estos actores es que los podemos personalizar tanto como queramos, podemos hacer que reaccionen al teclado, que se muevan por si solos, que emitan sonidos o tengan diferentes apariencias.</p>
-<h2 id="cómo-crear-un-actor-nuevo">Cómo crear un actor nuevo</h2>
-<p>Para crear un actor simplemente hay que pulsar el botón “crear actor” del editor:</p>
+<p>Однак, найцікавішим у цих акторах є те, що ми можемо налаштовувати їх як завгодно: можна змусити їх реагувати на клавіатуру, самостійно рухатися, відтворювати звуки або набувати різного вигляду.</p>
+<h2 id="cómo-crear-un-actor-nuevo">Створення нового актора</h2>
+<p>Щоб створити актора, натисніть кнопку «Створити актора» в редакторі:</p>
 <figure>
 <img src="imagenes/actores/crear-actor-4420826.png" alt="" /><figcaption>crear-actor-4420826</figcaption>
 </figure>
-<p>Y ahí se va a desplegar una ventana con varios actores pre diseñados para incluir en tu juego:</p>
+<p>У вікні, що відкрилося, можна обрати актора і додати до вашої гри:</p>
 <figure>
 <img src="imagenes/actores/actores-predisenados.png" alt="" /><figcaption>actores-predisenados</figcaption>
 </figure>
-<p>Cada uno de estos actores viene con algún comportamiento para que puedas experimentar e investigar. Ten en cuenta que cada actor que agregues se va a poder cambiar por completo.</p>
-<h2 id="un-actor-básico">Un actor básico</h2>
-<p>Si bien pilas trae varios actores completos, cada juego es diferente y único, así que el actor mas conveniente para todo juego es un actor mínimo que podemos personalizar desde cero.</p>
-<p>Este actor aparece como un rectángulo blanco que dice “sin imagen”:</p>
+<p>Кожен із цих доданих акторів має певну поведінку та інші наперед визначені властивості, які ви, за потреби, можете змінити.</p>
+<h2 id="un-actor-básico">Основний актор</h2>
+<p>Хоча ви можете використовувати акторів із наперед встановленими властивостями, проте кожна гра є унікальною, тому найзручнішим актором для будь-якої гри є актор з мінімальним набором властивостей, якого ми можемо налаштувати з нуля.</p>
+<p>Цей актор виглядає як білий прямокутник із написом "Без зображення" ("Sin imagen"):</p>
 <figure>
 <img src="imagenes/actores/actor-sin-imagen.png" alt="" /><figcaption>actor-sin-imagen</figcaption>
 </figure>
-<p>Ahora si bien es el actor más discreto de todos, lo vamos usar para hacer algunas pruebas y mostrarte conceptos de la herramienta.</p>
-<p>Pulsa el botón “crear actor” y luego selecciona a este actor de modo que te quede en la escena de esta forma (los otros actores los puedes eliminar por el momento):</p>
+<p>Використаємо цього актора, щоб продемонструвати, як можна змінювати властивості акторів.</p>
+<p>Натисніть кнопку «Cтворити актора», а потім виберіть актора із виглядом білого прямокутника (інших акторів на сцені можна видалити):</p>
 <figure>
 <img src="imagenes/actores/actor-sin-imagen-en-la-escena.png" alt="" /><figcaption>actor-sin-imagen-en-la-escena</figcaption>
 </figure>
-<p>A partir de ese momento, el actor formará parte de la escena, así que vas a ver su nombre en el panel de la escena y una serie de propiedades en el panel izquierdo:</p>
+<p>З цього моменту актор стане частиною сцени, тому ви побачите його ім’я на панелі сцени та низку властивостей на лівій панелі редактора:</p>
 <figure>
 <img src="imagenes/actores/propiedades.png" alt="" /><figcaption>propiedades</figcaption>
 </figure>
-<p>Sentite libre de cambiar esas propiedades para experimentar cómo se puede personalizar a un actor.</p>
-<p>La propiedad más utilizada es <code>imagen</code>, que cuando la pulses te va a dar una serie imágenes alternativas para seleccionar:</p>
+<p>Спробуємо змінити ці властивості, щоб побачити, як можна налаштувати актора.</p>
+<p>У першу чергу, давайте змінимо властивість <code>Зображення (Imagen)</code>. Коли ви натискаєте на значення цієї властивості, відкривається вікно із зображеннями (образами), які можна застосувати до актора:</p>
 <figure>
 <img src="imagenes/actores/imagenes.png" alt="" /><figcaption>imagenes</figcaption>
 </figure>
-<p>Por ejemplo, si elijo la imagen del mono sonriendo mi actor va a tener una apariencia completamente diferente:</p>
+<p>Наприклад, якщо вибрати образ усміхненої мавпи, актор матиме зовсім іншу зовнішність:</p>
 <figure>
 <img src="imagenes/actores/actor-mono.png" alt="" /><figcaption>actor-mono</figcaption>
 </figure>
-<p>Todas las propiedades se pueden ajustar usando el teclado o incluso realizando movimientos con el mouse:</p>
+<p>Усі властивості можна налаштувати за допомогою клавіатури або рухів мишею:</p>
 <figure>
 <img src="imagenes/actores/animacion.gif" alt="" /><figcaption>animacion</figcaption>
 </figure>
-<h2 id="recortar-imágenes-de-actores">Recortar imágenes de actores</h2>
-<p>Si estás buscando crear efectos o juegos de piezas, ten en cuenta que existe un método llamado <code>recortar</code> que te permite seleccionar una porción de la imagen del actor y mostrarla en pantalla.</p>
-<p>Por ejemplo, si tenemos un actor como este:</p>
+<h2 id="recortar-imágenes-de-actores">Розрізати зображення актора</h2>
+<p>Якщо ви хочете створити цікаві ефекти або створити набір із частинок зображення актора, можна використати метод під назвою <code>crop</code>, який дозволяє вибрати частину зображення актора та відобразити його на екрані.</p>
+<p>Наприклад, якщо у нас є актор:</p>
 <figure>
 <img src="imagenes/actores/nube.png" alt="" /><figcaption>nube</figcaption>
 </figure>
-<p>Podemos crear un recorte a la mitad mediante este código:</p>
+<p>За допомогою наступного коду ми можемо отримати частину його зображення:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb1-1"><a href="#cb1-1"></a>this<span class="op">.</span><span class="fu">recortar</span>(<span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">125</span><span class="op">,</span> <span class="dv">146</span>)<span class="op">;</span></span></code></pre></div>
 <figure>
 <img src="imagenes/actores/nube-recortada.png" alt="" /><figcaption>nube-recortada</figcaption>
 </figure>
-<p>Donde los valores <code>0, 0, 125, 146</code> son las coordenadas <code>izquierda</code>, <code>arriba</code>, <code>ancho</code> y <code>alto</code> :</p>
+<p>Значення<code>0, 0, 125, 146</code> є значеннями координат прямокутної області обтинання зображення, а саме: <code>0, 0</code> - координати лівого верхнього кута прямокутника, <code>125</code> - ширина прямокутника, <code>146</code> - висота прямокутника:</p>
 <figure>
 <img src="imagenes/actores/recorte-.png" alt="" /><figcaption>recorte-</figcaption>
 </figure>
-<p>y cuando quieras volver a la imagen original, simplemente puede llamar a la función:</p>
+<p>Коли ви хочете повернутися до початкового зображення, ви можете просто викликати функцію:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb2-1"><a href="#cb2-1"></a>this<span class="op">.</span><span class="fu">eliminar_recortado</span>()<span class="op">;</span></span></code></pre></div>  <div class="tc navegacion">
   <div>
-    <a href="#" onclick="document.documentElement.scrollTo(0, 0);">Subir</a>
+    <a href="#" onclick="document.documentElement.scrollTo(0, 0);">Нагору</a>
   </div>
 
   <div>
-    <a href="index.html">Regresar al índice</a>
+    <a href="index.html">Повернутися до змісту</a>
   </div>
 </div> 
   </body>

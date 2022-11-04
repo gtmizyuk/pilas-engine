@@ -174,7 +174,7 @@ Blockly.Blocks["actor_decir"] = {
     init: function () {
         this.appendDummyInput()
             .appendField("Повідомлення")
-            .appendField(new Blockly.FieldTextInput("Привіт!"), "NAME");
+            .appendField(new Blockly.FieldTextInput("Hello!"), "NAME");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(230);
@@ -190,9 +190,9 @@ Blockly.JavaScript["actor_decir"] = function (block) {
 Blockly.Blocks["actor_desplazar"] = {
     init: function () {
         this.appendDummyInput()
-            .appendField("Зменшити X")
+            .appendField("Зміщення на X")
             .appendField(new Blockly.FieldNumber(1, -300, 300), "x")
-            .appendField("e Y")
+            .appendField("і Y")
             .appendField(new Blockly.FieldNumber(2, -300, 300), "y");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -210,9 +210,9 @@ Blockly.JavaScript["actor_desplazar"] = function (block) {
 Blockly.Blocks["actor_impulsar"] = {
     init: function () {
         this.appendDummyInput()
-            .appendField("Збільшити X")
+            .appendField("Стрибок на X")
             .appendField(new Blockly.FieldNumber(-100, 4, 100, 0.1), "x")
-            .appendField("e Y")
+            .appendField("і Y")
             .appendField(new Blockly.FieldNumber(-100, 8, 100, 0.1), "y");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -261,7 +261,7 @@ Blockly.Blocks["actor_reproducir_animacion"] = {
     init: function () {
         this.appendDummyInput()
             .appendField("Відтворити анімацію")
-            .appendField(new Blockly.FieldDropdown(this.generateOptions), "animacion");
+            .appendField(new Blockly.FieldDropdown(this.generateOptions), "animacion"); 
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(230);
@@ -269,6 +269,37 @@ Blockly.Blocks["actor_reproducir_animacion"] = {
         this.setHelpUrl("");
     },
     generateOptions: function () {
+        let a = [
+            ["лазер", "laser"],
+            ["корабель", "nave"],
+            ["вибух", "explosion"],
+            ["міні_вибух", "mini_explosion"],
+            ["удар", "golpe"],
+            ["іскра", "chispa"],
+            ["дим", "humo"],
+            ["піксельна_людина_крокує", "hombre_pixel_camina"],
+            ["піксельна_людина_стоїть", "hombre_pixel_parado"],
+            ["привид1_рухається", "fantasma_azul_camina"],
+            ["привид2_рухається", "fantasma_camina"],
+            ["монета", "moneda"],
+            ["пакмен_їсть", "pacman_come"],
+            ["пакмен_стоїть", "pacman_espera"],
+            ["корабель_повертає_праворуч", "nave_girando_a_la_derecha"],
+            ["корабель_повертає_ліворуч", "nave_girando_a_la_izquierda"],
+            ["корабель_летить", "nave_avanzando"],
+            ["корабель_стоїть", "nave_en_reposo"],
+            ["курка_літає", "gallina_vuela"],
+            ["корабель_рухається", "nave_avanza"],
+            ["зайчик_підстрибнув", "conejo_salta"],
+            ["зайчик_чекає", "conejo_parado"],
+            ["зайчик_біжить", "conejo_camina"],
+            ["bmo_рухається", "bmo_camina"],
+            ["bmo_піднімається", "bmo_escala"],
+            ["bmo_стрибає", "bmo_salta"],
+            ["bmo_стоїть", "bmo_parado"]
+        ];
+              
+        window["valores_dropdown"].animaciones = a;
         return window["valores_dropdown"].animaciones;
     }
 };
@@ -302,6 +333,18 @@ Blockly.Blocks["audio_detener_musica"] = {
         this.setHelpUrl("");
     },
     generateOptions: function () {
+        let s = [
+            ["лазер", "laser"],
+            ["вибух", "explosion"],
+            ["курка", "gallina"],
+            ["збір монет", "moneda"],
+            ["короткий стрибок", "salto-corto"],
+            ["довгий стрибок", "salto-largo"],
+            ["високий звук вибору", "seleccion-aguda"],
+            ["низький звук вибору", "seleccion-grave"],
+            ["їсти", "comer"]
+        ];
+        window["valores_dropdown"].sonidos = s;
         return window["valores_dropdown"].sonidos;
     }
 };
@@ -321,6 +364,18 @@ Blockly.Blocks["audio_reproducir_musica"] = {
         this.setHelpUrl("");
     },
     generateOptions: function () {
+        let s = [
+            ["лазер", "laser"],
+            ["вибух", "explosion"],
+            ["курка", "gallina"],
+            ["збір монет", "moneda"],
+            ["короткий стрибок", "salto-corto"],
+            ["довгий стрибок", "salto-largo"],
+            ["високий звук вибору", "seleccion-aguda"],
+            ["низький звук вибору", "seleccion-grave"],
+            ["їсти", "comer"]
+        ];
+        window["valores_dropdown"].sonidos = s;
         return window["valores_dropdown"].sonidos;
     }
 };
@@ -341,6 +396,18 @@ Blockly.Blocks["audio_reproducir_sonido"] = {
         this.setHelpUrl("");
     },
     generateOptions: function () {
+        let s = [
+            ["лазер", "laser"],
+            ["вибух", "explosion"],
+            ["курка", "gallina"],
+            ["збір монет", "moneda"],
+            ["короткий стрибок", "salto-corto"],
+            ["довгий стрибок", "salto-largo"],
+            ["високий звук вибору", "seleccion-aguda"],
+            ["низький звук вибору", "seleccion-grave"],
+            ["їсти", "comer"]
+        ];
+        window["valores_dropdown"].sonidos = s;
         return window["valores_dropdown"].sonidos;
     }
 };
@@ -460,9 +527,9 @@ Blockly.JavaScript["camara_vibrar"] = function (block) {
 Blockly.Blocks["control_tecla"] = {
     init: function () {
         this.appendDummyInput()
-            .appendField("Клавіша натиснута")
+            .appendField("Клавіша")
             .appendField(new Blockly.FieldDropdown(this.generateOptions), "NAME")
-            .appendField("?");
+            .appendField("натиснута?");
         this.setOutput(true, "Boolean");
         this.setColour(210);
         this.setTooltip("");

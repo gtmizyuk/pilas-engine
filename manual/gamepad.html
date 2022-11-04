@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="generator" content="pandoc" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-          <title>Controles Gamepad</title>
+          <title>Ґеймпад</title>
     <style>
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
@@ -77,38 +77,38 @@
         <link rel="stylesheet" href="estilo.css" />
         <script src="./manual.js" charset="utf-8"></script>
       <div class="tc navegacion">
-  <a href="index.html">Regresar al índice</a>
+  <a href="index.html">Повернутися до змісту</a>
 </div> 
   </head>
   <body>
          <header id="title-block-header">
-      <h1 class="title">Controles Gamepad</h1>
+      <h1 class="title">Ґеймпад</h1>
             </header>
-      <p>Pilas permite acceder a controles externos tipo gamepad para que puedas hacer juegos mucho más interactivos y fáciles de jugar.</p>
-<p>Cada vez que conectes un gamepad pilas lo reconocerá y creará un objeto interno para que puedas acceder a cada uno de los botones y controles del gamepad.</p>
-<h2 id="tipos-de-gamepad-soportados">Tipos de gamepad soportados</h2>
-<p>Pilas interactúa con algunas funciones públicas de los navegadores para acceder a los gamepad, así que no soporta todo tipo de controles.</p>
-<p>Los gamepads que probamos y pudimos ver funcionando son los siguientes:</p>
+      <p>Pilas Engine забезпечує доступ до зовнішніх елементів керування, на зразок ґеймпада, щоб ви могли зробити ігри набагато інтерактивнішими.</p>
+<p>Кожного разу, коли ви підключаєте ґеймпад, ігровий рушій розпізнає його та створює внутрішній об’єкт, щоб ви могли отримати доступ до кожної з кнопок і елементів керування ґеймпада.</p>
+<h2 id="tipos-de-gamepad-soportados">Підтримувані типи ґеймпадів</h2>
+<p>Внаслідок взаємодії з деякими загальнодоступними функціями вебпереглядача для доступу до ґеймпадів, підтримуються не всі типи елементів керування.</p>
+<p>Ґеймпади, які були практично протестовані, наведені нижче:</p>
 <ul>
-<li>gamepad xbox360 sobre windows 10 (tanto cableado usb y como mediante un receptor inalámbrico usb).</li>
+<li>gamepad xbox360 sobre windows 10 (як через дротовий USB, так і через бездротовий приймач USB).</li>
 <li>pro controller de nintendo switch (bluetooth).</li>
 <li>joy-con de nintendo switch (bluetooth).</li>
 </ul>
-<p>Cómo verás la lista no es muy larga, muchos gamepads genéricos no funcionan con navegadores modernos, y otros gamepads modernos como los de PS4 aún no llegamos a probarlos (pero creemos que podrían funcionar).</p>
-<p>Así que te recomendamos realizar una prueba antes de comenzar a programar: ejecuta alguno de los ejemplos diseñados para probar gamepads y corrobora si tu gamepad funciona correctamente dentro de pilas.</p>
-<p>Los ejemplos que te recomendados visitar son “gamepad-simple” y “gamepad-analógicos”:</p>
+<p>Як ви бачите, список не дуже довгий, багато ґеймпадів не працюють із сучасними вебпереглядачами, а інші сучасні ґеймпади, як-от ґеймпади для PS4, ще не тестувалися (але вони, напевно, будуть працювати).</p>
+<p>Рекомендуємо вам провести тест перед початком програмування: запустіть кілька прикладів, призначених для тестування ґеймпадів, і перевірте, чи ваш ґеймпад правильно працює.</p>
+<p>Приклади, які ми рекомендуємо вам переглянути, це "gamepad-simple" і "gamepad-analógicos":</p>
 <figure>
 <img src="imagenes/gamepad/ejemplos.png" alt="" /><figcaption>ejemplos</figcaption>
 </figure>
-<h2 id="acceder-a-los-controles">Acceder a los controles</h2>
-<p>Para controlar un actor mediante un gamepad no hay que hacer nada especial, si pilas detecta un gamepad conectado va a permitirte acceder a él mediante los atributos:</p>
+<h2 id="acceder-a-los-controles">Доступ до елементів керування</h2>
+<p>Щоб керувати актором через ґеймпад, вам не потрібно робити нічого особливого. Якщо підключення ґеймпада до ігрового рушія було вдалим, ви зможете отримати доступ до нього так:</p>
 <pre><code>this.control.izquierda
 this.control.derecha
 this.control.arriba
 this.control.abajo
-etc...</code></pre>
-<p>Estos atributos son muy convenientes, porque el jugador va a poder controlar al personaje usando un gamepad o el teclado.</p>
-<p>Estos atributos se pueden consultar desde el código de un actor así (ten en cuenta escribir este código dentro de la función <code>actualizar</code>):</p>
+і т. д.</code></pre>
+<p>Це ті ж властивості, що використовуються і для клавіатури.</p>
+<p>Ці властивості можна запитувати з коду актора таким чином (зверніть увагу, що ви пишете цей код у функції <code>actualizar</code>):</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb2-1"><a href="#cb2-1"></a>if (this<span class="op">.</span><span class="at">control</span><span class="op">.</span><span class="at">izquierda</span>) {</span>
 <span id="cb2-2"><a href="#cb2-2"></a>  this<span class="op">.</span><span class="at">x</span> <span class="op">-=</span> <span class="dv">5</span><span class="op">;</span></span>
 <span id="cb2-3"><a href="#cb2-3"></a>}</span>
@@ -118,27 +118,27 @@ etc...</code></pre>
 <span id="cb2-7"><a href="#cb2-7"></a>}</span>
 <span id="cb2-8"><a href="#cb2-8"></a></span>
 <span id="cb2-9"><a href="#cb2-9"></a><span class="co">// etc.</span></span></code></pre></div>
-<p>Sin embargo, puede suceder que quieras acceder a todas las funcionalidad de un gamepad, como el hecho de que tienen dos controles analógicos o varios botones. En ese caso, deberías acceder a los controles mediante la variable <code>this.pilas.control.pad_1</code>.</p>
-<p>Por ejemplo, para mover un personaje de forma gradual usando el analógico izquierdo deberías usar un código como este:</p>
+<p>Однак, може статися так, що ви захочете отримати доступ до всіх функцій ґеймпада, наприклад до того, що вони мають два аналогових джойстика або кілька кнопок. У такому разі вам слід отримати доступ до елементів керування через змінну <code>this.pilas.control.pad_1</code>.</p>
+<p>Наприклад, щоб поступово пересувати персонажа за допомогою лівого аналога, ви повинні використати такий код:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb3-1"><a href="#cb3-1"></a>this<span class="op">.</span><span class="at">x</span> <span class="op">+=</span> this<span class="op">.</span><span class="at">control</span><span class="op">.</span><span class="at">gamepad_1</span><span class="op">.</span><span class="at">analogico_izquierdo_x</span> <span class="op">*</span> <span class="dv">10</span><span class="op">;</span></span>
 <span id="cb3-2"><a href="#cb3-2"></a>this<span class="op">.</span><span class="at">y</span> <span class="op">+=</span> this<span class="op">.</span><span class="at">control</span><span class="op">.</span><span class="at">gamepad_1</span><span class="op">.</span><span class="at">analogico_izquierdo_y</span> <span class="op">*</span> <span class="dv">10</span><span class="op">;</span></span></code></pre></div>
-<p>Aquí no hace falta usar una condición de tipo <code>if</code>, porque el atributo <code>analogico_izquierdo_x</code> y <code>analogico_izquierdo_y</code> nos devolverá un número entre <code>-1</code> y <code>1</code> si el control se está moviendo en alguna dirección o simplemente <code>0</code> si está en reposo.</p>
-<p>Para el analógico derecho también existe un atributo llamado <code>analogico_derecho_x</code> y <code>analogico_derecho_y</code>.</p>
-<p>Luego el acceso a los botones se realiza mediante los atributos comenzados con el prefijo <code>boton_</code>, por ejemplo estos:</p>
+<p>Тут немає необхідності використовувати умову типу <code>if</code>, оскільки властивості <code>analogico_izquierdo_x</code> і <code>analogico_izquierdo_y</code> повертають число між <code>-1</code> та <code>1</code>, якщо елемент керування рухається в певному напрямку або <code>0</code>, якщо він знаходиться в стані спокою.</p>
+<p>Для правого аналога також існують властивості, що називаються <code>analogico_derecho_x</code> та <code>analogico_derecho_y</code>.</p>
+<p>Тоді доступ до кнопок здійснюється через значення, починаючи з префікса <code>boton_</code>, наприклад так:</p>
 <figure>
 <img src="imagenes/gamepad/botones.png" alt="" /><figcaption>botones</figcaption>
 </figure>
-<p>Esta imagen resume varios los controles más importantes:</p>
+<p>На цьому зображенні узагальнено кілька найважливіших елементів керування:</p>
 <figure>
 <img src="imagenes/gamepad/diagrama.png" alt="" /><figcaption>diagrama</figcaption>
 </figure>
-<p>Sin embargo te recomendados ver el autocompletado código directamente en el editor porque hay muchos más atributos para explorar ahí.</p>  <div class="tc navegacion">
+<p>Однак, ми рекомендуємо вам переглядати код автозаповнення безпосередньо в редакторі, оскільки там є багато інших властивостей для вивчення.</p>  <div class="tc navegacion">
   <div>
-    <a href="#" onclick="document.documentElement.scrollTo(0, 0);">Subir</a>
+    <a href="#" onclick="document.documentElement.scrollTo(0, 0);">Нагору</a>
   </div>
 
   <div>
-    <a href="index.html">Regresar al índice</a>
+    <a href="index.html">Повернутися до змісту</a>
   </div>
 </div> 
   </body>

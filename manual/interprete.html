@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="generator" content="pandoc" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-          <title>El intérprete</title>
+          <title>Інтерпретатор</title>
     <style>
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
@@ -77,95 +77,95 @@
         <link rel="stylesheet" href="estilo.css" />
         <script src="./manual.js" charset="utf-8"></script>
       <div class="tc navegacion">
-  <a href="index.html">Regresar al índice</a>
+  <a href="index.html">Повернутися до змісту</a>
 </div> 
   </head>
   <body>
          <header id="title-block-header">
-      <h1 class="title">El intérprete</h1>
+      <h1 class="title">Інтерпретатор</h1>
             </header>
-      <p>Programar se parece un poco a mantener una conversación con la computadora, le enviamos mensajes y esperamos una devolución de su parte. Por ese motivo, para poder hacer un juego que pueda ejecutar una computadora podemos usar un “lenguaje de programación” que entendamos tanto personas como computadoras.</p>
-<p>Aquí es donde entra en juego una pieza de Pilas llamada “Intérprete”. El intérprete es como un <em>chat</em> en donde podemos comunicarnos directamente con la computadora y esperar respuestas.</p>
-<p>Para mostrar brevemente lo que puede hacer el intérprete pulsá el botón “Ejecutar”, y luego hace click en ese botón que aparece debajo del area de juego a la izquierda:</p>
+      <p>Програмування схоже на "розмову з комп’ютером" - надсилання йому повідомлень і очікування від нього відповідей. Тому, щоб створити гру, ми можемо використовувати "мову програмування", яку розуміють і люди, і комп’ютери.</p>
+<p>У цьому нам допоможе "Інтерпретатор". Він схожий на <em>чат</em>, в якому ми маємо змогу спілкуватися безпосередньо з комп’ютером і чекати відповідей від нього.</p>
+<p>Щоб коротко показати, що може робити інтерпретатор, натисніть кнопку "Запустити", а потім кнопку, яка з’являється під ігровою областю ліворуч:</p>
 <figure>
 <img src="imagenes/interprete.assets/boton-interprete.png" alt="" /><figcaption>boton-interprete</figcaption>
 </figure>
-<p>Cuando pulses ese botón debería abrirse un area rectangular de esta forma:</p>
+<p>Коли ви натискаєте цю кнопку, відкривається вікно інтерпретатора:</p>
 <figure>
 <img src="imagenes/interprete.assets/interprete-inicial.png" alt="" /><figcaption>interprete-inicial</figcaption>
 </figure>
-<p>Lo primero que aparece en esta pantalla son dos mensajes que nos envía pilas avisando que ingresamos en el modo ejecución, es decir, el juego está en funcionamiento. Y por el otro lado nos dice que hay dos variables para usar “pilas” y “actores”.</p>
-<p>Pero antes de hablar de variables, vamos a probar exactamente qué nos permite hacer el intérprete.</p>
-<p>En el intérprete podemos escribir código y la computadora nos va a responder.</p>
-<p>Hagamos una prueba, escribí <code>2+2</code> en el intérprete así probamos la interacción con la computadora.</p>
-<p>En area en donde se puede escribir es la que está marcada con ese cursor <code>›</code>:</p>
+<p>Перше, що з’являється у вікні інтепретатора - це два повідомлення, які попереджають нас про те, що ми увійшли в режим виконання, тобто гра зараз запущена. А з іншого боку, це говорить нам, що є дві змінні "pilas" та "actores", які можна певним чином використовувати.</p>
+<p>Але перш ніж говорити про змінні, давайте перевіримо, що саме дозволяє нам робити інтерпретатор.</p>
+<p>В інтерпретаторі ми можемо написати код, а комп’ютер нам його виконає.</p>
+<p>Наприклад, напишемо у вікні інтерпретатора вираз <code>2+2</code>.</p>
+<p>Область, де ви можете писати код, позначена символом <code>›</code>:</p>
 <figure>
 <img src="imagenes/interprete.assets/suma.png" alt="" /><figcaption>suma</figcaption>
 </figure>
-<p>Luego pulsa la tecla “Enter” y la computadora te va a responder:</p>
+<p>Далі натисніть клавішу "Enter" і комп’ютер має виконає код:</p>
 <figure>
 <img src="imagenes/interprete.assets/respuesta.png" alt="" /><figcaption>respuesta</figcaption>
 </figure>
-<p>El intérprete va a responder a cada una de las cuentas con el resultado, como si fuera una calculadora aritmética.</p>
-<p>Sin embargo, hace más que eso, si le pedimos incorrectamente algo nos dará un mensaje de error:</p>
+<p>Інтерпретатор обчислить будь-який введений арифметичний вираз як це робить звичайний калькулятор.</p>
+<p>Однак він робить набагато більше, ніж просто обчислює: якщо ми неправильно щось введемо, інтерпретатор повідомить нас про помилку:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb1-1"><a href="#cb1-1"></a><span class="dv">2</span> <span class="op">+</span> numero<span class="op">;</span></span></code></pre></div>
 <figure>
 <img src="imagenes/interprete.assets/error.png" alt="" /><figcaption>error</figcaption>
 </figure>
-<p>Y esto está bien, si bien el texto rojo parece algo grave, no lo es. La computadora nos explica que no sabe de que se trata “numero” y por lo tanto no sabría decirnos el resultado de esa cuenta.</p>
-<p>Si le indicamos que el “numero” es <code>10</code> sí va a poder decirnos el resultado:</p>
+<p>Комп’ютер повідомляє нам, що він не знає, про яке “numero” (число) йдеться, і тому він не може виконати обчислення.</p>
+<p>Якщо ми попередньо зазначимо, що “numero” дорівнює <code>10</code>, то отримаємо результат обчислення:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb2-1"><a href="#cb2-1"></a>numero <span class="op">=</span> <span class="dv">10</span><span class="op">;</span></span>
 <span id="cb2-2"><a href="#cb2-2"></a><span class="dv">2</span> <span class="op">+</span> numero<span class="op">;</span></span></code></pre></div>
 <figure>
 <img src="imagenes/interprete.assets/resultado-con-variable.png" alt="" /><figcaption>resultado-con-variable</figcaption>
 </figure>
-<p>¡Claro!, el resultado es <code>12</code> ya que creamos una variable llamada “numero” con el valor de 10.</p>
-<h2 id="accediendo-a-las-variables-pilas-y-actores">Accediendo a las variables pilas y actores</h2>
-<p>Ahora bien, el intérprete no solo puede realizar cuentas aritméticas, también nos da la posibilidad de realizar pruebas, crear o modificar los actores en la pantalla y varias cosas mas.</p>
-<p>Al principio de esta sección mencioné que pilas nos avisaba que había dos variables listas para utilizar “pilas” y “actores”:</p>
+<p>Результат обчислення дорівнює <code>12</code>, оскільки ми створили змінну під назвою "numero" зі значенням 10.</p>
+<h2 id="accediendo-a-las-variables-pilas-y-actores">Доступ до змінних pilas і actores</h2>
+<p>Інтерпретатор може не лише обчислювати арифметичні вирази, він також дає нам можливість виконувати тести, створювати або змінювати акторів на екрані та багато іншого.</p>
+<p>На початку цього розділу ми вже згадували про дві змінних "pilas" і "actores":</p>
 <figure>
 <img src="imagenes/interprete.assets/variables.png" alt="" /><figcaption>variables</figcaption>
 </figure>
-<p>Estas dos palabras se denominan variables, porque representan un nombre que almacena un valor asignado con anterioridad. En nuestro caso, “numero” también es una variable, porque básicamente es el nombre que le dimos al valor <code>10</code>.</p>
-<p>Ahora bien, ¿qué podemos hacer con estas variables?.</p>
-<p>La variable <code>pilas</code> nos permite acceder a todas las funcionalidades del motor. Si escribimos algo como:</p>
+<p>Ці два слова називаються змінними, оскільки вони позначають імена, які зберігають раніше присвоєні значення. У нашому разі "numero" також є іменем змінної, значення якої дорівнює <code>10</code>.</p>
+<p>Як можна використовувати ці змінні?</p>
+<p>Змінна <code>pilas</code> дозволяє отримати доступ до всіх функцій ігрового рушія Pilas Engine. Якщо ми напишемо щось на зразок:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb3-1"><a href="#cb3-1"></a>pilas<span class="op">.</span><span class="at">actores</span><span class="op">.</span><span class="fu">nave</span>()</span></code></pre></div>
-<p>Vas a notar que aparecerá una nave en la pantalla como respuesta al código que escribimos:</p>
+<p>ви помітите, що у відповідь на введений код на екрані з’явиться корабель:</p>
 <figure>
 <img src="imagenes/interprete.assets/creacion-de-la-nave.png" alt="" /><figcaption>image-20200604161609718</figcaption>
 </figure>
-<p>También vas a notar que en el intérprete aparece el mensaje <code>&lt;nave en (0, 0)&gt;</code>, esto es así para indicarnos que obedeció a nuestras orden. Pilas creó el actor nave y lo dejó en la posición <code>(0, 0)</code> de la pantalla.</p>
-<p>Si haces click en la pantalla, vas a notar que la nave está “viva”, se puede mover y disparar usando el teclado.</p>
+<p>У вікні інтерпретатора відповідно з'явиться повідомлення <code>&lt;nave en (0, 0)&gt;</code>. Це означає, що код, який ми ввели, виконався і створив актора у вигляді космічного корабля на сцені у точці з координатами <code>(0, 0)</code>.</p>
+<p>Якщо клікнути на екрані, ви помітите, що корабель може рухатися і стріляти за допомогою клавіатури.</p>
 <figure>
 <img src="imagenes/interprete.assets/nave-disparando.png" alt="" /><figcaption>image-20200604161800642</figcaption>
 </figure>
-<p>Ahora bien, aquí es donde entra en juego la otra variable que te comenté llamada “actores”. Esta variable va a permitirnos referirnos a cualquier actor dentro de la escena.</p>
-<p>Escribí estas lineas de código en el intérprete para ver el resultado:</p>
+<p>А зараз можна використати змінну, яка називається "actores". Ця змінна дозволить нам покликатися на будь-якого актора на сцені.</p>
+<p>Поглянемо на результат використання змінної "actores", написавши такі рядки коду в інтерпретаторі:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb4-1"><a href="#cb4-1"></a>nave<span class="op">.</span><span class="at">escala</span> <span class="op">=</span> <span class="dv">2</span></span>
 <span id="cb4-2"><a href="#cb4-2"></a>nave<span class="op">.</span><span class="at">rotacion</span> <span class="op">=</span> <span class="dv">90</span></span>
 <span id="cb4-3"><a href="#cb4-3"></a>nave<span class="op">.</span><span class="fu">decir</span>(<span class="st">&quot;hola&quot;</span>)</span></code></pre></div>
-<p>Lo que deberías ver es que la nave cambia de tamaño, apunta hacia arriba y además muestra un mensaje:</p>
+<p>Отже, корабель змінює розмір, повертається на 90 градусів, а також відображає повідомлення:</p>
 <figure>
 <img src="imagenes/interprete.assets/nave-dice-hola.png" alt="" /><figcaption>nave-dice-hola</figcaption>
 </figure>
-<p>Esto es bastante útil, porque el código que escribimos en el intérprete también se puede trasladar al editor. Si tenemos dudas sobre alguna función o forma de hacer algo en pilas podemos probar en el intérprete, y si todo sale bien, llevarlo al editor y que forma parte de nuestro juego.</p>
-<h2 id="algunos-consejos">Algunos consejos</h2>
-<p>El intérprete es algo bastante original en los motores de video juegos, pero se utiliza muchísimo en ambientes de desarrollo web y sistemas complejos.</p>
-<p>Y como varias de las personas que usamos pilas venimos de ese mundo, el intérprete está diseñado en base a la experiencia de usar intérpretes durante muchos años… Un ejemplo de esto es el sistema de auto completado:</p>
-<p>Siempre que escribas una variable conocida el intérprete va a intentar ayudarte a escribir código de esta forma:</p>
+<p>Код, який ми пишемо в інтерпретаторі, також можна перенести в редактор коду. Якщо у нас є сумніви щодо функції або способу виконання чогось, ми можемо спробувати це в інтерпретаторі, і якщо все піде добре, перенести це до редактора коду.</p>
+<h2 id="algunos-consejos">Кілька порад</h2>
+<p>Інтерпретатор є чимось досить оригінальним у ігрових рушіях, але він часто використовується в середовищах веброзробки та у складних системах.</p>
+<p>Інтерпретатор у Pilas Engine розроблено на основі досвіду використання інтерпретаторів протягом багатьох років. Прикладом цього є система автозаповнення коду.</p>
+<p>Щоразу, коли ви починаєте писати ім'я відомої для інтерпретатора змінної, він намагатиметься допомогти вам написати такий код:</p>
 <figure>
 <img src="imagenes/interprete.assets/autocompletado.png" alt="" /><figcaption>autocompletado</figcaption>
 </figure>
-<p>Otra necesidad muy común es querer volver a repetir una instrucción anterior, para eso puedes pulsar las flechitas del teclado hacia arriba y abajo para navegar:</p>
+<p>Якщо необхідно повторити попередню інструкцію коду, для цього ви можете натискати клавіші зі стрілками на клавіатурі вгору та вниз для навігації:</p>
 <figure>
 <img src="imagenes/interprete.assets/autocompletado-historico.gif" alt="" /><figcaption>autocompletado-historico</figcaption>
 </figure>  <div class="tc navegacion">
   <div>
-    <a href="#" onclick="document.documentElement.scrollTo(0, 0);">Subir</a>
+    <a href="#" onclick="document.documentElement.scrollTo(0, 0);">Нагору</a>
   </div>
 
   <div>
-    <a href="index.html">Regresar al índice</a>
+    <a href="index.html">Повернутися до змісту</a>
   </div>
 </div> 
   </body>

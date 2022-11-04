@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="generator" content="pandoc" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-          <title>Sensores</title>
+          <title>Сенсори</title>
     <style>
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
@@ -16,42 +16,42 @@
         <link rel="stylesheet" href="estilo.css" />
         <script src="./manual.js" charset="utf-8"></script>
       <div class="tc navegacion">
-  <a href="index.html">Regresar al índice</a>
+  <a href="index.html">Повернутися до змісту</a>
 </div> 
   </head>
   <body>
          <header id="title-block-header">
-      <h1 class="title">Sensores</h1>
+      <h1 class="title">Сенсори</h1>
             </header>
-      <p>Los sensores nos permiten detectar colisiones entre un actor y otros mediante areas rectangulares.</p>
-<p>Se pueden utilizar en muchas situaciones diferentes, podrían ser útiles para detectar si una puerta se tiene que abrir ante la cercanía de un actor, detectar si un actor está pisando el suelo o saltando, hacer que un soldado detecte a un enemigo y varias cosas más.</p>
-<h2 id="crear-sensores-desde-el-editor">Crear sensores desde el editor</h2>
-<p>El primer paso para crear un sensor es tener seleccionado un actor y luego añadir el sensor al final de la lista de propiedades:</p>
+      <p>Сенсори дозволяють нам виявляти зіткнення між акторами через прямокутні області.</p>
+<p>Їх можна використовувати в багатьох різних ситуаціях, вони можуть бути корисними для виявлення можливих дій, наприклад, чи потрібно відкрити двері, коли актор знаходиться поруч, виявлення, чи актор наступає на землю чи стрибає тощо.</p>
+<h2 id="crear-sensores-desde-el-editor">Створення сенсорів в редакторі</h2>
+<p>Першим кроком у створенні сенсора є вибір актора, а потім додавання сенсора внизу списку його властивостей:</p>
 <p><img src="imagenes/sensores/crear-sensor-1.png" /></p>
-<p>Una vez que pulsamos ese botón, vamos a poder cambiar las coordenadas del sensor y ajustarlo a nuestro gusto.</p>
-<p>En este caso, hice que el actor tenga un sensor para detectar si se encuentra frente a algún actor:</p>
+<p>Як тільки ми натиснемо цю кнопку, ми зможемо змінити координати сенсора та налаштувати його на свій вибір.</p>
+<p>У цьому разі для актора був створений сенсор, щоб визначити, чи він знаходиться перед іншим актором:</p>
 <p><img src="imagenes/sensores/crear-sensor-2.png" /></p>
-<h2 id="acceder-a-los-sensores-desde-el-código">Acceder a los sensores desde el código</h2>
-<p>Lo interesante de los sensores es cuando podemos interactuar con ellos desde el código, ya que desde ahí vamos a poder saber si el sensor detecta colisión con otros actores.</p>
-<p>Tomemos como ejemplo el actor de la imagen anterior, el sensor que creamos se llama “disparo” así que para poder consultarle cosas necesitamos vincularlo a la clase del actor así:</p>
+<h2 id="acceder-a-los-sensores-desde-el-código">Створення сенсорів за допомогою коду</h2>
+<p>Цікава річ щодо сенсорів полягає в тому, що ми можемо взаємодіяти з ними за допомогою коду, оскільки так ми зможемо знати, чи виявляє сенсор зіткнення з іншими об'єктами.</p>
+<p>Давайте візьмемо актора з попереднього зображення як приклад. Сенсор, який ми створили, називається "disparo" (тригер), тому, щоб запитати його, нам потрібно пов’язати його з класом акторів таким чином:</p>
 <p><img src="imagenes/sensores/codigo-1.png" /></p>
-<p>A partir de ese momento, vamos a poder acceder a toda la información del sensor así:</p>
+<p>З цього моменту ми матимемо доступ до всієї інформації сенсорів таким чином:</p>
 <p><img src="imagenes/sensores/codigo-2.png" /></p>
-<p>Por ejemplo, si queremos hacer que el actor nos diga en todo momento si hay algún actor frente a su vista podemos escribir algo así:</p>
+<p>Наприклад, якщо ми хочемо, щоб актор завжди повідомляв нам, чи є актор в його полі зору, ми можемо написати щось подібне:</p>
 <p><img src="imagenes/sensores/codigo-3.png" /></p>
-<p>y como resultado, tendríamos que observar algo así:</p>
+<p>В результаті ми повинні спостерігати щось подібне:</p>
 <p><img src="imagenes/sensores/ejemplo.gif" /></p>
-<p>Es decir, cada vez que usemos el código <code>this.disparo.cantidad_de_colisiones</code> podremos obtener el número de actores colisionando con ese sensor.</p>
-<h2 id="evaluando-colisiones-con-etiquetas">Evaluando colisiones con etiquetas</h2>
-<p>Mediante código también se puede saber con qué actores entra en contacto un sensor. Se puede utilizar la función <code>colisiona_con_etiqueta(etiqueta)</code> que retorna <code>true</code> o <code>false</code> o incluso la función <code>colisiones_con_la_etiqueta(etiqueta)</code> que retornará una lista de todos los actores que colisionan con el sensor.</p>
-<p>Si quieres ver un caso más completo de esto te recomendamos ver este minijuego dentro de la sección de ejemplos, en donde se usan sensores para detectar que actores se pueden golpear:</p>
+<p>Тобто, щоразу, коли ми використовуємо код <code>this.disparo.cantidad_de_colisiones</code> ми можемо отримати кількість акторів, які зіштовхуються з цим сенсором.</p>
+<h2 id="evaluando-colisiones-con-etiquetas">Оцінювання зіткнень з мітками</h2>
+<p>За допомогою коду також можна дізнатися, з якими акторами сенсор контактує. Ви можете використовувати функцію <code>colisiona_con_etiqueta(etiqueta)</code>, яка повертає <code>true</code> або <code>false</code>, чи функцію <code>colisiones_con_la_etiqueta(etiqueta)</code>, яка повертає список усіх акторів, які зіштовхуються з сенсором.</p>
+<p>Якщо ви хочете побачити більш детальний приклад використання сенсорів, перегляньте міні-гру в розділі прикладів ("lucha"), де сенсори використовуються для виявлення того, яких акторів можна вдарити:</p>
 <p><img src="imagenes/sensores/avanzado.png" /></p>  <div class="tc navegacion">
   <div>
-    <a href="#" onclick="document.documentElement.scrollTo(0, 0);">Subir</a>
+    <a href="#" onclick="document.documentElement.scrollTo(0, 0);">Нагору</a>
   </div>
 
   <div>
-    <a href="index.html">Regresar al índice</a>
+    <a href="index.html">Повернутися до змісту</a>
   </div>
 </div> 
   </body>

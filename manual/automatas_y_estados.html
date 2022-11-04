@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="generator" content="pandoc" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-          <title>Autómatas y estados</title>
+          <title>Автомати і стани</title>
     <style>
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
@@ -77,24 +77,24 @@
         <link rel="stylesheet" href="estilo.css" />
         <script src="./manual.js" charset="utf-8"></script>
       <div class="tc navegacion">
-  <a href="index.html">Regresar al índice</a>
+  <a href="index.html">Повернутися до змісту</a>
 </div> 
   </head>
   <body>
          <header id="title-block-header">
-      <h1 class="title">Autómatas y estados</h1>
+      <h1 class="title">Автомати і стани</h1>
             </header>
-      <p>Un desafío muy común en el desarrollo de juegos es lograr que los actores puedan mostrar animaciones y reaccionar de acuerdo a modos particulares: saltar, caminar, quedarse parado, perdiendo, etc…</p>
-<p>Para estas cosas Pilas incorpora un mecanismo de autómatas y estados.</p>
-<p>Un actor puede estar en un estado a la vez, y solo se puede mover a otros estados a través de transiciones.</p>
-<p>Por ejemplo, imaginemos un actor de un juego de plataformas que solo puede hacer dos cosas, saltar y quedarse parado en el lugar:</p>
+      <p>Дуже поширеним завданням у розробці ігор є завдання змусити акторів показувати анімацію та реагувати відповідно до певних режимів: стрибати, ходити, стояти на місці тощо.</p>
+<p>Для цих речей використовують механізм автоматів і станів.</p>
+<p>Актор може перебувати в одному стані за раз і може переходити в інші стани лише через переходи.</p>
+<p>Наприклад, уявімо актора гри-платформера, який може робити лише дві речі: стрибати та стояти на місці:</p>
 <p><img src="imagenes/automata/estados.png" /></p>
-<p>Si queremos llevar este personaje a un juego nos conviene tener una técnica para permitirle al usuario hacer cualquiera de esas dos acciones pero bajo determinadas condiciones. Solo podría saltar cuando está con los pies en el suelo (es decir, si está en estado “parado”) y una vez que está saltando deja de hacerlo cuando toca el suelo:</p>
+<p>Якщо ми хочемо додати цього персонажа до гри, ми повинні мати техніку, яка дозволить виконувати будь-яку з цих двох дій, але за певних умов. Тобто, актор міг стрибати лише тоді, коли його ноги стояли на землі (тоді, коли він перебував у стані "parado" - персонаж стоїть), а коли він стрибнув, він зупинявся, коли торкався землі:</p>
 <p><img src="imagenes/automata/automata-con-transiciones.png" /></p>
-<p>A este tipo de gráficos lo llamamos diagrama de estados, o autómata, y si bien puede parece un simple modelo gráfico, lo cierto es que resulta muy útil a la hora de escribir el código en nuestro juego.</p>
-<h2 id="implementando-estados-en-pilas">Implementando estados en pilas</h2>
-<p>Siguiendo con nuestro ejemplo, el personaje tiene que tener dos estados. Comencemos por el primero, el estado “parado”:</p>
-<p>Para crear un estado simplemente tenemos que editar el código de un actor y asignarle un valor a la propiedad “estado” y luego crear dos métodos para que pilas sepa a qué métodos llamar cuando el actor esté en ese estado:</p>
+<p>На малюнку продемонстрована схема, яку називають діаграмою стану або автоматом, і хоча це може здатися простою графічною моделлю, правда полягає в тому, що вона дуже корисна під час написання коду в нашій грі.</p>
+<h2 id="implementando-estados-en-pilas">Реалізація станів</h2>
+<p>Продовжуючи наш приклад, персонаж повинен мати два стани. Почнемо з першого стану "parado" - персонаж стоїть:</p>
+<p>Щоб створити стан, нам просто потрібно відредагувати код актора та призначити значення властивості "estado" (стан), а потім створити два методи, які будуть викликатися залежно від того, в якому стані перебуває актор:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb1-1"><a href="#cb1-1"></a>class MiActor extends Actor {</span>
 <span id="cb1-2"><a href="#cb1-2"></a>    iniciar() {</span>
 <span id="cb1-3"><a href="#cb1-3"></a>        this<span class="op">.</span><span class="at">estado</span> <span class="op">=</span> <span class="st">&quot;parado&quot;</span><span class="op">;</span></span>
@@ -108,14 +108,14 @@
 <span id="cb1-11"><a href="#cb1-11"></a>    }</span>
 <span id="cb1-12"><a href="#cb1-12"></a></span>
 <span id="cb1-13"><a href="#cb1-13"></a>    parado_actualizar() {</span>
-<span id="cb1-14"><a href="#cb1-14"></a>        <span class="co">// código que se ejecutará 60 veces por segundo</span></span>
-<span id="cb1-15"><a href="#cb1-15"></a>      <span class="co">// cuando el actor esté en el estado &quot;parado&quot;.</span></span>
+<span id="cb1-14"><a href="#cb1-14"></a>        <span class="co">// код, який буде виконуватися 60 разів за секунду</span></span>
+<span id="cb1-15"><a href="#cb1-15"></a>      <span class="co">  // коли актор знаходиться в стані &quot;parado&quot;.</span></span>
 <span id="cb1-16"><a href="#cb1-16"></a>    }</span>
 <span id="cb1-17"><a href="#cb1-17"></a>}</span></code></pre></div>
-<p>Observá que si creamos el estado “parado”, los métodos que tenemos que agregar a la clase deben llamarse <code>parado_iniciar</code> y <code>parado_actualizar</code>, es decir: <code>nombre del estado</code> + <code>_</code> + <code>iniciar</code> o <code>actualizar</code>.</p>
-<p>Ahora, para el siguiente estado llamado “saltando” tendríamos que agregar este código:</p>
+<p>Якщо ми створюємо стан "parado", необхідно викликати методи, які ми маємо додати до класу <code>parado_iniciar</code> та <code>parado_actualizar</code>.</p> 
+<p>Тепер для наступного стану під назвою "saltando" (стрибки) нам доведеться додати цей код:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb2-1"><a href="#cb2-1"></a>class MiActor extends Actor {</span>
-<span id="cb2-2"><a href="#cb2-2"></a>    <span class="co">// [... código anterior ...]</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a>    <span class="co">// [... код вище ...]</span></span>
 <span id="cb2-3"><a href="#cb2-3"></a></span>
 <span id="cb2-4"><a href="#cb2-4"></a>    saltando_iniciar() {</span>
 <span id="cb2-5"><a href="#cb2-5"></a>        this<span class="op">.</span><span class="at">animacion</span> <span class="op">=</span> <span class="st">&quot;saltando&quot;</span><span class="op">;</span></span>
@@ -124,10 +124,10 @@
 <span id="cb2-8"><a href="#cb2-8"></a>    saltando_actualizar() {</span>
 <span id="cb2-9"><a href="#cb2-9"></a>    }</span>
 <span id="cb2-10"><a href="#cb2-10"></a>}</span></code></pre></div>
-<p>Con esos dos estados, “parado” y “saltando”, podríamos permitirle al usuario pasar de un estado a otro bajo una condición.</p>
-<p>Por ejemplo, si queremos que el personaje pueda “saltar”, pero solo cuando está “parado” y se pulsa la flechita hacia arriba del teclado podemos escribir lo siguiente:</p>
+<p>Між станами "parado" і "saltando" можна переходити з одного стану в інший.</p>
+<p>Наприклад, якщо ми хочемо, щоб персонаж міг "saltando" (стрибати), але лише тоді, коли він "parado" (стоїть на місці) і натиснута стрілка вгору на клавіатурі, ми можемо написати наступне:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb3-1"><a href="#cb3-1"></a>class MiActor extends Actor {</span>
-<span id="cb3-2"><a href="#cb3-2"></a>    <span class="co">// [... código anterior ...]</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a>    <span class="co">// [... код вище ...]</span></span>
 <span id="cb3-3"><a href="#cb3-3"></a></span>
 <span id="cb3-4"><a href="#cb3-4"></a>    parado_actualizar() {</span>
 <span id="cb3-5"><a href="#cb3-5"></a>      if (this<span class="op">.</span><span class="at">control</span><span class="op">.</span><span class="at">arriba</span>) {</span>
@@ -136,18 +136,18 @@
 <span id="cb3-8"><a href="#cb3-8"></a>    }</span>
 <span id="cb3-9"><a href="#cb3-9"></a></span>
 <span id="cb3-10"><a href="#cb3-10"></a>}</span></code></pre></div>
-<p>Es decir, con solo asignarle un valor a la variable <code>estado</code> le estaremos ordenando a pilas que realice una transición del estado “parado” a “saltando”.</p>
-<h2 id="más-referencias">Más referencias</h2>
-<p>Te recomendamos mirar alguno de los ejemplos que incluye pilas sobre autómatas, el más sencillo se llama “automata-cofre”, que simplemente muestra una actor tipo cofre con 4 estados:</p>
+<p>Тобто, просто присвоївши значення змінній <code>estado</code> ми здійснюємо перехід із стану "parado" (стояти на місці) у "saltando" (стрибати).</p>
+<h2 id="más-referencias">Більше переходів</h2>
+<p>Перегляньте кілька прикладів, які включають приклади автоматів, найпростіший називається "automata-cofre", який просто показує актора у вигляді скрині із 4 станами:</p>
 <p><img src="imagenes/automata/cofre.png" /></p>
-<p>Otro ejemplo muy interesante se llama “automata-contra-calaveras”, donde el jugador puede controlar un personaje que tiene solo 3 estados: “parado”, “caminando” y “golpeando”:</p>
+<p>Ще один дуже цікавий приклад називається "automata-contra-calaveras", де гравець може керувати персонажем, який має лише 3 стани: "parado" (стояти на місці), "caminando" (ходити) і "golpeando" (зробити удар):</p>
 <p><img src="imagenes/automata/ejemplo-2.png" /></p>  <div class="tc navegacion">
   <div>
-    <a href="#" onclick="document.documentElement.scrollTo(0, 0);">Subir</a>
+    <a href="#" onclick="document.documentElement.scrollTo(0, 0);">Нагору</a>
   </div>
 
   <div>
-    <a href="index.html">Regresar al índice</a>
+    <a href="index.html">Повернутися до змісту</a>
   </div>
 </div> 
   </body>

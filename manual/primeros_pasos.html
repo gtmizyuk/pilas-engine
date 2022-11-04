@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="generator" content="pandoc" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-          <title>Primeros pasos</title>
+          <title>Перші кроки</title>
     <style>
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
@@ -16,174 +16,174 @@
         <link rel="stylesheet" href="estilo.css" />
         <script src="./manual.js" charset="utf-8"></script>
       <div class="tc navegacion">
-  <a href="index.html">Regresar al índice</a>
+  <a href="index.html">Повернутися до змісту</a>
 </div> 
   </head>
   <body>
          <header id="title-block-header">
-      <h1 class="title">Primeros pasos</h1>
+      <h1 class="title">Перші кроки</h1>
             </header>
-      <p>En esta sección me gustaría describir los pasos iniciales para comenzar a hacer juegos.</p>
-<p>Pilas ha sido diseñada especialmente para que todas las personas puedan aprender a programar realizando videojuegos, de forma sencilla y totalmente en español.</p>
-<p>Esta es la pantalla inicial que aparecerá cuando abras pilas por primera vez:</p>
+      <p>У цьому розділі ви зробите перші кроки, щоб почати створювати ігри.</p>
+<p>Pilas Engine було спеціально розроблено, щоб кожен міг навчитися програмувати, створюючи ігри просто і захоплююче.</p>
+<p>Це початковий екран, який з’явиться, коли ви відкриєте головну сторінку:</p>
 <figure>
 <img src="imagenes/primeros-pasos/portada.png" alt="" /><figcaption>portada</figcaption>
 </figure>
-<p>Desde aquí se pueden acceder a todas las secciones de pilas, te recomendamos inspeccionarlas al menos una vez para familiarizarte con el entorno.</p>
-<p>Ahora bien, la parte más interesante de la herramienta se puede acceder pulsando el botón que dice “<strong>Abrir el editor</strong>”</p>
-<p>Desde esta sección, vas a ver una escena principal y varios paneles:</p>
+<p>З головної сторінки можна отримати доступ до усіх розділів, тому рекомендуємо переглянути їх принаймні один раз, щоб ознайомитися з середовищем.</p>
+<p>А тепер перейдіть до редактора, натиснувши кнопку з написом "Редактор".</p>
+<p>У цьому розділі ви побачите головну сцену та кілька панелей:</p>
 <figure>
 <img src="imagenes/primeros-pasos/editor-1.png" alt="" /><figcaption>editor-1</figcaption>
 </figure>
-<p>Al principio puede parecer un poco abrumador… pero vamos a ir paso a paso. Hay dos partes importantes en esta pantalla:</p>
+<p>На цьому екрані є дві важливі частини:</p>
 <ul>
-<li><p>A la izquierda está el panel de actores y propiedades. Donde vamos a ver listados todos los actores que aparecen en la pantalla. Los actores en este caso son: una plataforma, una pelota, una caja, un techo y suelo.</p></li>
-<li><p>Luego a la derecha de la pantalla tenemos el area del editor:</p>
+<li><p>Ліворуч знаходиться панель акторів і властивостей. Тут ми побачимо у вигляді списку усіх акторів, які з’являться на екрані. Акторами у цьому разі є: платформа, м'яч, ящик, стеля і підлога.</p></li>
+<li><p>Праворуч - область сцени:</p>
 <figure>
 <img src="imagenes/primeros-pasos/editor-partes.png" alt="" /><figcaption>editor-partes</figcaption>
 </figure></li>
 </ul>
-<p>Hay otras cosas importantes en la interface, pero vamos a prestarle mayor atención a estas dos partes.</p>
-<p>Sigamos:</p>
-<h2 id="pongamos-el-juego-en-funcionamiento">¡Pongamos el juego en funcionamiento!</h2>
-<p>El botón que aparece arriba del area de juego es muy importante, porque nos permite poner en funcionamiento el juego y hacer una prueba real.</p>
-<p>Así que hagamos el intento, pulsa el botón ejecutar una vez:</p>
+<p>В інтерфейсі є й інші важливі елементи, але давайте приділимо більше уваги цим двом частинам.</p>
+<p>Отож, продовжуємо!</p>
+<h2 id="pongamos-el-juego-en-funcionamiento">Запуск гри</h2>
+<p>Кнопка "Запустити", яка розташована над ігровим полем, дозволяє запустити гру.</p>
+<p>Отже, натисніть кнопку запуску один раз:</p>
 <figure>
 <img src="imagenes/primeros-pasos/boton-ejecutar.png" alt="" /><figcaption>boton-ejecutar</figcaption>
 </figure>
-<p>Deberías ver cómo dos de los actores comienzan a rebotar en la plataforma:</p>
+<p>Ви повинні побачити, як двоє акторів починають відскакувати від платформи:</p>
 <figure>
 <img src="imagenes/primeros-pasos/primer-ejecucion.gif" alt="" /><figcaption>primer-ejecucion</figcaption>
 </figure>
-<p>Cuando pulsas el botón “ejecutar” además de ponerse en funcionamiento el juego sucede algo más: el editor por completo ingresará en un modo llamado “ejecución”, así que no vamos a poder editar el código o cambiar la escena. Todo lo que suceda en ese momento es parte de la experiencia de usuario de nuestros juegos. Una vez que exportemos el juego, nuestros usuarios solo van a ver el juego, no el editor.</p>
-<p>Esto es importante porque nos lleva a pensar en el diseño del juego y hacernos preguntas interesantes: ¿Qué queremos que el usuario haga dentro de nuestro juego?, ¿qué elementos le vamos a mostrar?, ¿cuándo gana y cuando pierde?.</p>
-<p>Pero claro, por el momento solo podemos hacernos las preguntas, porque lo que tenemos en el editor es muy poquito, el usuario no puede hacer nada muy interesante aún… solo ver cómo rebotan esos dos objetos en la plataforma :|</p>
-<h2 id="diseñando-nuestro-primer-juego">Diseñando nuestro primer juego</h2>
-<p>Para nuestro primer juego vamos a pensar en algo más interesante, queremos que el fondo del juego sea un cielo lleno de estrellas, que el usuario pueda mover una nave con el teclado y que luego de unos segundos comiencen a aparecer algunos enemigos.</p>
-<p>Pulsá el botón que dice “detener” en el editor (o pulsá la tecla <code>Esc</code>), tendrías que volver a ver el resto de los elementos del editor nuevamente habilitados.</p>
-<p><img src="imagenes/primeros-pasos/editor-1.png" alt="editor-1" />Borremos cada uno de los actores que aparecen en la pantalla, selecciona al actor pelota y luego pulsa el botón del cesto de basura tal y como muestra esta imagen:</p>
+<p>Коли ви натискаєте кнопку "Запустити", окрім запуску гри, редактор переходить у режим гри, тому ми не зможемо редагувати код або змінювати сцену. Усе, що відбувається в цей момент, відображається для користувача, який грає у гру. При еспорті гри, користувачі бачитимуть лише вікно гри, а не вікно редактора.</p>
+<p>Це важливо, оскільки це спонукає нас думати про дизайн гри та ставити собі цікаві запитання: що ми хочемо, щоб користувач робив у нашій грі? Які елементи ми будемо йому показувати? За яких умов він виграє, а коли програє?</p>
+<p>Звичайно, при запуску цієї гри користувач жодним чином не взаємодіє з грою, а лише  може спостерігати, як два об’єкти підстрибують на платформі :|</p>
+<h2 id="diseñando-nuestro-primer-juego">Розробка першої гри</h2>
+<p>Для нашої першої гри давайте додамо тло у вигляді нічного зоряного неба, і комічний корабель, яким за допомогою клавіатури буде керувати користувач. Окрім того реалізуємо появу ворожих об'єктів, які з'являтимуться через певні проміжки часу у секундах.</p>
+<p>Натисніть кнопку "Зупинити" в редакторі (або натисніть клавішу <code>Esc</code>). Тепер ми знову повернулися у режим редактора.</p>
+<p><img src="imagenes/primeros-pasos/editor-1.png" alt="editor-1" />Давайте видалимо усіх акторів, які з’являються на екрані. Для цього виберемо актора-м’яча, а потім натиснемо кнопку із зображенням кошика, як показано на цьому зображенні:</p>
 <figure>
 <img src="imagenes/primeros-pasos/borrar.png" alt="" /><figcaption>borrar</figcaption>
 </figure>
-<p>Repetí esos pasos hasta que la escena quede limpia, sin ningún actor:</p>
+<p>Повторіть цей крок для кожного із акторів, щоб на сцені не залишилося жодного актора:</p>
 <figure>
 <img src="imagenes/primeros-pasos/sin-actores.png" alt="" /><figcaption>image-20200601230444058</figcaption>
 </figure>
-<p>Ahora bien, con la escena completamente limpia, agreguemos un actor para representar a nuestro protagonista:</p>
-<p>Pulsa el botón “Crear actor” y luego selecciona la nave:</p>
+<p>Тепер, коли сцена повністю очищена, давайте додамо актора, який представлятиме нашого головного героя:</p>
+<p>Натисніть кнопку "Створити актора", а потім виберіть корабель:</p>
 <figure>
 <img src="imagenes/primeros-pasos/crear-actor-1.png" alt="" /><figcaption>crear-actor-1</figcaption>
 </figure>
 <figure>
 <img src="imagenes/primeros-pasos/crear-actor-2.png" alt="" /><figcaption>crear-actor-2</figcaption>
 </figure>
-<p>Una vez que selecciones el actor vas a verlo formar parte de la escena así:</p>
+<p>Вибравши актора, він буде доданий на сцену:</p>
 <figure>
 <img src="imagenes/primeros-pasos/creacion-de-la-nave.png" alt="" /><figcaption>creacion-de-la-nave</figcaption>
 </figure>
-<p>Ahora pulsemos de nuevo el botón “ejecutar” y pulsa las flechitas del teclado para mover la nave por el escenario (¡y con la barra espaciadora vas a poder disparar!):</p>
+<p>Тепер давайте знову натиснемо кнопку "Виконати" і за допомогою клавіш зі стрілками на клавіатурі змусимо наш космічний корабель переміщатися по сцені (а за допомогою клавіші пропуску ви зможете стріляти!):</p>
 <figure>
 <img src="imagenes/primeros-pasos/nave-en-movimiento.gif" alt="" /><figcaption>nave</figcaption>
 </figure>
-<h2 id="ambientando-la-escena-en-el-espacio">Ambientando la escena en el espacio</h2>
-<p>Al principio te mencioné que queríamos hacer que la nave pareciera estar en el espacio, sin embargo aún tenemos ese fondo azul que no se parece mucho al espacio…</p>
-<p>Así que hagamos un cambio, selecciona la escena del panel izquierdo, vas a ver que la parte inferior del panel va a cambiar:</p>
+<h2 id="ambientando-la-escena-en-el-espacio">Налаштування сцени</h2>
+<p>Повернемося до наших міркувань - зробимо так, щоб корабель виглядав так, ніби він перебуває у космосі.</p>
+<p>Отже, давайте внесемо такі зміни. Для цього виберіть сцену на лівій панелі і ви побачите, що нижня частина панелі зміниться:</p>
 <figure>
 <img src="imagenes/primeros-pasos/panel-de-escena.png" alt="" /><figcaption>panel-de-escena</figcaption>
 </figure>
-<p>Esa sección que marcamos con el número “2” en la imagen contiene todas las propiedades de la escena. Si moves la barra de desplazamiento hacia abajo vas a ver una propiedad llamada fondo:</p>
+<p>Той розділ, який позначений цифрою "2" на зображенні, містить усі властивості сцени. Якщо ви перемістите смугу прокручування вниз, ви побачите властивість під назвою "Тло":</p>
 <figure>
 <img src="imagenes/primeros-pasos/propiedad-fondo.png" alt="" /><figcaption>propiedad-fondo</figcaption>
 </figure>
-<p>Hace click sobre esa propiedad, donde está el ícono y vas a ver que pilas te propone varias imágenes para sustituir el fondo:</p>
+<p>Натисніть на цю властивість, де знаходиться значок, і нам запропонують кілька зображень для заміни тла:</p>
 <figure>
 <img src="imagenes/primeros-pasos/cambiar-fondo-1.png" alt="" /><figcaption>cambiar-fondo-1</figcaption>
 </figure>
-<p>Selecciona la del espacio:</p>
+<p>Виберіть зображення тла:</p>
 <figure>
 <img src="imagenes/primeros-pasos/fondo-espacio.png" alt="" /><figcaption>fondo-espacio</figcaption>
 </figure>
-<p>Vas a notar que el fondo de la pantalla va a cambiar por completo:</p>
+<p>Ви помітите, що тло сцени повністю зміниться:</p>
 <figure>
 <img src="imagenes/primeros-pasos/fondo-espacial-en-la-escena.png" alt="" /><figcaption>fondo-espacial-en-la-escena</figcaption>
 </figure>
-<h2 id="creando-más-actores">Creando más actores</h2>
-<p>Ahora vamos a darle un poco mas de vida al juego: Nuestra nave está en el espacio pero no parece haber un motivo por el cual está ahí, pensemos una historia:</p>
-<p>“A causa de un experimento que se salió de control en la tierra, algunos objetos llegaron al espacio: bananas, manzanas y otras frutas comenzaron a ensuciar el espacio flotando por ahí. Nuestra misión es comandar una nave que tiene como objetivo”limpiar" el desorden de la basura espacial lo antes posible !!!"</p>
-<p>Bueno, no es una gran idea… pero es algo, algo que podemos construir, jugar y divertidos. ¡así que vamos a intentarlo!</p>
-<p>Pulsá el botón “Crear actor” nuevamente:</p>
+<h2 id="creando-más-actores">Створюємо більше акторів</h2>
+<p>Отже, наш корабель у космосі. Давайте придумаємо історію:</p>
+<p>"Через експеримент, який вийшов з-під контролю на Землі, деякі об’єкти досягли космосу: банани, яблука та інші фрукти почали засмічувати космос, рухаючись навколо. Наша місія полягає в тому, щоб керувати кораблем, який має на меті "очистити" космічне сміття якомога швидше!!!"</p>
+<p>Ну що ж, давайте спробуємо!</p>
+<p>Знову натисніть кнопку "Створити актора":</p>
 <figure>
 <img src="imagenes/primeros-pasos/crear-actor.png" alt="" /><figcaption>crear-actor</figcaption>
 </figure>
-<p>Pero a diferencia de antes, que elegimos la nave, ahora elegí el actor que no tiene una imagen asignada:</p>
+<p>Цього разу оберемо актора, якому не призначений образ:</p>
 <figure>
 <img src="imagenes/primeros-pasos/actor-sin-imagen.png" alt="" /><figcaption>actor-sin-imagen</figcaption>
 </figure>
-<p>Luego, puedes mover este actor usando el mouse, así no tapa a la nave:</p>
+<p>Перетягніть цього актора за допомогою миші у бік, щоб він не закривав корабель:</p>
 <figure>
 <img src="imagenes/primeros-pasos/mover-actor.png" alt="" /><figcaption>mover-actor</figcaption>
 </figure>
-<p>Ahora cambiemos la apariencia del actor. Este paso es muy similar al que hicimos antes, tendrías que seleccionar al actor, ir al panel de propiedades pero ahora pulsar la propiedad “imagen”:</p>
+<p>Тепер змінимо зовнішній вигляд актора. Цей крок дуже схожий на той, який ми робили раніше. Вам потрібно буде вибрати актора, перейти на панель властивостей, а тепер натиснути властивість "зображення":</p>
 <figure>
 <img src="imagenes/primeros-pasos/cambiando-imagen.png" alt="" /><figcaption>cambiando-imagen</figcaption>
 </figure>
-<p>y luego, selecciona alguna de las opciones. Por ejemplo una manzana:</p>
+<p>а потім виберіть один із варіантів, наприклад яблуко:</p>
 <figure>
 <img src="imagenes/primeros-pasos/manzana.png" alt="" /><figcaption>manzana</figcaption>
 </figure>
-<p>y te debería quedar así:</p>
+<p>Образ яблука буде застосований для доданого актора на сцені:</p>
 <figure>
 <img src="imagenes/primeros-pasos/manzana-en-el-espacio.png" alt="" /><figcaption>manzana-en-el-espacio</figcaption>
 </figure>
-<h2 id="agregando-colisiones">Agregando colisiones</h2>
-<p>Vamos a hacer que la manzana se pueda destruir con los disparos de la nave.</p>
-<p>Para eso tenemos que volver a seleccionar el actor con apariencia de manzana y asignarle una figura física así:</p>
+<h2 id="agregando-colisiones">Додавання зіткнень</h2>
+<p>Реалізуємо руйнування яблука за допомогою пострілів з космічного корабля.</p>
+<p>Для цього нам потрібно повторно вибрати яблукоподібного актора та призначити йому низку фізичних властивостей:</p>
 <figure>
 <img src="imagenes/primeros-pasos/propiedades-de-manzana.png" alt="" /><figcaption>propiedades-de-manzana</figcaption>
 </figure>
-<p>Estos parámetros admiten muchas combinaciones, pero te recomiendo que la figura sea “círculo”, el radio de “32” y desactives la opción “Dinámica”.</p>
-<p>Vas a notar que en la pantalla aparecerá un círculo azul al rededor del actor nuevo. Esto significa que el actor tiene un area de contacto para poder interactuar con el resto de los actores:</p>
+<p>Ці параметри дозволяють утворити багато комбінацій властивостей. У цьому разі встановимо форму "коло", радіус "32" і деактивуємо опцію "Динамічний".</p>
+<p>Ви помітите, що навколо нашого нового актора на екрані з’явилося синє коло. Це синє коло визначає зону контакту актора при взаємодії з рештою акторів:</p>
 <figure>
 <img src="imagenes/primeros-pasos/area-de-colision.png" alt="" /><figcaption>image-20200601235938682</figcaption>
 </figure>
-<h2 id="reaccionando-a-las-colisiones">Reaccionando a las colisiones</h2>
-<p>Para hacer que el actor manzana reaccione tenemos que escribir un poquito de código.</p>
-<p>Selecciona nuevamente al actor y pulsa la pestaña que aparece en la parte derecha de la pantalla que tiene el texto “Código”:</p>
+<h2 id="reaccionando-a-las-colisiones">Реакція на зіткнення</h2>
+<p>Щоб змусити актора-яблуко реагувати, нам потрібно написати трохи коду.</p>
+<p>Знову виберіть актора та натисніть вкладку, яка з’явиться в правій частині екрана з текстом "Код і блоки":</p>
 <figure>
 <img src="imagenes/primeros-pasos/solapa-codigo.png" alt="" /><figcaption>solapa-codigo</figcaption>
 </figure>
-<p>Cuando pulses esa pestaña, vas a ver que se abre un panel nuevo; un panel en donde tenemos código y un botón que dice “Recetas”:</p>
+<p>У відкритій панелі є вкладка "Код" і кнопка з написом "Рецепти":</p>
 <figure>
 <img src="imagenes/primeros-pasos/codigo-primera-vista.png" alt="" /><figcaption>codigo-primera-vista</figcaption>
 </figure>
-<p>El código es una de las cosas más importantes que incluye pilas, ya que el código nos permite darle órdenes a la computadora para que haga cosas, como eliminar actores, reaccionar al movimiento del mouse, emitir sonidos y todo lo que se te ocurra.</p>
-<p>Sin embargo para empezar vamos a tomar un atajo, vamos a pedirle a pilas que nos ayude a escribir el código para que la manzana se pueda eliminar fácilmente.</p>
-<p>Pulsa el botón que dice “Recetas”:</p>
+<p>Використовуючи вкладку "Код" ми можемо писати початковий код для реалізації взаємодії акторів, відслідковування рухів вказівника миші, відтворення звуків та усього іншого, що вам спаде на думку.</p>
+<p>Однак для початку ми скористаємось простішим коротшим шляхом - використаємо вже готовий фрагмент коду.</p>
+<p>Натисніть кнопку з написом "Рецепти":</p>
 <figure>
 <img src="imagenes/primeros-pasos/receta-1.png" alt="" /><figcaption>receta-1</figcaption>
 </figure>
-<p>y luego selecciona la opción que dice “Cuando colisiona explotar”:</p>
+<p>а потім виберіть опцію "Вибухнути при зіткненні":</p>
 <figure>
 <img src="imagenes/primeros-pasos/receta-2.png" alt="" /><figcaption>receta-2</figcaption>
 </figure>
-<p>Cuando hagas eso, vas a notar que pilas escribió por nosotros una porción de código que hace algunas cosas por nosotros:</p>
+<p>Коли ви це зробите, ви помітите, що з'явиться фрагмент коду:</p>
 <figure>
 <img src="imagenes/primeros-pasos/codigo-de-la-receta.png" alt="" /><figcaption>codigo-de-la-receta</figcaption>
 </figure>
-<p>Mas adelante en el manual vamos a escribir algo de código sin usar recetas, desde cero y comprendiendo cada función y expresión, por ahora lo dejaremos ahí.</p>
-<p>Ahora pulsa “Ejecutar” y corrobora cómo los disparos pueden limpiar el espacio de frutas:</p>
+<p>Далі у підручнику ми напишемо код без використання рецептів, з нуля і розумінням кожної функції та виразу.</p>
+<p>Тепер натисніть "Запустити" і перевірте, як постріли можуть очистити простір від фруктів:</p>
 <figure>
 <img src="imagenes/primeros-pasos/explosion.gif" alt="" /><figcaption>explosion</figcaption>
 </figure>
-<h2 id="es-solo-el-principio">Es solo el principio</h2>
-<p>Pilas es una herramienta super completa, y este mini-tutorial es solo el comienzo de una gran aventura. Seguí leyendo este manual para conocer muchas más cosas que incluye pilas o explora nuestro sitio web, vas a encontrar tutoriales, videos, juegos y muchas cosas más.</p>
-<p>¡Te damos la bienvenida a el mundo de la programación!</p>  <div class="tc navegacion">
+<h2 id="es-solo-el-principio">Це лише початок</h2>
+<p>Pilas Engine - це надзвичайно потужний інструмент, і перші кроки - лише початок великої пригоди. Продовжуйте читати цей підручник або відвідайте наш вебсайт, де ви знайдете навчальні посібники, відео, ігри та багато іншого.</p>
+<p>Ласкаво просимо у світ програмування!</p>  <div class="tc navegacion">
   <div>
-    <a href="#" onclick="document.documentElement.scrollTo(0, 0);">Subir</a>
+    <a href="#" onclick="document.documentElement.scrollTo(0, 0);">Нагору</a>
   </div>
 
   <div>
-    <a href="index.html">Regresar al índice</a>
+    <a href="index.html">Повернутися до змісту</a>
   </div>
 </div> 
   </body>

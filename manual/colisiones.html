@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="generator" content="pandoc" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-          <title>Colisiones y física</title>
+          <title>Зіткнення і фізика</title>
     <style>
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
@@ -77,52 +77,52 @@
         <link rel="stylesheet" href="estilo.css" />
         <script src="./manual.js" charset="utf-8"></script>
       <div class="tc navegacion">
-  <a href="index.html">Regresar al índice</a>
+  <a href="index.html">Повернутися до змісту</a>
 </div> 
   </head>
   <body>
          <header id="title-block-header">
-      <h1 class="title">Colisiones y física</h1>
+      <h1 class="title">Зіткнення і фізика</h1>
             </header>
-      <p>Pilas incluye un motor de física para hacer que los actores puedan colisionar, rebotar entre sí, ser lanzados y reaccionar la aceleración gravitatoria del escenario.</p>
-<p>Este motor de física tiene muchas variantes, así que vamos a explorar todas esas oportunidades de configuración en esta sección.</p>
-<h2 id="parámetros-principales">Parámetros principales</h2>
-<p>Para que un actor reaccione a las colisiones o se mueva como un objeto físico tenemos que activarle una figura desde las propiedades del actor.</p>
-<p>En el panel de propiedades vas a ver una sección llamada “Simulación Física” y dentro de esa sección una propiedad llamada “Figura”:</p>
+      <p>Pilas Engine містить фізичний механізм, який змушує акторів зіштовхуватися, відскакувати один від одного, бути підкинутими та реагувати на гравітаційне прискорення сцени.</p>
+<p>Цей фізичний механізм має багато варіантів, тому ми збираємося дослідити усі його можливі конфігурації в цьому розділі.</p>
+<h2 id="parámetros-principales">Основні параметри</h2>
+<p>Щоб актор реагував на зіткнення або рухався як фізичний об’єкт, ми повинні активувати для нього вигляд фізичної форми на панелі властивостей актора.</p>
+<p>На панелі властивостей присутній розділ з назвою "Simulación Física" (Фізичне моделювання), а у розділі міститься властивість з назвою "Figura" (Форма):</p>
 <p><img src="imagenes/colisiones/simulacion-fisica.png" /></p>
-<p>Si esa propiedad tiene el valor “ninguna”, el actor no podrá colisionar ni moverse usando el botón de física, para la computadora será solamente una imagen a mostrar en la pantalla.</p>
-<p>Si la propiedad tiene el valor “círculo” o “rectángulo” veremos que el actor tendrá una forma y tamaño en color verde:</p>
+<p>Якщо ця властивість має значення "ninguna" (немає), актор не зможе зазнавати зіткнень. Актор буде лише відображеним на екрані.</p>
+<p>Якщо властивість має значення "círculo" (коло) або "rectángulo" (прямокутник), ми побачимо, що актор отримує фізичну форму, окреслену зеленим кольором, певного розміру:</p>
 <p><img src="imagenes/colisiones/con-figura.png" /></p>
-<p>Con esta propiedad, el actor va a reaccionar a la física del escenario, por ejemplo si colocas una plataforma y pulsas el botón ejecutar el actor comenzará a rebotar así:</p>
+<p>Завдяки цій властивості актор реагуватиме на фізику сцени, наприклад, якщо ви розмістите платформу і натиснете кнопку "Запустити", актор почне підстрибувати ось так:</p>
 <p><img src="imagenes/colisiones/ejecutando-con-figura.gif" /></p>
-<p>También vas a notar que al elegir una figura aparecerán más propiedades como radio, rebote, dinámica etc…:</p>
+<p>Як можна помітити, під час вибору фізичної форми з’являються додаткові властивості, такі як radio (радіус), rebote (відбивання), dinámica (динамічний) тощо:</p>
 <p><img src="imagenes/colisiones/propiedades.png" /></p>
-<h3 id="propiedad-radio">Propiedad Radio</h3>
-<p>La propiedad <code>radio</code> nos indica el tamaño de colisión si el actor tiene la figura círculo:</p>
+<h3 id="propiedad-radio">Радіус</h3>
+<p>Властивість <code>radio</code> (Радіус) вказує розмір зіткнення, якщо актор має фізичну форму кола:</p>
 <p><img src="imagenes/colisiones/radios.png" /></p>
-<p>Es aconsejable hacer que el tamaño de esta figura coincida con la imagen del actor, porque la figura física será invisible para quienes jueguen a tu juego, los jugadores solo van a ver la imagen del actor.</p>
-<h3 id="propiedad-ancho-y-alto">Propiedad ancho y alto</h3>
-<p>Estas propiedades son similares a la propiedad <code>radio</code>, pero solo estarán disponibles si la figura es un <code>rectángulo</code>:</p>
+<p>Бажано, щоб розмір фізичної форми відповідав розміру зображення актора, оскільки фізична форма буде невидимою для тих, хто грає у вашу гру, гравці бачитимуть лише зображення актора.</p>
+<h3 id="propiedad-ancho-y-alto">Ширина і висота</h3>
+<p>Ці властивості схожі на властивість <code>radio</code>, але будуть доступні лише якщо обрана фізична форма <code>rectángulo</code> (прямокутник):</p>
 <p><img src="imagenes/colisiones/rectangulos.png" /></p>
-<p>Pilas incluye estas figuras porque son las más simples y útiles de todas, si bien</p>
-<h3 id="propiedad-rebote">Propiedad rebote</h3>
-<p>La propiedad <code>rebote</code> indicará de qué forma se tiene que impulsar el actor cuando entre en contacto con otro. Si el valor de rebote es muy bajo, por ejemplo <code>0</code>, el golpe va a hacer que el objeto se detenga por completo. Mientras que valores como <code>1.5</code> harán que el objeto se impulse con más fuerza.</p>
-<p>Ten en cuenta que la reacción del actor dependerá del valor que tenga la propiedad <code>rebote</code> en ambos actores.</p>
-<h3 id="propiedad-dinámica">Propiedad Dinámica</h3>
-<p>La propiedad <code>dinámica</code> puede tener los valores <code>si</code> y <code>no</code>. Una figura con <code>dinámica=si</code> rebotará y se moverá de acuerdo a la aceleración gravitatoria del escenario.</p>
-<p>Si la figura tiene la propiedad <code>dinamica=no</code> el actor quedará rígido sin moverse ni reaccionar a la aceleración gravitatoria. Esto es ideal para hacer paredes, plataformas u obstáculos del escenario que no queremos que se muevan por ningún motivo.</p>
-<h3 id="propiedad-sin-rotación">Propiedad Sin rotación</h3>
-<p>La propiedad <code>sin_rotacion</code> sirve para fijar la rotación de un actor como se muestra en la siguiente imagen:</p>
+<p>Вищезгадані фізичні форми використовуються найчастіше, оскільки вони є найпростішими з усіх.</p>
+<h3 id="propiedad-rebote">Відбивання</h3>
+<p>Властивість <code>rebote</code> (Відбивання) буде вказувати на те, у який спосіб потрібно рухати актора, коли він контактує з іншим. Якщо значення відбивання дуже маленьке, наприклад <code>0</code>, удар призведе до повної зупинки об’єкта. Тоді, як значення порядку <code>1.5</code>, змусять об’єкт відштовхнутися сильніше.</p>
+<p>Зверніть увагу, що реакція актора залежатиме від значення властивості <code>rebote</code> (відбивання) обох акторів.</p>
+<h3 id="propiedad-dinámica">Динамічний</h3>
+<p>Властивість <code>dinámica</code> (Динамічний) може мати значення <code>так</code> або <code>ні</code>. Фізична форма з <code>динамічний=так</code> буде підстрибувати та рухатися відповідно до гравітаційного прискорення сцени.</p>
+<p>Якщо фізична форма має властивість <code>динамічний=ні</code>, актор не реагуватиме на гравітаційне прискорення. Це чудово підходить для створення стін, платформ або перешкод, які ми не хочемо рухати з будь-якої причини.</p>
+<h3 id="propiedad-sin-rotación">Без обертання</h3>
+<p>Властивість <code>sin_rotacion</code> (Без обертання) служить для фіксації повороту актора, як показано на наступному зображенні:</p>
 <p><img src="imagenes/colisiones/rotacion.png" /></p>
-<p>Esta propiedad es ideal para personajes, ya que no queremos que ante una colisión aparezcan inclinados.</p>
-<h3 id="propiedad-gaseoso">Propiedad gaseoso</h3>
-<p>La propiedad <code>¿Es gaseoso?</code> se utiliza para hacer que un actor se comporte como un fantasma, y que ninguna figura pueda chocarla o chocar a otros actores.</p>
-<h2 id="colisiones">Colisiones</h2>
-<p>Las colisiones permiten ejecutar código como respuesta al contacto entre diferentes actores. Las funciones se pueden personalizar para hacer casi cualquier cosa: reproducir un sonido para magnificar el impacto, eliminar alguno de los actores en contacto, emitir efectos etc…</p>
-<p>Por ejemplo, imagina que tenemos estos tres actores:</p>
+<p>Ця властивість ідеальна для персонажів, оскільки ми не хочемо, щоб вони виглядали нахиленими під час зіткнення.</p>
+<h3 id="propiedad-gaseoso">Прозорий</h3>
+<p>Властивість <code>¿Es gaseoso?</code> (Прозорий) використовується, щоб змусити актора поводитися як привид, і жодна фізична форма не може вдарити його чи інших акторів.</p>
+<h2 id="colisiones">Зіткнення</h2>
+<p>Зіткнення (колізії) дозволяють коду виконуватися у відповідь на контакт між різними акторами. Функції можна налаштувати для виконання майже будь-яких завдань: відтворення звуку для посилення впливу, видалення будь-якого з учасників контакту, створення ефектів тощо.</p>
+<p>Наприклад, уявіть, що ми маємо цих трьох акторів:</p>
 <p><img src="imagenes/assets/colisiones.md%202018-04-11%2023-53-00.png" /></p>
-<p>Cuando el juego se ejecute, la plataforma va a quedar fija en pantalla. Mientras que la pelota y la caja van a moverse hacia abajo y colisionarán.</p>
-<p>Pilas va a llamar automáticamente a la función <code>cuando_comienza_una_colision</code> ni bien entren en contacto dos actores. Por ejemplo en este caso, pilas va a llamar a la función <code>cuando_comienza_una_colision</code> cuando la pelota colisione con la caja, y luego la plataforma.</p>
+<p>Під час запуску гри платформа буде зафіксована на екрані. При цьому м'яч і ящик збираються рухатися вниз і зіштовхуватися.</p>
+<p>У цьому разі автоматично викликається функція <code>cuando_comienza_una_colision</code> як тільки двоє акторів контактують. Наприклад, функція <code>cuando_comienza_una_colision</code> викликається, коли м'яч стикається з ящиком, а потім з платформою.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">class</span> pelota <span class="kw">extends</span> Actor {</span>
 <span id="cb1-2"><a href="#cb1-2"></a></span>
 <span id="cb1-3"><a href="#cb1-3"></a>  cuando_comienza_una_colision(<span class="dt">actor</span><span class="op">:</span> Actor) {</span>
@@ -131,23 +131,23 @@
 <span id="cb1-6"><a href="#cb1-6"></a>    }</span>
 <span id="cb1-7"><a href="#cb1-7"></a></span>
 <span id="cb1-8"><a href="#cb1-8"></a>    <span class="cf">if</span> (actor<span class="op">.</span><span class="at">etiqueta</span> <span class="op">===</span> <span class="st">&quot;plataforma&quot;</span>) {</span>
-<span id="cb1-9"><a href="#cb1-9"></a>      <span class="kw">this</span><span class="op">.</span><span class="fu">decir</span>(<span class="st">&quot;Oh, colisioné con una plataforma!&quot;</span>)<span class="op">;</span></span>
+<span id="cb1-9"><a href="#cb1-9"></a>      <span class="kw">this</span><span class="op">.</span><span class="fu">decir</span>(<span class="st">&quot;О, я зіткнувся з платформою!&quot;</span>)<span class="op">;</span></span>
 <span id="cb1-10"><a href="#cb1-10"></a>    }</span>
 <span id="cb1-11"><a href="#cb1-11"></a>  }</span>
 <span id="cb1-12"><a href="#cb1-12"></a>}</span></code></pre></div>
-<p>En el código hay dos cosas interesantes, tenemos la función <code>cuando_comienza_una_colision</code> dentro de la clase “pelota” para detectar colisiones y además intentamos distinguir contra qué actores se produce la colisión usando <a href="etiquetas.md">etiquetas</a>. :</p>
+<p>У коді є дві цікаві речі, у нас є функція <code>cuando_comienza_una_colision</code> всередині класу "pelota" (куля), щоб виявити зіткнення, і ми також намагаємося розрізнити, між якими акторами відбувається зіткнення, використовуючи <a href="etiquetas.html">etiquetas</a> (мітки).</p>
 <ul>
-<li>Si la pelota colisiona con una caja, le indicamos a pilas que ignore la colisión, y continúe. Esto se hace simplemente retornando <code>true</code>.</li>
-<li>Si la pelota colisiona con una plataforma, emitimos un mensaje para que el usuario pueda reconocer que la pelota detectó la colisión.</li>
+<li>Якщо м’яч стикається з ящиком, ми вказуємо ігнорувати зіткнення та продовжувати. Це робиться простим поверненням значення <code>true</code>.</li>
+<li>Якщо м’яч стикається з платформою, ми видаємо повідомлення, щоб повідомити гравця, що м’яч і справді зіштовхнувся.</li>
 </ul>
-<h2 id="tipos-de-colisiones">Tipos de colisiones</h2>
-<p>Hay 3 instantes muy importantes cuando se producen colisiones:</p>
+<h2 id="tipos-de-colisiones">Види зіткнень</h2>
+<p>Є три дуже важливі моменти, коли відбуваються зіткнення:</p>
 <ul>
-<li>Cuando se detecta el contacto inicial.</li>
-<li>Cuando los dos actores permanecen en contacto prolongado. Por ejemplo cuando un actor se posa sobre una plataforma.</li>
-<li>El instante en donde la colisión desaparece porque los actores dejan de estar en contacto. Por ejemplo cuando un actor posando sobre una plataforma “salta” y deja de estar en contacto.</li>
+<li>При виявленні первинного контакту.</li>
+<li>Коли двоє акторів залишаються в тривалому контакті. Наприклад, коли актор стоїть на платформі.</li>
+<li>Момент, коли зіткнення зникає, оскільки актори більше не контактують. Наприклад, коли актор, який стоїть на платформі, "підстрибує" і перестає контактувати з платформою.</li>
 </ul>
-<p>Para distinguir estos casos pilas llamará a las tres funciones de forma diferente. Este es un ejemplo de cómo se declaran esas funciones en el código de un actor:</p>
+<p>Щоб відрізнити ці випадки, викликаються три функції. Це приклад того, як ці функції оголошуються в коді актора:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb2-1"><a href="#cb2-1"></a>class mi_actor extends Actor {</span>
 <span id="cb2-2"><a href="#cb2-2"></a>  cuando_comienza_una_colision(actor<span class="op">:</span> Actor) {</span>
 <span id="cb2-3"><a href="#cb2-3"></a>    if (actor<span class="op">.</span><span class="at">etiqueta</span> <span class="op">===</span> <span class="st">&quot;moneda&quot;</span>) {</span>
@@ -161,11 +161,11 @@
 <span id="cb2-11"><a href="#cb2-11"></a>  cuando_termina_una_colision(actor<span class="op">:</span> Actor) {}</span>
 <span id="cb2-12"><a href="#cb2-12"></a>}</span></code></pre></div>  <div class="tc navegacion">
   <div>
-    <a href="#" onclick="document.documentElement.scrollTo(0, 0);">Subir</a>
+    <a href="#" onclick="document.documentElement.scrollTo(0, 0);">Нагору</a>
   </div>
 
   <div>
-    <a href="index.html">Regresar al índice</a>
+    <a href="index.html">Повернутися до змісту</a>
   </div>
 </div> 
   </body>

@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="generator" content="pandoc" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-          <title>Recorridos</title>
+          <title>Переміщення</title>
     <style>
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
@@ -77,34 +77,34 @@
         <link rel="stylesheet" href="estilo.css" />
         <script src="./manual.js" charset="utf-8"></script>
       <div class="tc navegacion">
-  <a href="index.html">Regresar al índice</a>
+  <a href="index.html">Повернутися до змісту</a>
 </div> 
   </head>
   <body>
          <header id="title-block-header">
-      <h1 class="title">Recorridos</h1>
+      <h1 class="title">Переміщення</h1>
             </header>
-      <p>Los recorridos nos permiten realizar movimientos de actores de manera muy simple, lo que tenemos que hacer es enumerar todos los puntos “x” e “y” que queremos recorrer y llamar a una sola función.</p>
-<h2 id="usando-la-función-hacer_recorrido">Usando la función hacer_recorrido</h2>
-<p>Por ejemplo, imagina que tenemos un enemigo de juego de naves, un ovni con un alien, y queremos que se mueva por la pantalla de izquierda a derecha.</p>
-<p>Primero tenemos que tener en cuenta qué puntos de la pantalla queremos que recorra. Por ejemplo, que primero visite la posición <code>(x= -200, y=0)</code>, luego hacia abajo a la posición <code>(x=0, y=-100)</code>, luego a la derecha <code>(x=200, y=0)</code> y por último que regrese al punto de origen <code>(x=0, y=0)</code>:</p>
+      <p>Покрокові інструкції дозволяють нам виконувати рухи актора дуже простим способом. Що нам потрібно зробити, так це перерахувати всі точки "x" та "y", які ми хочемо пройти, і викликати одну функцію.</p>
+<h2 id="usando-la-función-hacer_recorrido">Використання функції hacer_recorrido</h2>
+<p>Наприклад, уявіть, що у нас є корабель з прибульцем, і ми хочемо, щоб він рухався по екрану зліва направо.</p>
+<p>Спочатку ми повинні зазначити, через які точки на екрані ми хочемо, щоб він проходив. Наприклад, спочатку корабель перемістимо у <code>(x= -200, y=0)</code>, потім вниз у <code>(x=0, y=-100)</code>, потім праворуч в <code>(x=200, y=0)</code> і, нарешті, повернемо у початкову точку <code>(x=0, y=0)</code>:</p>
 <p><img src="imagenes/recorridos.assets/posiciones-1.png" /></p>
-<p>Y por último, tenemos que llamar a la función <code>hacer_recorrido</code> de esta forma dentro de una actor:</p>
+<p>Отже, викликаємо функцію <code>hacer_recorrido</code> всередині актора таким чином:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb1-1"><a href="#cb1-1"></a>this<span class="op">.</span><span class="fu">hacer_recorrido</span>([<span class="op">-</span><span class="dv">200</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="op">-</span><span class="dv">100</span><span class="op">,</span> <span class="dv">200</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0</span>]<span class="op">,</span> <span class="dv">7</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> false)<span class="op">;</span></span></code></pre></div>
-<p>El primer parámetro tiene que ser una lista con todas las coordenadas que queremos que recorra. Tenemos que ingresar el número de la coordenada <code>x</code>, luego en de la coordenada <code>y</code> y seguir así. Esta lista tiene que tener la forma <code>[x_punto_1, y_punto_1, x_punto_2, y_punto_2 ....]</code></p>
-<p>El segundo argumento, que en este ejemplo es <code>7</code>, tiene que ser un número indicando cuantos segundos tiene que durar el movimiento. En este caso se pide que el movimiento dure 7 segundos.</p>
-<p>El ante último argumento es el número que indicará las repeticiones de esta animación, si le pasamos <code>0</code> el movimiento se va a repetir constantemente.</p>
-<p>Y el último argumento indica si el actor deber rotar en dirección al camino o no. Es útil poner este argumento en <code>true</code> cuando el actor es una nave vista desde arriba o un automóvil:</p>
+<p>Перший параметр має бути списком із усіма координатами <code>x</code> та <code>y</code>, які ми хочемо пройти. Цей список повинен мати форму <code>[x_точка_1, y_точка_1, x_точка_2, y_точка_2,...]</code></p>
+<p>Другий аргумент, який в цьому прикладі є <code>7</code>, має бути числом, яке вказує, скільки секунд триватиме рух. У цьому разі рух має тривати 7 секунд.</p>
+<p>Передостанній аргумент - це число, яке вказує на кількість повторів цієї анімації. Якщо ми передамо <code>0</code>, рух буде постійно повторюватися.</p>
+<p>І останній аргумент вказує на те, чи повинен актор обертатися в напрямку руху чи ні. Корисно встановити для цього аргументу значення <code>true</code>, якщо актором є корабель, який видно згори, або автомобіль:</p>
 <p><img src="imagenes/recorridos.assets/recorrido-con-orientacion.png" /></p>
-<p>Ten en cuenta que el actor va a visitar todos los puntos pero de manera gradual, siguiendo el recorrido pero realizando una curva de movimiento muy suave:</p>
+<p>У результаті актор відвідає всі точки, але поступово, дотримуючись маршруту, зробить дуже плавну криву руху:</p>
 <p><img src="imagenes/recorridos.assets/posiciones-2.png" /></p>
 <p><img src="imagenes/recorridos.assets/posiciones-3.png" /></p>  <div class="tc navegacion">
   <div>
-    <a href="#" onclick="document.documentElement.scrollTo(0, 0);">Subir</a>
+    <a href="#" onclick="document.documentElement.scrollTo(0, 0);">Нагору</a>
   </div>
 
   <div>
-    <a href="index.html">Regresar al índice</a>
+    <a href="index.html">Повернутися до змісту</a>
   </div>
 </div> 
   </body>

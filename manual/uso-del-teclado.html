@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="generator" content="pandoc" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-          <title>Uso del teclado</title>
+          <title>Використання клавіатури</title>
     <style>
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
@@ -77,18 +77,18 @@
         <link rel="stylesheet" href="estilo.css" />
         <script src="./manual.js" charset="utf-8"></script>
       <div class="tc navegacion">
-  <a href="index.html">Regresar al índice</a>
+  <a href="index.html">Повернутися до змісту</a>
 </div> 
   </head>
   <body>
          <header id="title-block-header">
-      <h1 class="title">Uso del teclado</h1>
+      <h1 class="title">Використання клавіатури</h1>
             </header>
-      <p>El teclado se puede utilizar de dos formas básicas: por consulta para mover personajes o mediante eventos para responder a pulsaciones de teclas específicas:</p>
-<h2 id="primer-forma-cómo-mover-un-personaje-con-el-teclado">Primer forma: ¿Cómo mover un personaje con el teclado?</h2>
-<p>En la mayoría de los juegos para computadoras se puede controlar al protagonista del juego usando el teclado.</p>
-<p>Pilas hace bastante sencillo esto mediante un objeto llamado “control” que nos va a permitir acceder a las teclas básicas para controlar personajes.</p>
-<p>Por ejemplo, para mover un actor hacia izquierda y derecha usando las flechitas del teclado podemos editar el método “actualizar” del actor y colocar estas lineas de código:</p>
+      <p>Клавіатуру можна використовувати двома основними способами: переміщення акторів клавішами або за допомогою подій для відповіді на натискання певних клавіш:</p>
+<h2 id="primer-forma-cómo-mover-un-personaje-con-el-teclado">Спосіб перший: як перемістити актора за допомогою клавіатури?</h2>
+<p>У більшості комп'ютерних ігор ви можете керувати головним героєм гри за допомогою клавіатури.</p>
+<p>Це реалізується просто за допомогою об’єкта під назвою "control", який надає доступ до основних клавіш для керування ігровими персонажами.</p>
+<p>Наприклад, щоб перемістити актора вліво та вправо за допомогою стрілок на клавіатурі, ми можемо відредагувати метод "actualizar" актора та розмістити ці рядки коду:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb1-1"><a href="#cb1-1"></a></span>
 <span id="cb1-2"><a href="#cb1-2"></a>actualizar() {</span>
 <span id="cb1-3"><a href="#cb1-3"></a>  if (this<span class="op">.</span><span class="at">control</span><span class="op">.</span><span class="at">izquierda</span>) {</span>
@@ -99,268 +99,268 @@
 <span id="cb1-8"><a href="#cb1-8"></a>    this<span class="op">.</span><span class="at">x</span> <span class="op">+=</span> <span class="dv">5</span><span class="op">;</span></span>
 <span id="cb1-9"><a href="#cb1-9"></a>  }</span>
 <span id="cb1-10"><a href="#cb1-10"></a>}</span></code></pre></div>
-<p>El objeto “control” tiene varios atributos que podemos consultar (mediante la palabra “if”) para saber si en ese instante la tecla está pulsada o no.</p>
-<p>Estas son otros atributos que tiene el objeto “control”:</p>
+<p>Як видно у прикладі коду, щоб дізнатися, чи натиснуто клавішу в цей момент чи ні, використовують вказівку розгалуження "if".</p>
+<p>Значення, які має об’єкт "control":</p>
 <table>
 <thead>
 <tr class="header">
-<th>Tecla</th>
-<th>Código para consultar la tecla</th>
-<th>nombre</th>
+<th>Клавіша</th>
+<th>Код</th>
+<th>Назва</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Flecha izquierda</td>
+<td>Стрілка ліворуч</td>
 <td>this.control.izquierda</td>
-<td>“izquierda”</td>
+<td>"izquierda"</td>
 </tr>
 <tr class="even">
-<td>Flecha derecha</td>
+<td>Стрілка праворуч</td>
 <td>this.control.derecha</td>
-<td>“derecha”</td>
+<td>"derecha"</td>
 </tr>
 <tr class="odd">
-<td>Flecha arriba</td>
+<td>Стрілка вгору</td>
 <td>this.control.arriba</td>
-<td>“arriba”</td>
+<td>"arriba"</td>
 </tr>
 <tr class="even">
-<td>Flecha abajo</td>
+<td>Стрілка вниз</td>
 <td>this.control.abajo</td>
-<td>“abajo”</td>
+<td>"abajo"</td>
 </tr>
 <tr class="odd">
-<td>Tecla Space</td>
+<td>Пропуск</td>
 <td>this.control.espacio</td>
-<td>“espacio”</td>
+<td>"espacio"</td>
 </tr>
 <tr class="even">
 <td>Alt</td>
 <td>this.control.alt</td>
-<td>“alt”</td>
+<td>"alt"</td>
 </tr>
 <tr class="odd">
-<td>Control</td>
+<td>Ctrl</td>
 <td>this.control.control</td>
-<td>“control”</td>
+<td>"control"</td>
 </tr>
 <tr class="even">
 <td>Shift</td>
 <td>this.control.shift</td>
-<td>“shift”</td>
+<td>"shift"</td>
 </tr>
 <tr class="odd">
 <td>Tab</td>
 <td>this.control.tab</td>
-<td>“tab”</td>
+<td>"tab"</td>
 </tr>
 <tr class="even">
 <td>Backspace</td>
 <td>this.control.backspace</td>
-<td>“backspace”</td>
+<td>"backspace"</td>
 </tr>
 <tr class="odd">
 <td>Meta</td>
 <td>this.control.meta</td>
-<td>“meta”</td>
+<td>"meta"</td>
 </tr>
 <tr class="even">
-<td>Escape</td>
+<td>Esc</td>
 <td>this.control.escape</td>
-<td>“escape”</td>
+<td>"escape"</td>
 </tr>
 <tr class="odd">
 <td>Enter</td>
 <td>this.control.enter</td>
-<td>“enter”</td>
+<td>"enter"</td>
 </tr>
 <tr class="even">
-<td>Tecla a</td>
+<td>a</td>
 <td>this.control.tecla_a</td>
-<td>“a”</td>
+<td>"a"</td>
 </tr>
 <tr class="odd">
-<td>Tecla b</td>
+<td>b</td>
 <td>this.control.tecla_b</td>
-<td>“b”</td>
+<td>"b"</td>
 </tr>
 <tr class="even">
-<td>Tecla c</td>
+<td>c</td>
 <td>this.control.tecla_c</td>
-<td>“c”</td>
+<td>"c"</td>
 </tr>
 <tr class="odd">
-<td>Tecla d</td>
+<td>d</td>
 <td>this.control.tecla_d</td>
-<td>“d”</td>
+<td>"d"</td>
 </tr>
 <tr class="even">
-<td>Tecla e</td>
+<td>e</td>
 <td>this.control.tecla_e</td>
-<td>“e”</td>
+<td>"e"</td>
 </tr>
 <tr class="odd">
-<td>Tecla f</td>
+<td>f</td>
 <td>this.control.tecla_f</td>
-<td>“f”</td>
+<td>"f"</td>
 </tr>
 <tr class="even">
-<td>Tecla g</td>
+<td>g</td>
 <td>this.control.tecla_g</td>
-<td>“g”</td>
+<td>"g"</td>
 </tr>
 <tr class="odd">
-<td>Tecla h</td>
+<td>h</td>
 <td>this.control.tecla_h</td>
-<td>“h”</td>
+<td>"h"</td>
 </tr>
 <tr class="even">
-<td>Tecla i</td>
+<td>i</td>
 <td>this.control.tecla_i</td>
-<td>“i”</td>
+<td>"i"</td>
 </tr>
 <tr class="odd">
-<td>Tecla j</td>
+<td>j</td>
 <td>this.control.tecla_j</td>
-<td>“j”</td>
+<td>"j"</td>
 </tr>
 <tr class="even">
-<td>Tecla k</td>
+<td>k</td>
 <td>this.control.tecla_k</td>
-<td>“k”</td>
+<td>"k"</td>
 </tr>
 <tr class="odd">
-<td>Tecla l</td>
+<td>l</td>
 <td>this.control.tecla_l</td>
-<td>“l”</td>
+<td>"l"</td>
 </tr>
 <tr class="even">
-<td>Tecla m</td>
+<td>m</td>
 <td>this.control.tecla_m</td>
-<td>“m”</td>
+<td>"m"</td>
 </tr>
 <tr class="odd">
-<td>Tecla n</td>
+<td>n</td>
 <td>this.control.tecla_n</td>
-<td>“n”</td>
+<td>"n"</td>
 </tr>
 <tr class="even">
-<td>Tecla ñ</td>
+<td>ñ</td>
 <td>this.control.tecla_ñ</td>
-<td>“ñ”</td>
+<td>"ñ"</td>
 </tr>
 <tr class="odd">
-<td>Tecla o</td>
+<td>o</td>
 <td>this.control.tecla_o</td>
-<td>“o”</td>
+<td>"o"</td>
 </tr>
 <tr class="even">
-<td>Tecla p</td>
+<td>p</td>
 <td>this.control.tecla_p</td>
-<td>“p”</td>
+<td>"p"</td>
 </tr>
 <tr class="odd">
-<td>Tecla q</td>
+<td>q</td>
 <td>this.control.tecla_q</td>
-<td>“q”</td>
+<td>"q"</td>
 </tr>
 <tr class="even">
-<td>Tecla r</td>
+<td>r</td>
 <td>this.control.tecla_r</td>
-<td>“r”</td>
+<td>"r"</td>
 </tr>
 <tr class="odd">
-<td>Tecla s</td>
+<td>s</td>
 <td>this.control.tecla_s</td>
-<td>“s”</td>
+<td>"s"</td>
 </tr>
 <tr class="even">
-<td>Tecla t</td>
+<td>t</td>
 <td>this.control.tecla_t</td>
-<td>“t”</td>
+<td>"t"</td>
 </tr>
 <tr class="odd">
-<td>Tecla u</td>
+<td>u</td>
 <td>this.control.tecla_u</td>
-<td>“u”</td>
+<td>"u"</td>
 </tr>
 <tr class="even">
-<td>Tecla v</td>
+<td>v</td>
 <td>this.control.tecla_v</td>
-<td>“v”</td>
+<td>"v"</td>
 </tr>
 <tr class="odd">
-<td>Tecla w</td>
+<td>w</td>
 <td>this.control.tecla_w</td>
-<td>“w”</td>
+<td>"w"</td>
 </tr>
 <tr class="even">
-<td>Tecla x</td>
+<td>x</td>
 <td>this.control.tecla_x</td>
-<td>“x”</td>
+<td>"x"</td>
 </tr>
 <tr class="odd">
-<td>Tecla y</td>
+<td>y</td>
 <td>this.control.tecla_y</td>
-<td>“y”</td>
+<td>"y"</td>
 </tr>
 <tr class="even">
-<td>Tecla z</td>
+<td>z</td>
 <td>this.control.tecla_z</td>
-<td>“z”</td>
+<td>"z"</td>
 </tr>
 <tr class="odd">
-<td>Tecla 1</td>
+<td>1</td>
 <td>this.control.tecla_1</td>
-<td>“1”</td>
+<td>"1"</td>
 </tr>
 <tr class="even">
-<td>Tecla 2</td>
+<td>2</td>
 <td>this.control.tecla_2</td>
-<td>“2”</td>
+<td>"2"</td>
 </tr>
 <tr class="odd">
-<td>Tecla 3</td>
+<td>3</td>
 <td>this.control.tecla_3</td>
-<td>“3”</td>
+<td>"3"</td>
 </tr>
 <tr class="even">
-<td>Tecla 4</td>
+<td>4</td>
 <td>this.control.tecla_4</td>
-<td>“4”</td>
+<td>"4"</td>
 </tr>
 <tr class="odd">
-<td>Tecla 5</td>
+<td>5</td>
 <td>this.control.tecla_5</td>
-<td>“5”</td>
+<td>"5"</td>
 </tr>
 <tr class="even">
-<td>Tecla 6</td>
+<td>6</td>
 <td>this.control.tecla_6</td>
-<td>“6”</td>
+<td>"6"</td>
 </tr>
 <tr class="odd">
-<td>Tecla 7</td>
+<td>7</td>
 <td>this.control.tecla_7</td>
-<td>“7”</td>
+<td>"7"</td>
 </tr>
 <tr class="even">
-<td>Tecla 8</td>
+<td>8</td>
 <td>this.control.tecla_8</td>
-<td>“8”</td>
+<td>"8"</td>
 </tr>
 <tr class="odd">
-<td>Tecla 9</td>
+<td>9</td>
 <td>this.control.tecla_9</td>
-<td>“9”</td>
+<td>"9"</td>
 </tr>
 </tbody>
 </table>
-<h2 id="segunda-forma-cómo-reaccionar-a-eventos-del-teclado">Segunda forma: ¿Cómo reaccionar a eventos del teclado?</h2>
-<p>Otra forma de acceder al teclado es mediante eventos, para ejecutar una función justo cuando se pulsa una tecla o se suelta.</p>
-<p>Esto es útil por ejemplo en los juegos por turnos o cuando queremos que el teclado funcione sin repetición, imaginá que si hacemos un juego donde el jugador pueda disparar, queremos que pulse y suelte la tecla de disparo muchas veces, no que la deje pulsada y eso dispare automáticamente.</p>
-<p>Para capturar eventos de teclado de esta forma tendrías que definir los métodos <code>cuando_pulsa_tecla</code> y <code>cuando_suelta_tecla</code> así:</p>
+<h2 id="segunda-forma-cómo-reaccionar-a-eventos-del-teclado">Другий спосіб: як реагувати на події клавіатури?</h2>
+<p>Інший спосіб отримати доступ до клавіатури - через події, які обробляються функцією, коли клавішу натиснуто або відпущено.</p>
+<p>Це корисно, наприклад, у покрокових іграх або коли ми хочемо, щоб клавіатура працювала без повторень. Уявіть, що якщо ми робимо гру, де гравець може стріляти, ми хочемо, щоб він натискав і відпускав клавішу стрільби багато разів, а не продовжував увесь час, коли відбулося натиснення.</p>
+<p>Щоб захопити події клавіатури таким чином, вам доведеться визначити методи <code>cuando_pulsa_tecla</code> та <code>cuando_suelta_tecla</code> так:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb2-1"><a href="#cb2-1"></a></span>
 <span id="cb2-2"><a href="#cb2-2"></a>  cuando_pulsa_tecla(tecla) {</span>
 <span id="cb2-3"><a href="#cb2-3"></a>    if (tecla <span class="op">==</span> <span class="st">&quot;espacio&quot;</span>) {</span>
@@ -370,17 +370,17 @@
 <span id="cb2-7"><a href="#cb2-7"></a></span>
 <span id="cb2-8"><a href="#cb2-8"></a>  cuando_suelta_tecla(tecla) {</span>
 <span id="cb2-9"><a href="#cb2-9"></a>    if (tecla <span class="op">==</span> <span class="st">&quot;1&quot;</span>) {</span>
-<span id="cb2-10"><a href="#cb2-10"></a>      this<span class="op">.</span><span class="fu">decir</span>(<span class="st">&quot;Has soltado la tecla 1&quot;</span>)</span>
+<span id="cb2-10"><a href="#cb2-10"></a>      this<span class="op">.</span><span class="fu">decir</span>(<span class="st">&quot;Ви відпустили клавішу з цифрою 1&quot;</span>)</span>
 <span id="cb2-11"><a href="#cb2-11"></a>    }</span>
 <span id="cb2-12"><a href="#cb2-12"></a>  }</span></code></pre></div>
-<p>Estos métodos están disponibles tanto en las escenas como en los actores. Puedes comprobarlo escribiendo “cuando” en el editor y viendo cómo se sugieren las opciones:</p>
+<p>Ці методи доступні як на сценах, так і на акторах. Ви можете перевірити це, ввівши "cuando" у редакторі та переглянути запропоновані варіанти:</p>
 <p><img src="imagenes/uso-del-teclado.assets/autocompleta.png" /></p>  <div class="tc navegacion">
   <div>
-    <a href="#" onclick="document.documentElement.scrollTo(0, 0);">Subir</a>
+    <a href="#" onclick="document.documentElement.scrollTo(0, 0);">Нагору</a>
   </div>
 
   <div>
-    <a href="index.html">Regresar al índice</a>
+    <a href="index.html">Повернутися до змісту</a>
   </div>
 </div> 
   </body>

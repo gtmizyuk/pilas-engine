@@ -105147,14 +105147,15 @@ module.exports = typeof setImmediate === 'function' ? setImmediate :
     "zoom.tooltip": "Zoom del editor"
   }], ["uk", {
     "about": {
+      "Ukrainian.translation": "Переклад українською - Oleksandr Miziuk.",
       "end": "Відвідайте вебсайт Pilas Engine, щоб дізнатися більше про цей проєкт, або напишіть нам\nбезпосередньо на форумі, якщо у вас виникнуть запитання.",
       "forum.link": "Форум",
-      "text": "Pilas - це простий інструмент для створення комп'ютерних ігор.\n\nМи створили цей інструмент для того, щоб усі бажаючі могли навчитися програмувати. \nМи вважаємо, що вміння програмувати ігри - це класно і весело, тому усі люди повинні вміти це робити. \nВміння кодувати дозволяє вам винаходити, ділитися та розробляти будь-який тип програмного забезпечення.\n\nПіктограми інтерфейсу були створені за допомогою Icons8, тоді як ігрова графіка створена\nУолтером Веласкесом (Walter Velazquez) і проєктом kenney.",
+      "text": "Pilas Engine - це простий ігровий рушій для створення комп'ютерних ігор.\n\nМи створили цей інструмент для того, щоб усі бажаючі могли навчитися програмувати. \nМи вважаємо, що вміння програмувати ігри - це класно і весело, тому усі люди повинні вміти це робити. \nВміння кодувати дозволяє вам винаходити, ділитися та розробляти будь-який тип програмного забезпечення.\n\nПіктограми інтерфейсу були створені за допомогою Icons8, тоді як ігрова графіка створена\nУолтером Веласкесом (Walter Velazquez) і проєктом kenney.",
       "title": "Що таке Pilas Engine?",
       "web.link": "Вебсайт Pilas Engine"
     },
     "actor": {
-      "ablities": "Дії",
+      "ablities": "Навички",
       "active": "Активний",
       "background": "Тло",
       "behaviors": "Поведінка",
@@ -105170,8 +105171,8 @@ module.exports = typeof setImmediate === 'function' ? setImmediate :
       "image": "Зображення",
       "label": "Мітка",
       "lasers": "Лазери",
-      "new.laser": "Новий лазер",
-      "new.sensor": "Новий датчик",
+      "new.laser": "Створити лазер",
+      "new.sensor": "Створити сенсор",
       "physical.simulation": "Фізичне моделювання",
       "position": "Координати",
       "rotation": "Обертання",
@@ -105179,15 +105180,15 @@ module.exports = typeof setImmediate === 'function' ? setImmediate :
         "x": "Масштаб X",
         "y": "Масштаб Y"
       },
-      "sensor": "Датчик",
-      "sensors": "Датчики",
+      "sensor": "Сенсор",
+      "sensors": "Сенсори",
       "shape": {
         "bounce": "Відбивання",
         "dynamic": "Динамічний",
         "height": "Висота",
-        "is.sensor": "Є датчиком?",
+        "is.sensor": "Прозорий",
         "no.rotation": "Без обертання",
-        "ratio": "Пропорція",
+        "ratio": "Радіус",
         "title": "Форма",
         "width": "Ширина"
       },
@@ -105275,7 +105276,7 @@ module.exports = typeof setImmediate === 'function' ? setImmediate :
       "editor": "Редактор",
       "examples": "Приклади",
       "explore": "Бібліотека ігор",
-      "manual": "Посібник",
+      "manual": "Підручник",
       "tip.text": "Ви можете відкрити будь-який проєкт, перетягнувши файл .pilas сюди.",
       "tip.title": "Порада",
       "welcome": "Вітаємо у Pilas Engine 2!"
@@ -105287,10 +105288,10 @@ module.exports = typeof setImmediate === 'function' ? setImmediate :
       "title": "Оберіть шаблон для створення гри"
     },
     "interpreter": {
-      "entering.edit": "Вхід в режим редагування",
-      "entering.pause": "Вхід в режим паузи",
-      "entering.run": "Вхід у режим виконання",
-      "help": "Натисніть «Запустити» для введення команд",
+      "entering.edit": "Ви увійшли в режим редагування",
+      "entering.pause": "Ви увійшли в режим паузи",
+      "entering.run": "Ви увійшли в режим інтерпретатора",
+      "help": "Натисніть \"Запустити\", щоб увійти в режим інтерпретатора",
       "label": "Інтерпретатор",
       "scope": "Ви можете використовувати змінні pilas або actores."
     },
@@ -105304,7 +105305,7 @@ module.exports = typeof setImmediate === 'function' ? setImmediate :
     "manual": {
       "functions": "Довідник по функціям",
       "shortcuts": "Сполучення клавіш",
-      "title": "Посібник"
+      "title": "Підручник"
     },
     "menu": {
       "delete": {
@@ -105317,7 +105318,7 @@ module.exports = typeof setImmediate === 'function' ? setImmediate :
       "move.to.new.scene": "Перейти до нової сцени"
     },
     "name": "Ім'я",
-    "new": "Новий",
+    "new": "Створити",
     "next": "Наступний",
     "no": "Ні",
     "no.recipes": "Рецептів немає",
@@ -111942,35 +111943,35 @@ var __ember_auto_import__ =
 /******/ ({
 
 /***/ 0:
-/*!*****************************************************************************************************************************************************************************************************!*\
-  !*** multi C:/Users/user/AppData/Local/Temp/broccoli-10560wGEYBtdRWi6v/cache-312-bundler/staging/l.js C:/Users/user/AppData/Local/Temp/broccoli-10560wGEYBtdRWi6v/cache-312-bundler/staging/app.js ***!
-  \*****************************************************************************************************************************************************************************************************/
+/*!***************************************************************************************************************************************************************************************************!*\
+  !*** multi C:/Users/user/AppData/Local/Temp/broccoli-9844HPrDKALC3jLV/cache-312-bundler/staging/l.js C:/Users/user/AppData/Local/Temp/broccoli-9844HPrDKALC3jLV/cache-312-bundler/staging/app.js ***!
+  \***************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("__webpack_require__(/*! C:\\Users\\user\\AppData\\Local\\Temp\\broccoli-10560wGEYBtdRWi6v\\cache-312-bundler\\staging\\l.js */\"C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\broccoli-10560wGEYBtdRWi6v\\\\cache-312-bundler\\\\staging\\\\l.js\");\nmodule.exports = __webpack_require__(/*! C:\\Users\\user\\AppData\\Local\\Temp\\broccoli-10560wGEYBtdRWi6v\\cache-312-bundler\\staging\\app.js */\"C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\broccoli-10560wGEYBtdRWi6v\\\\cache-312-bundler\\\\staging\\\\app.js\");\n\n\n//# sourceURL=webpack://__ember_auto_import__/multi_C:/Users/user/AppData/Local/Temp/broccoli-10560wGEYBtdRWi6v/cache-312-bundler/staging/l.js_C:/Users/user/AppData/Local/Temp/broccoli-10560wGEYBtdRWi6v/cache-312-bundler/staging/app.js?");
+eval("__webpack_require__(/*! C:\\Users\\user\\AppData\\Local\\Temp\\broccoli-9844HPrDKALC3jLV\\cache-312-bundler\\staging\\l.js */\"C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\broccoli-9844HPrDKALC3jLV\\\\cache-312-bundler\\\\staging\\\\l.js\");\nmodule.exports = __webpack_require__(/*! C:\\Users\\user\\AppData\\Local\\Temp\\broccoli-9844HPrDKALC3jLV\\cache-312-bundler\\staging\\app.js */\"C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\broccoli-9844HPrDKALC3jLV\\\\cache-312-bundler\\\\staging\\\\app.js\");\n\n\n//# sourceURL=webpack://__ember_auto_import__/multi_C:/Users/user/AppData/Local/Temp/broccoli-9844HPrDKALC3jLV/cache-312-bundler/staging/l.js_C:/Users/user/AppData/Local/Temp/broccoli-9844HPrDKALC3jLV/cache-312-bundler/staging/app.js?");
 
 /***/ }),
 
-/***/ "C:\\Users\\user\\AppData\\Local\\Temp\\broccoli-10560wGEYBtdRWi6v\\cache-312-bundler\\staging\\app.js":
-/*!****************************************************************************************************!*\
-  !*** C:/Users/user/AppData/Local/Temp/broccoli-10560wGEYBtdRWi6v/cache-312-bundler/staging/app.js ***!
-  \****************************************************************************************************/
+/***/ "C:\\Users\\user\\AppData\\Local\\Temp\\broccoli-9844HPrDKALC3jLV\\cache-312-bundler\\staging\\app.js":
+/*!***************************************************************************************************!*\
+  !*** C:/Users/user/AppData/Local/Temp/broccoli-9844HPrDKALC3jLV/cache-312-bundler/staging/app.js ***!
+  \***************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("\nif (typeof document !== 'undefined') {\n  __webpack_require__.p = (function(){\n    var scripts = document.querySelectorAll('script');\n    return scripts[scripts.length - 1].src.replace(/\\/[^/]*$/, '/');\n  })();\n}\n\nmodule.exports = (function(){\n  var d = _eai_d;\n  var r = _eai_r;\n  window.emberAutoImportDynamic = function(specifier) {\n    return r('_eai_dyn_' + specifier);\n  };\n    d('fast-memoize', [], function() { return __webpack_require__(/*! ./node_modules/fast-memoize/src/index.js */ \"./node_modules/fast-memoize/src/index.js\"); });\n    d('intl-messageformat', [], function() { return __webpack_require__(/*! ./node_modules/intl-messageformat/lib/index.js */ \"./node_modules/intl-messageformat/lib/index.js\"); });\n    d('intl-messageformat-parser', [], function() { return __webpack_require__(/*! ./node_modules/intl-messageformat-parser/lib/index.js */ \"./node_modules/intl-messageformat-parser/lib/index.js\"); });\n})();\n\n\n//# sourceURL=webpack://__ember_auto_import__/C:/Users/user/AppData/Local/Temp/broccoli-10560wGEYBtdRWi6v/cache-312-bundler/staging/app.js?");
+eval("\nif (typeof document !== 'undefined') {\n  __webpack_require__.p = (function(){\n    var scripts = document.querySelectorAll('script');\n    return scripts[scripts.length - 1].src.replace(/\\/[^/]*$/, '/');\n  })();\n}\n\nmodule.exports = (function(){\n  var d = _eai_d;\n  var r = _eai_r;\n  window.emberAutoImportDynamic = function(specifier) {\n    return r('_eai_dyn_' + specifier);\n  };\n    d('fast-memoize', [], function() { return __webpack_require__(/*! ./node_modules/fast-memoize/src/index.js */ \"./node_modules/fast-memoize/src/index.js\"); });\n    d('intl-messageformat', [], function() { return __webpack_require__(/*! ./node_modules/intl-messageformat/lib/index.js */ \"./node_modules/intl-messageformat/lib/index.js\"); });\n    d('intl-messageformat-parser', [], function() { return __webpack_require__(/*! ./node_modules/intl-messageformat-parser/lib/index.js */ \"./node_modules/intl-messageformat-parser/lib/index.js\"); });\n})();\n\n\n//# sourceURL=webpack://__ember_auto_import__/C:/Users/user/AppData/Local/Temp/broccoli-9844HPrDKALC3jLV/cache-312-bundler/staging/app.js?");
 
 /***/ }),
 
-/***/ "C:\\Users\\user\\AppData\\Local\\Temp\\broccoli-10560wGEYBtdRWi6v\\cache-312-bundler\\staging\\l.js":
-/*!**************************************************************************************************!*\
-  !*** C:/Users/user/AppData/Local/Temp/broccoli-10560wGEYBtdRWi6v/cache-312-bundler/staging/l.js ***!
-  \**************************************************************************************************/
+/***/ "C:\\Users\\user\\AppData\\Local\\Temp\\broccoli-9844HPrDKALC3jLV\\cache-312-bundler\\staging\\l.js":
+/*!*************************************************************************************************!*\
+  !*** C:/Users/user/AppData/Local/Temp/broccoli-9844HPrDKALC3jLV/cache-312-bundler/staging/l.js ***!
+  \*************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("\nwindow._eai_r = require;\nwindow._eai_d = define;\n\n\n//# sourceURL=webpack://__ember_auto_import__/C:/Users/user/AppData/Local/Temp/broccoli-10560wGEYBtdRWi6v/cache-312-bundler/staging/l.js?");
+eval("\nwindow._eai_r = require;\nwindow._eai_d = define;\n\n\n//# sourceURL=webpack://__ember_auto_import__/C:/Users/user/AppData/Local/Temp/broccoli-9844HPrDKALC3jLV/cache-312-bundler/staging/l.js?");
 
 /***/ })
 

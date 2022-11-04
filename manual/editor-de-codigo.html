@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="generator" content="pandoc" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-          <title>Consejos para usar el editor de código</title>
+          <title>Поради щодо використання редактора коду</title>
     <style>
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
@@ -77,34 +77,34 @@
         <link rel="stylesheet" href="estilo.css" />
         <script src="./manual.js" charset="utf-8"></script>
       <div class="tc navegacion">
-  <a href="index.html">Regresar al índice</a>
+  <a href="index.html">Повернутися до змісту</a>
 </div> 
   </head>
   <body>
          <header id="title-block-header">
-      <h1 class="title">Consejos para usar el editor de código</h1>
+      <h1 class="title">Поради щодо використання редактора коду</h1>
             </header>
-      <p>El editor de código tiene varias funcionalidades para ayudarte a escribir código de manera rápida y cómoda.</p>
-<p>En esta sección te vamos a resumir algunas de esas funcionalidades:</p>
-<h2 id="autocompletado">Autocompletado</h2>
-<p>Siempre que escribas código, el editor intentará anticiparse a lo que escribas para mostrar sugerencias:</p>
+      <p>Редактор коду містить різні вбудовані можливості, які допоможуть вам швидко та зручно писати код.</p>
+<p>У цьому розділі спробуємо узагальнити інформацію про деякі з цих можливостей.</p>
+<h2 id="autocompletado">Автозаповнення</h2>
+<p>Щоразу, коли ви пишете код, редактор коду намагатиметься передбачити, що ви пишете, щоб показати пропозиції:</p>
 <p><img src="imagenes/editor-de-codigo/autocompletado.png" /></p>
-<p>Además, si estás escribiendo la llamada a un método el editor te mostrará los argumentos que podrías incluir:</p>
+<p>Крім того, якщо ви пишете виклик методу, редактор коду покаже вам аргументи, з якими метод викликається:</p>
 <p><img src="imagenes/editor-de-codigo/argumentos.png" /></p>
-<p>En este caso, el método decir admite dos argumentos: un mensaje y una duración. Notá que la duración tiene un símbolo de pregunta, lo que indica que ese argumento es opcional.</p>
-<h2 id="obtener-referencias-a-actores">Obtener referencias a actores</h2>
-<p>Para obtener referencias rápidas a los actores puedes simplemente “arrastrar y soltar” los actores sobre el código del editor:</p>
+<p>У цьому разі метод "decir" приймає два аргументи: повідомлення та тривалість. Зверніть увагу, що тривалість має знак питання, який вказує на те, що цей аргумент необов’язковий.</p>
+<h2 id="obtener-referencias-a-actores">Рекомендації щодо акторів</h2>
+<p>Щоб отримати швидкі покликання на акторів, ви можете просто "перетягнути" акторів у код редактора:</p>
 <p><img src="imagenes/editor-de-codigo/arrastrar.png" /></p>
-<p>Cuando el editor detecte que arrojaste un actor sobre el editor va a escribir una linea de código como esta:</p>
+<p>Коли редактор виявить, що ви "відпустили" актора, він напише такий рядок коду ("pelota" - м'яч):</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb1-1"><a href="#cb1-1"></a>let pelota <span class="op">=</span> this<span class="op">.</span><span class="at">pilas</span><span class="op">.</span><span class="fu">obtener_actor_por_nombre</span>(<span class="st">&quot;pelota&quot;</span>)<span class="op">;</span></span></code></pre></div>
-<p>Lo que es bastante útil, porque nos evita escribir ese código.</p>
-<p>Y si el actor que arrastramos sobre el editor es un actor desactivado, el editor va a colocar este código en su lugar:</p>
+<p>Це дуже корисно, оскільки позбавляє нас від написання цього коду.</p>
+<p>І якщо актор, якого ми перетягуємо в редактор, є вимкненим актором, редактор розмістить на його місці цей код:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb2-1"><a href="#cb2-1"></a>let pelota <span class="op">=</span> this<span class="op">.</span><span class="at">pilas</span><span class="op">.</span><span class="fu">clonar</span>(<span class="st">&quot;pelota&quot;</span>)<span class="op">;</span></span></code></pre></div>
-<h2 id="fragmentos-rápidos-de-código">Fragmentos rápidos de código</h2>
-<p>Además del autocompletado el editor nos permite escribir fragmentos rápidos, por ejemplo si escribis “observar” y pulsas enter, el editor va a autocompletar este texto:</p>
+<h2 id="fragmentos-rápidos-de-código">Швидкі фрагменти коду</h2>
+<p>Окрім автозаповнення, редактор дозволяє нам писати швидкі фрагменти, наприклад, якщо ви напишете "observar" і натиснете клавішу "Enter", редактор автоматично доповнить цей текст:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb3-1"><a href="#cb3-1"></a>this<span class="op">.</span><span class="at">pilas</span><span class="op">.</span><span class="fu">observar</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> this<span class="op">.</span><span class="at">x</span>)<span class="op">;</span></span></code></pre></div>
-<p>Además va a situar el cursor en la posición para que podamos personalizar esta linea de código rápidamente.</p>
-<p>Otros de los fragmentos rápidos que incluye el editor son los siguientes:</p>
+<p>Водночас це розташує курсор так, щоб ми могли швидко налаштувати цей рядок коду.</p>
+<p>Інші короткі фрагменти коду, включені в редактор, наведені нижче:</p>
 <ul>
 <li><code>pilas</code></li>
 <li><code>clonar</code></li>
@@ -112,20 +112,20 @@
 <li><code>control</code></li>
 <li><code>animar</code></li>
 </ul>
-<p>Te recomendamos probar escribir alguno de estos atajos para familiarizarte, sobre todo el fragmento <code>control</code> que es bastante completo.</p>
-<h2 id="navegar-métodos-rápidamente">Navegar métodos rápidamente</h2>
-<p>Cuando tenemos un actor con muchos métodos es aconsejable hacer búsquedas en lugar de recorrer el código hacia arriba y abajo con la barra de scroll.</p>
-<p>Para buscar métodos por nombres se puede pulsar el botón derecho del mouse sobre el editor y seleccionar la siguiente opción:</p>
+<p>Ми рекомендуємо вам спробувати написати одне з цих скорочень, щоб ознайомитися з ними, особливо з <code>control</code>.</p>
+<h2 id="navegar-métodos-rápidamente">Навігація по методах</h2>
+<p>Коли у нас є актор із багатьма методами, доцільно виконувати пошук замість того, щоб переглядати код вгору та вниз за допомогою смуги прокручування.</p>
+<p>Щоб шукати методи за назвою, ви можете натиснути праву кнопку миші у редакторі та вибрати наступний параметр:</p>
 <p><img src="imagenes/editor-de-codigo/secundario.png" /></p>
-<p>Luego vas a notar que aparecerá una barra de búsqueda con todos los métodos del actor, simplemente escribí o selecciona el método al que quieras ingresar.</p>
+<p>Тоді ви помітите, що з’явиться панель пошуку з усіма методами актора, просто введіть або виберіть метод, який ви бажаєте використати.</p>
 <p><img src="imagenes/editor-de-codigo/simbolos.png" /></p>
-<p>Ten en cuenta que también puedes activar esta funcionalidad pulsando <code>ctrl+P</code> como atajo.</p>  <div class="tc navegacion">
+<p>Зауважте, що ви також можете активувати цю дію, натиснувши <code>Ctrl+P</code>.</p>  <div class="tc navegacion">
   <div>
-    <a href="#" onclick="document.documentElement.scrollTo(0, 0);">Subir</a>
+    <a href="#" onclick="document.documentElement.scrollTo(0, 0);">Нагору</a>
   </div>
 
   <div>
-    <a href="index.html">Regresar al índice</a>
+    <a href="index.html">Повернутися до змісту</a>
   </div>
 </div> 
   </body>

@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="generator" content="pandoc" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-          <title>Músicas y sonidos</title>
+          <title>Музика і звуки</title>
     <style>
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
@@ -77,42 +77,42 @@
         <link rel="stylesheet" href="estilo.css" />
         <script src="./manual.js" charset="utf-8"></script>
       <div class="tc navegacion">
-  <a href="index.html">Regresar al índice</a>
+  <a href="index.html">Повернутися до змісту</a>
 </div> 
   </head>
   <body>
          <header id="title-block-header">
-      <h1 class="title">Músicas y sonidos</h1>
+      <h1 class="title">Музика і звуки</h1>
             </header>
-      <p>La música y el sonido de un videojuego es clave para lograr que el juego sea divertido y genere reacción en las personas que lo juegan, por ese motivo pilas también incluye un gestor de sonidos incluir audio en tus videojuegos.</p>
-<p>Para gestionar los sonidos del proyecto tienes que pulsar el botón “Sonidos” de la interfaz:</p>
+      <p>Музика та звук у грі відіграє важливу роль, оскільки це робить гру веселою та викликає реакцію у людей, які в неї грають.</p>
+<p>Щоб керувати звуками у проєкті використовують менеджер звуків, доступ до якого можна отримати натиснувши кнопку "Звуки":</p>
 <figure>
 <img src="imagenes/musicas-y-sonidos/sonidos.png" alt="" /><figcaption>sonidos</figcaption>
 </figure>
-<p>Luego vas a ver una ventana con varios sonidos pre cargados, la posibilidad de subir sonidos personalizados y algunos códigos de ejemplo para reproducir estos sonidos desde el código:</p>
+<p>Перед вами відкриється вікно з декількома попередньо завантаженими звуками, можливістю завантажувати спеціальні звуки та прикладами коду для відтворення цих звуків:</p>
 <figure>
 <img src="imagenes/musicas-y-sonidos/dialogo.png" alt="" /><figcaption>dialogo</figcaption>
 </figure>
-<h2 id="cómo-reproducir-sonidos-desde-el-código">Cómo reproducir sonidos desde el código</h2>
-<p>Cada sonido tiene su propio nombre dentro del gestor de sonidos. Este nombre es super importante porque es el que nos va a permitir distinguir los diferentes sonidos, o músicas, que incluye el juego.</p>
-<h2 id="qué-diferencia-la-música-de-los-sonidos">¿Qué diferencia la música de los sonidos?</h2>
-<p>Tal vez habrás notado que para pilas la música y los sonidos se cargan como archivos <code>.mp3</code> en la misma ventana, y de hecho comparten el mismo listado.</p>
-<p>Sin embargo hay una diferencia cómo pilas gestionan c estos dos tipos de archivos de audio:</p>
+<h2 id="cómo-reproducir-sonidos-desde-el-código">Відтворення звуків за допомогою коду</h2>
+<p>Кожен звук має власну назву в менеджері звуків. Ця назва надзвичайно важлива, оскільки саме вона дозволить нам розрізняти різні звуки або музику, які містить гра.</p>
+<h2 id="qué-diferencia-la-música-de-los-sonidos">Чим музика відрізняється від звуків?</h2>
+<p>Музика та звуки завантажуються як файли <code>.mp3</code> в тому самому вікні та фактично мають спільний доступ до того самого списку.</p>
+<p>Однак, існує різниця в тому, як обробляються ці два типи аудіофайлів:</p>
 <ul>
-<li>La música se puede reproducir una a la vez. Y cuando el audio de la música finaliza vuelve a comenzar. Esto es ideal para músicas estilo “loop”, que se pueden repetir todo el tiempo.</li>
-<li>Los sonidos se pueden reproducir en simultáneo, tantas veces como se quiera y junto a otros sonidos.</li>
+<li>Музику можна відтворювати по черзі. І коли звучання музики закінчується, вона починається знову. Це ідеальний варіант для музики у стилі "петлі", яку можна повторювати весь час.</li>
+<li>Звуки можна відтворювати одночасно, скільки завгодно разів і разом з іншими звуками.</li>
 </ul>
-<p>Ahora bien, esta distinción la tenemos que expresar en el código: cada vez que queramos reproducir una música, debemos llamar a la función:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb1-1"><a href="#cb1-1"></a>this<span class="op">.</span><span class="fu">reproducir_musica</span>(nombre)<span class="op">;</span></span></code></pre></div>
-<p>lo que hará que comience a reproducirse ese audio (infinitas veces) y se detendrá cualquier otra música.</p>
-<p>Mientras que si queremos reproducir un sonido podemos llamar a la función:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb2-1"><a href="#cb2-1"></a>this<span class="op">.</span><span class="fu">reproducir_sonido</span>(nombre)<span class="op">;</span></span></code></pre></div>  <div class="tc navegacion">
+<p>Тепер подивимось, як цю відмінність можна реалізувати у коді: кожного разу, коли ми хочемо відтворити музику, то викликаємо функцію</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb1-1"><a href="#cb1-1"></a>this<span class="op">.</span><span class="fu">reproducir_musica</span>("moneda")<span class="op">;</span></span></code></pre></div>
+<p>яка почне відтворювати зазначене аудіо нескінченну кількість разів і зупинить звучання будь-якої іншої музики.</p>
+<p>Якщо ми хочемо відтворити звук, то викликаємо функцію:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb2-1"><a href="#cb2-1"></a>this<span class="op">.</span><span class="fu">reproducir_sonido</span>("laser")<span class="op">;</span></span></code></pre></div>  <div class="tc navegacion">
   <div>
-    <a href="#" onclick="document.documentElement.scrollTo(0, 0);">Subir</a>
+    <a href="#" onclick="document.documentElement.scrollTo(0, 0);">Нагору</a>
   </div>
 
   <div>
-    <a href="index.html">Regresar al índice</a>
+    <a href="index.html">Повернутися до змісту</a>
   </div>
 </div> 
   </body>

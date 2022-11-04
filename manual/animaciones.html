@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="generator" content="pandoc" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-          <title>Animaciones</title>
+          <title>Анімації</title>
     <style>
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
@@ -77,42 +77,42 @@
         <link rel="stylesheet" href="estilo.css" />
         <script src="./manual.js" charset="utf-8"></script>
       <div class="tc navegacion">
-  <a href="index.html">Regresar al índice</a>
+  <a href="index.html">Повернутися до змісту</a>
 </div> 
   </head>
   <body>
          <header id="title-block-header">
-      <h1 class="title">Animaciones</h1>
+      <h1 class="title">Анімації</h1>
             </header>
-      <p>Para crear animaciones se tiene que utilizar el editor que aparece en la parte superior de la pantalla:</p>
+      <p>Щоб створити анімацію, ви повинні використовувати вбудований редактор анімації, який можна відкрити за допомогою кнопки у верхній частині екрану:</p>
 <p><img src="imagenes/animaciones.assets/image-20191218235021115.png" /></p>
-<p>Este botón abrirá una ventana en donde se pueden previsualizar todas la animaciones del proyecto:</p>
+<p>Ця кнопка відкриє вікно, у якому можна переглянути всі анімації проєкту:</p>
 <p><img src="imagenes/animaciones.assets/image-20191218235117098.png" /></p>
-<p>Estas animaciones también se pueden editar fácilmente, solo tienes que pasar el mouse sobre el nombre de la animación y pulsar el botón “editar”:</p>
+<p>Ці анімації можна легко редагувати. Для цього наведіть вказівник миші на назву анімації та натисніть на кнопку "Редагувати":</p>
 <p><img src="imagenes/animaciones.assets/image-20191218235228151.png" /></p>
-<p>Las animaciones son simplemente una lista de imágenes que pilas mostrará una detrás de la otra, a determinada velocidad. Vas ver toda esta información en el editor de animaciones:</p>
+<p>Анімація - це набір зображень, які відображаються одне за одним із певною швидкістю. Усі зображення анімації ви можете бачити в редакторі анімації:</p>
 <p><img src="imagenes/animaciones.assets/image-20191218235340936.png" /></p>
-<h2 id="crear-animaciones-desde-el-editor">Crear animaciones desde el editor</h2>
-<p>Para crear animaciones hay que pulsar el botón “Crear una animación”:</p>
+<h2 id="crear-animaciones-desde-el-editor">Створення анімації в редакторі</h2>
+<p>Щоб створити анімацію, натисніть кнопку "Створити анімацію":</p>
 <p><img src="imagenes/animaciones.assets/image-20191218235448801.png" /></p>
-<p>y luego cargar cada uno de los cuadros de animación pulsando el botón “+” que aparece en la parte superior de la ventana:</p>
+<p>а потім завантажте кожен кадр анімації, натиснувши кнопку "+":</p>
 <p><img src="imagenes/animaciones.assets/image-20191218235623632.png" /></p>
-<p>Por ejemplo, aquí incluí algunos cuadros de animación de un personaje corriendo:</p>
+<p>Наприклад, представлена анімація персонажа, що біжить, має кілька кадрів, на кожному з яких персонаж зображений у різних положеннях:</p>
 <p><img src="imagenes/animaciones.assets/image-20191219000155013.png" /></p>
-<p>Puedes utilizar el botón “Reproducir” y la propiedad “Cuadros por segundo” para ajustar la velocidad de la animación y dejarla como quieras:</p>
+<p>Ви можете використовувати кнопку "Відтворити" та властивість "Кадрів за секунду", щоб налаштувати швидкість анімації на власний вибір:</p>
 <p><img src="imagenes/animaciones.assets/screencast%202019-12-19%2000-04-05.gif" /></p>
-<p>Por último es muy importante que le asignes un nombre a la animación, por ejemplo “shaolin_corre”:</p>
+<p>Нарешті, дуже важливо призначити назву анімації, наприклад "shaolin_corre" (шаолінь біжить):</p>
 <p><img src="imagenes/animaciones.assets/image-20191219000635690.png" /></p>
-<p>Esto es muy importante porque tu juego puede tener un montón de animaciones, y el nombre que le asignes será la única forma de identificar cada una de las animaciones.</p>
-<p>Ahora sí, puedes cerrar la ventana del editor y continuar con la siguiente sección.</p>
-<h2 id="cómo-usar-las-animaciones">Cómo usar las animaciones</h2>
-<p>Una vez que tienes creada la animación, lo único que hace falta es copiar el código que aparece como ayuda en el visor de animaciones dentro del código:</p>
+<p>Це дуже важливо, оскільки ваша гра може мати багато анімацій, і назви, які ви обираєте, будуть єдиним способом ідентифікувати кожну з них.</p>
+<p>Тепер ви можете закрити вікно редактора анімації та перейти до наступного розділу.</p>
+<h2 id="cómo-usar-las-animaciones">Як використовувати анімацію</h2>
+<p>Після створення анімації все, що вам потрібно зробити, це скопіювати код, який відображається у рядку над вікном перегляду анімації:</p>
 <p><img src="imagenes/animaciones.assets/image-20191219000753983.png" /></p>
-<p>Ese código, sirve para indicarle al actor qué animación tiene que reproducir. Por ejemplo, si quieres que el actor muestre esta animación al comenzar deberías colocarlo dentro de la función “iniciar” así:</p>
+<p>Цей код використовується, щоб вказати акторові, яку анімацію відтворити. Наприклад, якщо ви хочете, щоб актор показував цю анімацію, коли вона починається, ви повинні розмістити її всередині функції "iniciar" (ініціювати, розпочати) так:</p>
 <p><img src="imagenes/animaciones.assets/image-20191219000913347.png" /></p>
-<h2 id="detectar-la-finalización-de-las-animaciones">Detectar la finalización de las animaciones</h2>
-<p>Las animaciones siempre se muestran de forma cíclica, es decir, cuanto terminan vuelven a empezar desde cero. Si tu animación es tradicional, como un personaje caminando, no tienes que hacer nada adicional para que continue la animación automáticamente.</p>
-<p>Si quieres detectar el momento exacto cuando la animación llega a su final, deberías crear un método llamado <code>cuando_finaliza_animacion</code> y colocar ahí algún código para reaccionar ante la finalización de la animación. Por ejemplo, el actor “explosión” se elimina de la pantalla automáticamente cuando finaliza su animación:</p>
+<h2 id="detectar-la-finalización-de-las-animaciones">Виявлення завершення анімації</h2>
+<p>Анімації завжди відображаються циклічно, тобто коли вони закінчуються, вони починаються спочатку. Якщо ваша анімація традиційна, як-от ходіння персонажу, продовження анімації відбувається автоматично.</p>
+<p>Якщо ви хочете визначити точний момент завершення анімації, слід створити метод під назвою <code>cuando_finaliza_animacion</code>, всередині якого розмістити певний код, щоб реагувати на завершення анімації. Наприклад, анімаційний ефект "explosión" (вибух) змусить актора автоматично зникнути з екрану, коли закінчиться його анімація.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb1-1"><a href="#cb1-1"></a>class explosion extends Actor {</span>
 <span id="cb1-2"><a href="#cb1-2"></a>  <span class="co">// Otros métodos</span></span>
 <span id="cb1-3"><a href="#cb1-3"></a></span>
@@ -121,11 +121,11 @@
 <span id="cb1-6"><a href="#cb1-6"></a>  }</span>
 <span id="cb1-7"><a href="#cb1-7"></a>}</span></code></pre></div>  <div class="tc navegacion">
   <div>
-    <a href="#" onclick="document.documentElement.scrollTo(0, 0);">Subir</a>
+    <a href="#" onclick="document.documentElement.scrollTo(0, 0);">Нагору</a>
   </div>
 
   <div>
-    <a href="index.html">Regresar al índice</a>
+    <a href="index.html">Повернутися до змісту</a>
   </div>
 </div> 
   </body>

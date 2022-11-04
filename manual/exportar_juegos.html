@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="generator" content="pandoc" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-          <title>Cómo exportar juegos</title>
+          <title>Як експортувати ігри в .exe, web, mobile</title>
     <style>
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
@@ -77,94 +77,91 @@
         <link rel="stylesheet" href="estilo.css" />
         <script src="./manual.js" charset="utf-8"></script>
       <div class="tc navegacion">
-  <a href="index.html">Regresar al índice</a>
+  <a href="index.html">Повернутися до змісту</a>
 </div> 
   </head>
   <body>
          <header id="title-block-header">
-      <h1 class="title">Cómo exportar juegos</h1>
+      <h1 class="title">Як експортувати ігри в .exe, web, mobile</h1>
             </header>
-      <p>El editor de pilas incluye la posibilidad de exportar proyectos completos para ser utilizados sin el editor.</p>
-<p>Para exportar un juego simplemente hay que pulsar el botón Exportar del editor:</p>
+      <p>Редактор Pilas Engine має можливість експорту цілих проєктів для використання без редактора.</p>
+<p>Щоб експортувати гру, просто натисніть кнопку "Експортувати" у редакторі:</p>
 <p><img src="imagenes/exportar_juegos.assets/exportar.png" /></p>
-<p>A continuación se nos va a mostrar una pantalla de exportación, que demora unos minutos ya que tiene que recopilar todos los recursos necesarios, y luego obtendremos un archivo comprimido con el proyecto:</p>
+<p>Далі нам буде показано екран експорту, який займе кілька хвилин, оскільки він має зібрати всі необхідні ресурси, а потім ми отримаємо стиснутий файл із проєктом:</p>
 <p><img src="imagenes/exportar_juegos.assets/archivo-exportado.png" /></p>
-<p>Este archivo .zip aloja el proyecto completo, así que podemos utilizarlo para punto de partida para llevar nuestro juego a otro lugar.</p>
-<p>A continuación se muestran algunas alternativas de publicación:</p>
-<h3 id="qué-contiene-el-archivo-exportado">¿Qué contiene el archivo exportado?</h3>
-<p>El archivo .zip se puede descomprimir fácilmente con las herramientas que vienen instaladas en cualquier sistema operativo.</p>
-<p>Una vez que se descomprime, vamos a observar un archivo de ayuda y una carpeta llamada “proyecto” con todos los recursos de nuestro juego:</p>
+<p>У файлі .zip міститься весь проєкт, тому ми можемо використовувати його як відправну точку, щоб перенести нашу гру в інше місце.</p>
+<h3 id="qué-contiene-el-archivo-exportado">Що містить експортований файл?</h3>
+<p>Файл .zip можна легко розархівувати за допомогою інструментів, встановлених у будь-якій операційній системі.</p>
+<p>Після розпакування ми побачимо файл довідки та папку під назвою "proyecto" з усіма ресурсами нашої гри:</p>
 <p><img src="imagenes/exportar_juegos.assets/arbol.png" /></p>
-<h3 id="cómo-ejecutar-mi-juego-sin-el-editor">Cómo ejecutar mi juego sin el editor</h3>
-<p>El primer paso es tener instalado <a href="https://nodejs.org/es/">Node.JS</a> y acceso a un terminal para ejecutar comandos.</p>
-<p>Luego, se tiene que ingresar en el directorio “proyecto” y ejecutar el comando:</p>
+<h3 id="cómo-ejecutar-mi-juego-sin-el-editor">Як запустити гру без редактора?</h3>
+<p>Першим кроком є ​​встановлення <a href="https://nodejs.org/es/">Node.JS</a> за допомогою терміналу.</p>
+<p>Вам потрібно увійти в каталог "proyecto" у терміналі та виконати команду:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="ex">npm</span> install</span></code></pre></div>
-<p>Si todo va bien, deberíamos ver que el instalador de paquetes de node trabaja unos segundos para descargar todo lo necesario para seguir trabajando:</p>
+<p>Якщо все піде добре, ми повинні побачити, як інсталятор Node.JS буде працювати протягом кількох секунд, щоб завантажити все необхідне для продовження роботи:</p>
 <p><img src="imagenes/exportar_juegos.assets/instalando-dependencias.png" /></p>
-<p>A partir de este punto, vas a tener la posiblidad de hacer alguna de estas cosas:</p>
-<h3 id="probar-la-aplicación-en-un-servidor-local">Probar la aplicación en un servidor local</h3>
-<p>Para iniciar el juego directamente en un navegador podrías escribir este comando en el mismo directorio “proyecto”:</p>
+<p>З цього моменту ви матимете можливість робити будь-яку з наступних речей.</p>
+<h3 id="probar-la-aplicación-en-un-servidor-local">Протестувати застосунок на локальному вебсервері</h3>
+<p>Щоб запустити гру безпосередньо у вебпереглядачі, необхідно виконати цю команду у каталозі "proyecto":</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="ex">npm</span> start</span></code></pre></div>
-<p>A continuación se va a abrir el navegador y tu juego.</p>
+<p>Після цього відкриється вебпереглядач і ваша гра.</p>
 <p><img src="imagenes/exportar_juegos.assets/web.png" /></p>
-<p>Ten en cuenta que pilas no funciona directamente abriendo el archivo index.html en un navegador, la razón por la que no puede andar directamente es porque necesita cargar archivos mientras se inicializa usando ajax (algo que los navegadores no pueden hacer si se inicializan abriendo un archivo .html de forma directa).</p>
-<h3 id="ejecutar-tu-juego-en-electron-de-forma-offline">Ejecutar tu juego en electron de forma offline</h3>
-<p>Otra opción es lanzar el juego como si se tratara de una aplicación dedicada, sin necesidad de un navegador.</p>
-<p>Para eso, tendrías que ejecutar este comando:</p>
+<p>Зверніть увагу, що ігри не працюють безпосередньо у вебпереглядачі простим відкриттям файла index.html.</p>
+<h3 id="ejecutar-tu-juego-en-electron-de-forma-offline">Запустити гру без використання вебпереглядача</h3>
+<p>Інший варіант - запустити гру як окремий застосунок без вебпереглядача.</p>
+<p>Для цього вам потрібно виконати цю команду:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="ex">npm</span> run electron</span></code></pre></div>
 <p><img src="imagenes/exportar_juegos.assets/electron-ejecucion.png" /></p>
-<h3 id="cómo-crear-versiones-empaquetas-para-distribuir-.exe-dmg-etc">Cómo crear versiones empaquetas para distribuir (.exe, dmg etc)</h3>
-<p>Una opción muy solicitada a la hora de exportar juegos es poder hacerlos completamente portables, y que la persona que recibe el juego no tenga que instalar o configurar nada para jugar al juego, solamente hacer “doble click” en un archivo y jugar.</p>
-<p>Pilas permite hacer esto mediante la herramienta que mencionamos antes llamada electron y una serie de scripts.</p>
-<p>Tomemos el ejemplo más solicitado, hagamos que nuestro juego se pueda compilar para windows y distribuirse como un archivo .exe. Lo que tenemos que hacer es hacer doble click en los archivos:</p>
+<h3 id="cómo-crear-versiones-empaquetas-para-distribuir-.exe-dmg-etc">Створити дистрибутив гри (.exe, dmg тощо)</h3>
+<p>Під час експортування ігор дуже бажаною опцією є можливість зробити їх повністю портативними. У цьому разі для запуску гри не потрібно нічого встановлювати чи налаштовувати, а просто двічі клікнути на файлі для запуску.</p>
+<p>Ця можливість реалізується за допомогою інструменту, який ми згадували раніше під назвою Electron і низки скриптів.</p>
+<p>Отже, розглянемо найбільш популярний варіант - зробимо нашу гру компілюваною для Windows у вигляді файлу .exe. Нам потрібно двічі натиснути файли:</p>
 <ul>
 <li>instalar_dependencias.bat</li>
 <li>generar_version_exe.bat</li>
 </ul>
-<p>o bien, abrir el comando “cmd”, ingresar en el directorio del juego exportado y ejecutar estos comandos:</p>
+<p>або відкрити командний рядок за допомогою команди "cmd", перейти у каталог експортованої гри та виконати ці команди:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="ex">npm</span> install electron-packager --save-dev</span>
 <span id="cb4-2"><a href="#cb4-2"></a></span>
 <span id="cb4-3"><a href="#cb4-3"></a><span class="ex">node_modules/.bin/electron-packager</span> . mijuego --platform=win32 --arch=ia32</span></code></pre></div>
-<p>El comando demorará unos segundos, cuando termine aparecerá un mensaje indicando que los archivos están listos:</p>
+<p>Після завершення виконання команди з’явиться повідомлення про те, що файли готові:</p>
 <p><img src="imagenes/exportar_juegos.assets/image-20190630234419298.png" /></p>
-<p>En mi caso, los archivos se generaron en un directorio llamado “mijuego-win32-ia32”. Ese directorio completo es el que se puede entregar a los usuarios de windows para que puedan ejecutar el juego haciendo doble click en el archivo .exe:</p>
+<p>У цьому разі файли були згенеровані в каталозі під назвою "mmijuego-win32-ia32". Цей каталог можна надати користувачам Windows, щоб вони могли запустити гру, двічі натиснувши файл .exe:</p>
 <p><img src="imagenes/exportar_juegos.assets/juego-exe.png" /></p>
-<p>Si además de windows estás buscando llevar tu juego a otras plataformas como gnu/linux, mac/osx o raspberry también hay un parámetro para lanzar la compilación en todas las plataformas soportadas así:</p>
+<p>Якщо окрім Windows ви хочете перенести свою гру на інші платформи, як-от Linux, macOS або Raspberry, є також параметр для запуску збірки на всіх підтримуваних платформах (детальніше за <a href="https://github.com/electron-userland/electron-packager#usage" target="_blank">покликанням</a>):</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a><span class="ex">node_modules/.bin/electron-packager</span> . mijuego --all</span></code></pre></div>
-<p>Hay varios parámetros más, pero para no extendernos mucho te dejamos la <a href="https://github.com/electron-userland/electron-packager#usage">documentación detallada de electron-packager</a></p>
-<p>Por cierto, si quieres investigar exactamente qué hacen estos scripts podrías profundizar tu investigación mirando la <a href="https://electronjs.org/docs/tutorial/application-distribution">documentación de electron sobre distribución de binarios</a> ya que se describe cada uno de los pasos de compilación de forma manual.</p>
-<h3 id="cómo-ejecutar-el-juego-en-pantalla-completa">Cómo ejecutar el juego en pantalla completa</h3>
-<p>Si empaquetas el juego con electron, como muestra la sección anterior, también tienes la posibilidad de configurar la compilación para que funcione en modo pantalla completa. Para eso tienes que editar el archivo <code>index.js</code> y colocar <code>true</code> en la variable <code>pantalla_completa</code>:</p>
+<p>До речі, якщо ви хочете дослідити, що саме роблять ці сценарії, ви можете продовжити дослідження, ознайомившись в <a href="https://www.electronjs.org/docs/latest/tutorial/application-distribution" target="_blank">документації зі створення файлів, що виконуються</a>, де кожен крок компіляції описано вручну.</p>
+<h3 id="cómo-ejecutar-el-juego-en-pantalla-completa">Запустити гру на весь екран</h3>
+<p>Якщо ви запакуєте гру за допомогою Electron, як показано вище, ви також матимете можливість налаштувати збірку для запуску в повноекранному режимі. Для цього вам потрібно відредагувати файл <code>index.js</code>, встановиши значення <code>true</code> для змінної <code>pantalla_completa</code>:</p>
 <p><img src="imagenes/exportar_juegos.assets/pantalla-completa.png" /></p>
-<h3 id="cómo-llevar-mi-juego-a-celulares-tablets-y-tiendas-oficiales-de-apple-o-google">Cómo llevar mi juego a celulares, tablets y tiendas oficiales de apple o google</h3>
-<p>Pilas incluye una forma sencilla de probar juegos en celulares y tablets, si solo quieres probar tus juegos te recomendamos mirar ahí primero.</p>
-<p>Ahora bien, si en realidad lo que buscas es llevar tu juego de forma permanente a un celular o tablet, ya sea para tí, amigos o para publicar en un tienda oficial, lo que necesitas es instalar cordova, los SDK oficiales para tu tipo de dispositivo (android o ios) y compilar tu juego por completo.</p>
+<h3 id="cómo-llevar-mi-juego-a-celulares-tablets-y-tiendas-oficiales-de-apple-o-google">Завантажити гру на смартфони, планшети та у офіційні магазини Apple чи Google</h3>
+<p>Якщо ви бажаєте перенести свою гру на мобільний пристрій або опублікувати в офіційному магазині застосунків, вам потрібно встановити фреймворк для створення мобільних застосунків Cordova, офіційний SDK для операційної системи вашого мобільного пристрою (Android або iOS) і скомпілювати гру.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a><span class="ex">npm</span> install cordova -g</span>
 <span id="cb6-2"><a href="#cb6-2"></a></span>
 <span id="cb6-3"><a href="#cb6-3"></a><span class="ex">cordova</span> create cordova</span></code></pre></div>
-<p>Luego, tendrías que mover todos los archivos del directorio “proyecto” (index.html, pilas-engine.js etc…) dentro del directorio “cordova/www”.</p>
-<p>Por último, tendrías que agregar la plataforma principal (android o ios) y luego iniciar la compilación:</p>
-<p>Por ejemplo, para ios:</p>
+<p>Потім необхідно перемістити всі файли з каталогу "proyecto" (index.html, pilas-engine.js тощо) до каталогу "cordova/www".</p>
+<p>Нарешті, вам доведеться додати основну платформу (Android або iOS), а потім розпочати збірку:</p>
+<p>Наприклад, для iOS:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1"></a><span class="bu">cd</span> cordova</span>
 <span id="cb7-2"><a href="#cb7-2"></a><span class="ex">cordova</span> platform add ios</span>
 <span id="cb7-3"><a href="#cb7-3"></a><span class="ex">cordova</span> build ios</span></code></pre></div>
-<p>y luego abrir el proyecto desde el directorio “platforms/ios” en xcode y ejecutar:</p>
+<p>Тепер відкрийте проєкт із каталогу "platforms/ios" у xcode та запустіть:</p>
 <p><img src="imagenes/exportar_juegos.assets/xcode.png" /></p>
-<p>Y para android:</p>
+<p>І для Android:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1"></a><span class="bu">cd</span> cordova</span>
 <span id="cb8-2"><a href="#cb8-2"></a><span class="ex">cordova</span> platform add android</span></code></pre></div>
-<p>En este punto, asegúrate de haber movido todos los archivos del directorio “proyecto” (index.html, pilas-engine.js etc…) dentro del directorio “cordova/www”.</p>
-<p>Luego tienes que generar el proyecto para android con este comando:</p>
+<p>На цьому етапі переконайтеся, що ви перемістили всі файли з каталогу "proyecto" (index.html, pilas-engine.js тощо) до каталогу "cordova/www".</p>
+<p>Далі вам потрібно створити проєкт для Android за допомогою цієї команди:</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1"></a><span class="ex">cordova</span> build android</span></code></pre></div>
-<p>y luego abrir el proyecto del directorio “platforms/android” con Android Studio y pulsar el botón ejecutar para lanzar el emulador:</p>
+<p>Потім відкрийте проєкт із каталогу "platforms/android" за допомогою Android Studio та натисніть кнопку запуску, щоб запустити емулятор:</p>
 <p><img src="imagenes/exportar_juegos.assets/android-play.png" /></p>
-<p>O bien, abrí el menú “Build” y luego “Build APK(s)” o “Generate Signed APK” para crear el un archivo <code>.apk</code> e instalarlo directamente en tu equipo o subirlo a la tienda Play Store de Google.</p>  <div class="tc navegacion">
+<p>Або відкрийте меню "Створити", а потім "Створити APK(s)"" або "Створити підписаний APK", щоб створити файл <code>.apk</code> і встановіть його безпосередньо на свій мобільний пристрій або завантажте у магазин Google Play.</p>  <div class="tc navegacion">
   <div>
-    <a href="#" onclick="document.documentElement.scrollTo(0, 0);">Subir</a>
+    <a href="#" onclick="document.documentElement.scrollTo(0, 0);">Нагору</a>
   </div>
 
   <div>
-    <a href="index.html">Regresar al índice</a>
+    <a href="index.html">Повернутися до змісту</a>
   </div>
 </div> 
   </body>

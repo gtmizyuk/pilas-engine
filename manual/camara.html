@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="generator" content="pandoc" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-          <title>Cámara</title>
+          <title>Камера</title>
     <style>
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
@@ -77,60 +77,60 @@
         <link rel="stylesheet" href="estilo.css" />
         <script src="./manual.js" charset="utf-8"></script>
       <div class="tc navegacion">
-  <a href="index.html">Regresar al índice</a>
+  <a href="index.html">Повернутися до змісту</a>
 </div> 
   </head>
   <body>
          <header id="title-block-header">
-      <h1 class="title">Cámara</h1>
+      <h1 class="title">Камера</h1>
             </header>
-      <p>Si bien el juego tendrá un tamaño fijo en la pantalla, pilas incorpora una cámara que nos permite realizar desplazamientos para mostrar otras partes de la escena.</p>
-<p>En esta sección vamos a controlar cámara de la escena tanto desde el editor como desde el juego en ejecución.</p>
-<h2 id="mover-la-cámara-desde-el-editor">Mover la cámara desde el editor</h2>
-<p>Para desplazar la cámara simplemente tenemos que pulsar y arrastrar con el mouse sobre el fondo de la escena:</p>
+      <p>Незважаючи на те, що гра матиме фіксований розмір екрана, ми можемо використовувати камеру, яка дозволяє нам переміщуватися по сцені, щоб показати інші її частини.</p>
+<p>У цьому розділі ми будемо керувати камерою сцени як і з редактора, так і з запущеної гри.</p>
+<h2 id="mover-la-cámara-desde-el-editor">Переміщення камери за допомогою зміни параметрів у редакторі</h2>
+<p>Щоб перемістити камеру, нам потрібно просто клацнути та перетягнути мишею на тлі сцени:</p>
 <p><img src="imagenes/camara.assets/movimiento.gif" /></p>
-<p>Vas a notar que en la escena el movimiento de la cámara se refleja en los atributos “Cámara x” y “Cámara Y”.</p>
-<p>Esos dos atributos también se utilizan para definir la posición inicial de la cámara cuando comienza a ejecutarse el juego.</p>
-<p>También vas a observar otros dos atributos llamados “Ancho” y “Alto”. Estos dos atributos van a definir el tamaño total del escenario. Podes cambiar esos parámetros para hacer que el escenario total sea más grande o más chico.</p>
-<h2 id="mover-la-cámara-mientras-se-ejecuta-el-juego">Mover la cámara mientras se ejecuta el juego</h2>
-<p>Para mover la cámara podemos acceder a los atributos de posición directamente, por ejemplo si quieres mover constantemente la cámara hacia la derecha, podrías escribir este código en la escena:</p>
+<p>У сцені рух камери відображається в параметрах "Камера X" і "Камера Y".</p>
+<p>Також ці два параметри використовуються для визначення початкового положення камери, коли гра запускається.</p>
+<p>Інші два параметри під назвою "Ширина" та "Висота" визначають загальний розмір сцени. Ви можете змінити значення цих параметрів, щоб збільшити або зменшити загальну сцену.</p>
+<h2 id="mover-la-cámara-mientras-se-ejecuta-el-juego">Переміщення камери під час гри</h2>
+<p>Щоб перемістити камеру, ми можемо отримати прямий доступ до параметрів позиції, наприклад, якщо ви хочете постійно рухати камеру вправо, ви можете написати цей код для сцени:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb1-1"><a href="#cb1-1"></a>class escena1 extends Escena {</span>
 <span id="cb1-2"><a href="#cb1-2"></a>  actualizar() {</span>
 <span id="cb1-3"><a href="#cb1-3"></a>    this<span class="op">.</span><span class="at">camara</span><span class="op">.</span><span class="at">x</span> <span class="op">+=</span> <span class="dv">1</span><span class="op">;</span></span>
 <span id="cb1-4"><a href="#cb1-4"></a>  }</span>
 <span id="cb1-5"><a href="#cb1-5"></a>}</span></code></pre></div>
-<p>O bien, si quieres que un actor se mueva libremente por el escenario y la cámara la siga todo el tiempo podrías usar el método <code>seguir_al_actor</code> así:</p>
+<p>Або, якщо ви хочете, щоб актор вільно пересувався сценою, а камера весь час слідкувала за ним, ви можете використати метод <code>seguir_al_actor</code>:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb2-1"><a href="#cb2-1"></a>class nave extends Actor {</span>
 <span id="cb2-2"><a href="#cb2-2"></a>  actualizar() {</span>
 <span id="cb2-3"><a href="#cb2-3"></a>    this<span class="op">.</span><span class="at">camara</span><span class="op">.</span><span class="fu">seguir_al_actor</span>(this<span class="op">,</span> <span class="dv">10</span><span class="op">,</span> true)<span class="op">;</span></span>
 <span id="cb2-4"><a href="#cb2-4"></a>  }</span>
 <span id="cb2-5"><a href="#cb2-5"></a>}</span></code></pre></div>
-<p>Ten en cuenta que esta función se tiene que llamar todo el tiempo, por eso la tenemos que incluir dentro del método actualizar.</p>
-<p>También ten en cuenta que la función lleva 3 parámetros:</p>
+<p>Цю функцію потрібно викликати кожного разу, тому ми маємо включити її в метод оновлення <code>actualizar(){...}</code>.</p>
+<p>Метод <code>seguir_al_actor</code> приймає 3 параметри:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb3-1"><a href="#cb3-1"></a>seguir_al_actor(actor<span class="op">,</span> suavidad<span class="op">,</span> ignorar_bordes)<span class="op">;</span></span></code></pre></div>
 <ul>
-<li><code>actor</code>: el actor que la cámara tiene que seguir.</li>
-<li><code>suavidad</code>: tiene que ser un número indicando cuán gradual tiene que ser el movimiento de la cámara, cuanto menor sea el número mas rápido y brusco será el movimiento de la cámara.</li>
-<li><code>ignorar_bordes</code>: el último parámetro tiene que ser <code>true</code> o <code>false</code>. Si se envía <code>true</code> la cámara seguirá al actor incluso si sale del area del escenario, esto es ideal para juegos con area de movimiento infinita. Si se coloca <code>false</code> la cámara se detendrá en los bordes del escenario.</li>
+<li><code>actor</code>: актор, за яким має стежити камера.</li>
+<li><code>suavidad</code>: це має бути число, яке вказує на те, наскільки поступовим має бути рух камери, чим менше число, тим швидшим і різкішим буде рух камери.</li>
+<li><code>ignorar_bordes</code>: останній параметр має бути <code>true</code> або <code>false</code>. Якщо зазначено <code>true</code>, камера слідуватиме за актором, навіть якщо він залишить сцену, це ідеально для ігор із нескінченною зоною руху. Якщо встановити <code>false</code>, камера зупиниться на межі сцени.</li>
 </ul>
-<h2 id="zoom-o-aumento">Zoom o aumento</h2>
-<p>La cámara de pilas también permite hacer acercamientos, o zoom, usando un atributo llamado <code>escala</code>.</p>
-<p>Por ejemplo, si queremos aumentar el acercamiento de la cámara podemos usar el atributo <code>escala</code> con valores superiores a <code>1</code>:</p>
-<pre><code>this.camara.escala = 2.5;</code></pre>
-<p>O bien regresar al zoom original escribiendo:</p>
-<pre><code>this.camara.escala = 1;</code></pre>
-<h2 id="fijar-actores-a-la-pantalla">Fijar actores a la pantalla</h2>
-<p>Hay casos en donde queremos que algún actor permanezca fijo en su posición, independiente del movimiento de la cámara.</p>
-<p>Por ejemplo, el puntaje del jugador no es algo que queremos que salga de la pantalla cuando la cámara se mueve, tampoco los controles, ni el contador de vidas.</p>
-<p>Para que este tipo de actores quede visible en pantalla tenemos tenemos que definirles la propiedad <code>fijo</code> de esta forma:</p>
-<pre><code>this.fijo = true;</code></pre>
-<p>Esa propiedad en valor <code>true</code> le indica a pilas que este actor no se tiene que desplazar respetando la cámara, sino que debe permanecer fijo a la pantalla en todo momento.</p>  <div class="tc navegacion">
+<h2 id="zoom-o-aumento">Масштаб</h2>
+<p>Камера також дозволяє збільшувати масштаб за допомогою параметру з назвою <code>escala</code>.</p>
+<p>Наприклад, якщо ми хочемо збільшити масштаб камери, необхідно використовувати параметр <code>escala</code> зі значеннями, більшими за <code>1</code>:</p>
+<div class="sourceCode"><pre class="sourceCode typescript"><code>this.camara.escala = 2.5;</code></pre></div>
+<p>Або поверніться до початкового масштабу, ввівши:</p>
+<div class="sourceCode"><pre class="sourceCode typescript"><code>this.camara.escala = 1;</code></pre></div>
+<h2 id="fijar-actores-a-la-pantalla">Закріплення акторів на екрані</h2>
+<p>Бувають випадки, коли ми хочемо, щоб актор залишався зафіксованим у своїй позиції, незалежно від руху камери.</p>
+<p>Наприклад, результати гравця не є тим, що має зникати з крену, коли камера рухається, аналогічно і елементи керування та лічильник життя мають залишатися видимими на екрані.</p>
+<p>Для того, щоб цей тип актора було видно на екрані, ми повинні визначити властивість <code>fijo</code> таким чином:</p>
+<div class="sourceCode"><pre class="sourceCode typescript"><code>this.fijo = true;</code></pre></div>
+<p>Ця властивість із значенням <code>true</code> вказує на те, що цей актор не повинен рухатися, не дивлячись на камеру, а повинен залишатися нерухомим на екрані весь час.</p>  <div class="tc navegacion">
   <div>
-    <a href="#" onclick="document.documentElement.scrollTo(0, 0);">Subir</a>
+    <a href="#" onclick="document.documentElement.scrollTo(0, 0);">Нагору</a>
   </div>
 
   <div>
-    <a href="index.html">Regresar al índice</a>
+    <a href="index.html">Повернутися до змісту</a>
   </div>
 </div> 
   </body>

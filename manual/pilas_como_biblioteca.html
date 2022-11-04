@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="generator" content="pandoc" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-          <title>Pilas como biblioteca externa</title>
+          <title>Pilas Engine як зовнішня бібліотека</title>
     <style>
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
@@ -77,25 +77,25 @@
         <link rel="stylesheet" href="estilo.css" />
         <script src="./manual.js" charset="utf-8"></script>
       <div class="tc navegacion">
-  <a href="index.html">Regresar al índice</a>
+  <a href="index.html">Повернутися до змісту</a>
 </div> 
   </head>
   <body>
          <header id="title-block-header">
-      <h1 class="title">Pilas como biblioteca externa</h1>
+      <h1 class="title">Pilas Engine як зовнішня бібліотека</h1>
             </header>
-      <p>Pilas se puede usar como una biblioteca externa para permitir un uso avanzado y muy personalizado de pilas.</p>
-<p>De todas formas, la opción más recomendada para llevar tu juego a blogs, mobile u otros medios es siguiendo las instrucciones que están en esta otra sección: <a href="exportar_juegos.html">Cómo exportar juegos</a></p>
-<p>Esta sección solo es aconsejable para programadores avanzados que quieran integrar pilas a otras bibliotecas, como <a href="https://reactjs.org/">react</a>, <a href="https://vuejs.org/">vue</a> o similares, partiendo de un código minimalista, sin imágenes, sonidos ni actores predeterminados de pilas.</p>
-<h2 id="archivos-iniciales">Archivos iniciales</h2>
-<p>Para utilizar pilas como biblioteca se suele crear un archivo <code>.html</code> e incorporar las dependencias del proyecto, como <code>phaser</code> y <code>nine-slice</code>. Así que para hacer más sencilla esta tarea inicial pilas se distribuye junto a una plantilla que tiene todos estos archivos listos y configurados para utilizar.</p>
-<p>Ingresá en el sitio de pilas, y en la sección descargas vas a encontrar un link para descargar una plantilla llamada “versión-minima”:</p>
+      <p>Pilas Engine можна використовувати як зовнішню бібліотеку.</p>
+<p>У будь-якому випадку, найбільш рекомендованим варіантом розміщення вашої гри у блогах, вебсайтах тощо є дотримання інструкцій з розділу: <a href="exportar_juegos.html">Як експортувати ігри в .exe, web, mobile</a></p>
+<p>Цей розділ рекомендовано лише для досвідчених програмістів, які хочуть інтегрувати Pilas Engine з іншими бібліотеками, такими як <a href="https://reactjs.org/">React</a>, <a href="https://vuejs.org/">Vue</a> і подібних, починаючи з мінімалістичного коду, без зображень, звуків або заздалегідь визначених акторів.</p>
+<h2 id="archivos-iniciales">Початкові файли</h2>
+<p>Щоб використовувати Pilas Engine як бібліотеку, зазвичай створюють файл <code>.html</code> і додають залежності проєкту, наприклад <code>phaser</code> і <code>nine-slice</code>. Тому, щоб полегшити це початкове завдання, Pilas Engine розповсюджується разом із шаблоном, який містить усі ці файли, готові та налаштовані для використання.</p>
+<p>Перейдіть на офіційний сайт, і в розділі завантажень ви знайдете покликання для завантаження шаблону під назвою "versión-minima" (оберіть тут є більше варіантів завантаження):</p>
 <p><img src="imagenes/pilas-como-biblioteca/descarga.png" /></p>
-<p>Este archivo <code>.zip</code> tiene lo mínimo y necesario para cargar pilas y poder usar el motor directamente:</p>
-<p>Ten en cuenta que para utilizar esta versión tienes que descomprimir el archivo <code>.zip</code>, luego iniciar un servidor web y por último abrir el archivo <code>.html</code> desde un navegador:</p>
+<p>Файл <code>.zip</code> має мінімум функціоналу ігрового рушія.</p>
+<p>Зверніть увагу, що для використання цієї версії вам потрібно розархівувати файл <code>.zip</code>, потім запустити вебсервер і, нарешті, відкрити файл <code>.html</code> у вебпереглядачі:</p>
 <p><img src="imagenes/pilas-como-biblioteca/ejecucion.png" /></p>
-<p>Es importante usar un servidor web y no abrir el archivo directamente ya que pilas (y phaser) usan una tecnología llamada Ajax para cargar imágenes y otros recursos.</p>
-<p>A partir de ahí, para editar tu juego deberías inspeccionar el archivo <code>.html</code>, en donde aparecerá el código mínimo para iniciar pilas, crear un actor y moverlo por la pantalla:</p>
+<p>Важливо використовувати вебсервер і не відкривати файл безпосередньо, оскільки Pilas (і Phaser) використовують технологію Ajax для завантаження зображень та інших ресурсів.</p>
+<p>Щоб редагувати свою гру, вам слід перевірити файл <code>.html</code>, де з’явиться мінімальний код для запуску ігрового рушія, створення актора та переміщення його по екрану:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb1-1"><a href="#cb1-1"></a>var imagenes <span class="op">=</span> [</span>
 <span id="cb1-2"><a href="#cb1-2"></a>  {</span>
 <span id="cb1-3"><a href="#cb1-3"></a>    nombre<span class="op">:</span> <span class="st">&quot;logo&quot;</span><span class="op">,</span></span>
@@ -118,13 +118,13 @@
 <span id="cb1-20"><a href="#cb1-20"></a>    <span class="op">.</span><span class="fu">mostrar</span>()</span>
 <span id="cb1-21"><a href="#cb1-21"></a>    <span class="op">.</span><span class="fu">mover_hasta</span>(<span class="dv">0</span><span class="op">,</span> <span class="dv">50</span>)<span class="op">;</span></span>
 <span id="cb1-22"><a href="#cb1-22"></a>}<span class="op">;</span></span></code></pre></div>
-<p>Por supuesto puedes cambiar ese código y adaptarlo a tus necesidades, pero no olvides que esta versión mínima no incluye las tipografías, sonidos e imágenes que incluye pilas, deberías cargar archivos <code>.png</code> propios para tener más posibilidades.</p>  <div class="tc navegacion">
+<p>Звичайно, ви можете змінити цей код і адаптувати його до своїх потреб, але не забувайте, що ця мінімальна версія не містить шрифтів, звуків і зображень, які містить повна версія Pilas Engine. Вам слід завантажити файли <code>.png</code>, щоб мати більше можливостей.</p>  <div class="tc navegacion">
   <div>
-    <a href="#" onclick="document.documentElement.scrollTo(0, 0);">Subir</a>
+    <a href="#" onclick="document.documentElement.scrollTo(0, 0);">Нагору</a>
   </div>
 
   <div>
-    <a href="index.html">Regresar al índice</a>
+    <a href="index.html">Повернутися до змісту</a>
   </div>
 </div> 
   </body>

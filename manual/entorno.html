@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="generator" content="pandoc" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-          <title>Entorno para colaboradores de Pilas</title>
+          <title>Для розробників</title>
     <style>
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
@@ -16,26 +16,26 @@
         <link rel="stylesheet" href="estilo.css" />
         <script src="./manual.js" charset="utf-8"></script>
       <div class="tc navegacion">
-  <a href="index.html">Regresar al índice</a>
+  <a href="index.html">Повернутися до змісту</a>
 </div> 
   </head>
   <body>
          <header id="title-block-header">
-      <h1 class="title">Entorno para colaboradores de Pilas</h1>
+      <h1 class="title">Для розробників</h1>
             </header>
-      <p>Si sos desarrollador y queres replicar el entorno completo para editar el código de Pilas te recomendamos una serie de pasos para tener un entorno completo de desarrollo.</p>
-<p>Ten en cuenta que si bien esta es una sección muy avanzada del manual de Pilas, cualquier duda que te surja al respecto puedes realizarla en el foro de Pilas (http://foro.pilas-engine.com.ar/) para que podemos mejorar el manual.</p>
-<h2 id="qué-software-se-utiliza-internamente-en-pilas">¿Qué software se utiliza internamente en Pilas?</h2>
-<p>Para realizar Pilas usamos principalmente Javascript junto a varios Frameworks y utilidades. Las más importantes son:</p>
+      <p>Якщо ви розробник і хочете скопіювати повне середовище для редагування коду Pilas Engine, ми рекомендуємо низку кроків, щоб це реалізувати.</p>
+<p>Незважаючи на те, що це дуже детальний розділ підручника з використання Pilas Engine, ви можете поставити будь-які запитання щодо нього на форумі (<a href="https://foro.pilas-engine.com.ar/" target="_blank">https://foro.pilas-engine.com.ar</a>), щоб ми могли покращити підручник.</p>
+<h2 id="qué-software-se-utiliza-internamente-en-pilas">Яке програмне забезпечення використовується всередині Pilas?</h2>
+<p>Для створення Pilas ми в основному використовуємо JavaScript разом із кількома фреймворками та іншими інструментами. Найважливіші з них:</p>
 <ul>
-<li><strong>Phaser</strong>: Es la biblioteca multimedia que utilizamos para dibujar el espacio de juego de pilas, Phaser nos permite cargar imágenes, dibujarlas en pantalla, reproducir sonidos, detectar colisiones, realizar simulaciones físicas etc…</li>
-<li><strong>ember-js</strong>: Es el framework web que utilizamos para crear la estructura visual y de interacción de la aplicación; incluye componentes, rutas, controladores y complementos. Ember también nos permite empaquetar toda la aplicación y publicarla en la web.</li>
-<li><strong>Typescript</strong>: Lo utilizamos para el código fuente del motor Pilas. El motor de Pilas es el encargado de declarar todos los actores existentes, es donde vive la estructura de escenas, y donde se encapsulan todas las llamadas a Phaser.</li>
-<li><strong>pandoc</strong>: Es la herramienta que usamos para componer el manual de pilas. Pandoc convierte archivos markdown en archivos .html para abrir desde la web.</li>
-<li><strong>electron</strong>: Sirve para empaquetar la aplicación web completa y distribuirla en formato binario, como un ejecutable que se puede usar de forma offline.</li>
+<li><strong>Phaser</strong>: Це мультимедійна бібліотека, яку ми використовуємо для малювання ігрового простору. Phaser дозволяє нам завантажувати зображення, малювати їх на екрані, відтворювати звуки, виявляти зіткнення, виконувати фізичне моделювання тощо.</li>
+<li><strong>ember-js</strong>: Це вебфреймворк, який ми використовуємо для створення візуальної структури та взаємодії застосунку; містить компоненти, маршрути, контролери та плагіни. Ember також дозволяє нам запакувати всю програму та опублікувати її в Інтернеті.</li>
+<li><strong>TypeScript</strong>: Ми використовуємо його як початковий код механізму Pilas. Механізм Pilas відповідає за оголошення всіх існуючих акторів, це місце, де живе структура сцени, і де інкапсулюються всі виклики Phaser.</li>
+<li><strong>Pandoc</strong>: Це інструмент, який ми використовуємо для створення піжручника з Pilas Engine. Pandoc перетворює markdown-файли на файли .html для відкриття з Інтернету у вебпереглядачі.</li>
+<li><strong>Electron</strong>: Він використовується для упаковки повної вебпрограми та розповсюдження її у бінарному форматі як виконуваний файл, який можна використовувати офлайн.</li>
 </ul>
-<h3 id="estructura-de-directorios">Estructura de directorios</h3>
-<p>Estos son los archivos principales del repositorio y qué función cumplen:</p>
+<h3 id="estructura-de-directorios">Структура каталогу</h3>
+<p>Це основні файли репозиторію та функції, які вони виконують:</p>
 <table>
 <colgroup>
 <col style="width: 3%" />
@@ -43,88 +43,88 @@
 </colgroup>
 <thead>
 <tr class="header">
-<th>Directorio</th>
-<th>¿Qué función cumple?</th>
+<th>Каталог</th>
+<th>Для чого він використовується?</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>api_docs</td>
-<td>Almacena el resultado de la documentación automática. Si ejecutás “make api” vas a ver cómo se recorre el código de Pilas y se genera esta documentación.</td>
+<td>Зберігає результат автоматичного документування. Якщо ви виконаєте "make api", ви побачите, як запускається код Pilas Engine і генерується ця документація.</td>
 </tr>
 <tr class="even">
 <td><strong>app</strong></td>
-<td>Es un directorio importante, aquí está todo el código fuente de la aplicación realizado con Ember. Dentro están las plantillas, los controladores, componentes y rutas. Más adelante en este tutorial damos detalles sobre cómo editar los archivos de este directorio. Pero a grandes razgos, con “make ejecutar” o “make compilar” se puede invocar a Ember para que convierta todo ese directorio en una aplicación web.</td>
+<td>Це важливий каталог, тут міститься весь початковий код застосунку, створеного за допомогою Ember. Всередині знаходяться шаблони, контролери, компоненти та маршрути. Далі в цьому підручнику ми розповімо, як редагувати файли в цьому каталозі. Але загалом, за допомогою "make ejecutar" або "make compilar" ви можете викликати Ember, щоб перетворити весь каталог на вебзастосунок.</td>
 </tr>
 <tr class="odd">
 <td><strong>manual</strong></td>
-<td>Contiene todo el manual de Pilas en formato markdown. Podes editar el contenido con cualquier editor de textos, y para convertirlo en html y que se vea dentro de la aplicación deberías ejecutar el comando “make pilas_manual”.</td>
+<td>Містить повний посібник з Pilas Engine у markdown-форматі. Ви можете редагувати вміст будь-яким текстовим редактором, а щоб конвертувати його в .html і переглядати у застосунку, потрібно виконати команду "make pilas_manual".</td>
 </tr>
 <tr class="even">
 <td><strong>pilas-engine</strong></td>
-<td>Contiene el código fuente del motor de pilas. El código está diseñado usando typescript, por ese motivo para compilarlo hay que ejecutar el comando “make compilar_pilas” o “make compilar_pilas_live” para hacerlo de forma continua.</td>
+<td>Містить початковий код механізму Pilas Engine. Код створено за допомогою сценарію TypeScript, тому для його компіляції вам потрібно виконати команду "make compilar_pilas" або «make compilar_pilas_live» для автоматичного внесенння змін.</td>
 </tr>
 <tr class="odd">
 <td><strong>public</strong></td>
-<td>Almacena todos los archivos que se deben servir desde la aplicación emberjs sin procesar. Por ejemplo imágenes, fuentes y sonidos. Pero además, este directorio también se actualiza desde otros comandos. Por ejemplo, cuando compilamos el código del directorio <em>pilas-engine</em> con el comando “make compilar_pilas”, el archivo generado se copia a este directorio “public”.</td>
+<td>Зберігає всі файли, які будуть обслуговуватися з програми за допомогою emberjs. Наприклад, зображення, джерела та звуки. Але крім того, цей каталог також оновлюється іншими командами. Наприклад, коли ми компілюємо код у каталозі <em>pilas-engine</em> за допомогою команди "make compilar_pilas", згенерований файл копіюється до каталогу "public".</td>
 </tr>
 <tr class="even">
 <td><strong>tests</strong></td>
-<td>Almacena todos los tests de unidad, integración y aceptación. Estos tests se ejecutan cuando se invoca el comando “make test” o cuando se ejecuta “make ejecutar” y luego se ingresa a http://localhost:4200/tests. Además, se ejecutan en remoto cada vez que se hace un push al repositorio. Más adelante en este documento se describe cómo funcionan los tests en la estructura del proyecto.</td>
+<td>Ці тести виконуються, коли викликається команда "make test" або коли виконується "make ejecutar", а потім вводиться http://localhost:4200/tests. Крім того, вони виконуються дистанційно кожного разу, коли здійснюється надсилання до репозиторію. Далі в цьому документі описано, як тести працюють у структурі проєкту.</td>
 </tr>
 </tbody>
 </table>
-<h2 id="repositorio-y-modelo-de-trabajo">Repositorio y modelo de trabajo</h2>
-<p>Antes de iniciar, necesitas tener instalado NodeJS 8 y el gestor de paquetes “yarn”.</p>
-<p>Si quieres asegurarte de tener todo correctamente instalado escribí los siguientes comandos:</p>
+<h2 id="repositorio-y-modelo-de-trabajo">Репозиторій і робоча модель</h2>
+<p>Перш ніж почати, вам потрібно встановити NodeJS 8 і менеджер пакунків "yarn".</p>
+<p>Якщо ви хочете переконатися, що все встановлено правильно, напишіть наступні команди:</p>
 <pre><code>npm install -g yarn
 node -v</code></pre>
-<p>El código completo de Pilas está almacenado en Github dentro del siguiente repositorio:</p>
+<p>Повний код Pilas зберігається на Github у репозиторії:</p>
 <ul>
 <li>https://github.com/pilas-engine/pilas-engine</li>
 </ul>
-<p>Te recomendamos iniciar un fork del repositorio antes de continuar, hay instrucciones sobre cómo realizar un fork del repositorio aquí: https://help.github.com/articles/fork-a-repo/</p>
-<p>Una vez que tengas realizado el fork, cloná el repositorio con estos comandos e instalá las dependencias del proyecto:</p>
+<p>Ми рекомендуємо вам запустити розгалуження сховища (створити форк), перш ніж продовжити, тут є інструкції щодо розгалуження репозиторію: https://help.github.com/articles/fork-a-repo/</p>
+<p>Після розгалуження клонуйте репозиторій за допомогою цих команд і встановіть залежності проєкту:</p>
 <pre><code>make iniciar</code></pre>
-<p>Deberías ver cómo se van instalando todas las dependencias dentro del directorio “node_modules”. Esto puede demorar varios minutos:</p>
+<p>Ви повинні побачити, що всі залежності встановлюються всередині каталогу "node_modules". Це може зайняти кілька хвилин:</p>
 <p><img src="imagenes/assets/instalar.png" /></p>
-<p>Una vez finalizada la instalación de dependencias puedes ejecutar el comando “make”. Cuando lo escribas, van a aparecer en pantalla todos los atajos que usamos dentro del proyecto:</p>
+<p>Після завершення встановлення залежностей ви можете виконати команду "make". Коли ви її виконаєте, на екрані з’являться всі покликання, які ми використовуємо в рамках проєкту:</p>
 <p><img src="imagenes/assets/make-1597532.png" /></p>
-<p>Obviamente en la mayoría de los casos usamos solo algunos comandos, pero siempre vamos a mantener actualizado este listado para simplificar el desarrollo.</p>
-<p>Para poner en funcionamiento el servidor de Ember puedes ejecutar este comando:</p>
+<p>Очевидно, що в більшості випадків ми використовуємо лише кілька команд, але ми завжди оновлюватимемо цей список, щоб спростити розробку.</p>
+<p>Щоб запустити вебсервер Ember, ви можете виконати цю команду:</p>
 <pre><code>make ejecutar</code></pre>
-<p>y luego abrí esta dirección en el navegador: http://localhost:4200</p>
+<p>і відкрити цю адресу у вебпереглядачі: http://localhost:4200</p>
 <p><img src="imagenes/assets/navegador.png" /></p>
-<p>Ten en cuenta que el servidor de Ember va a estar en ejecución; cada vez que modifiques un archivo del código de la aplicación Ember se va a encargar de actualizar el navegador automáticamente.</p>
-<h2 id="estilo-de-programación">Estilo de programación</h2>
-<p>Te recomendamos escribir el código en español siempre que sea posible, y aquellas variables o métodos que tienen varias palabras intentaremos escribirlas como “nombre_del_metodo” en lugar de “nombreDelMetodo”.</p>
-<p>Además, es muy importante que tengas configurado tu editor para usar automáticamente prettier (<a href="https://prettier.io/" class="uri">https://prettier.io/</a>).</p>
-<h2 id="tests">Tests</h2>
-<p>El proyecto incluye tests que intentamos llevar de la mano con cada característica que agregamos a la herramienta. Los tests se almacenan en el directorio “tests” y cada uno de ellos está diseñado para encargarse del funcionamiento de una característica de la herramienta.</p>
-<p>Por ejemplo, el archivo <code>tests/acceptance/puede-ingresar-al-editor-test.js</code> se encarga de simular el comportamiento de un usuario que ingresa en la aplicación y comienza a interactuar con la interfaz.</p>
-<p>Cada sentencia del archivo intenta simular una acción del usuario y viene acompañada de alguna validación:</p>
+<p>Зверніть увагу, що вебсервер Ember буде реагувати щоразу, коли ви змінюєте код у файлах. Відповідно, зміни будуть автоматично відображатися у вебпереглядачі.</p>
+<h2 id="estilo-de-programación">Стиль програмування</h2>
+<p>Ми рекомендуємо вам писати код іспанською мовою (😜), коли це можливо (😎), і ті змінні або методи, які мають кілька слів, ми спробуємо записати їх як "nombre_del_metodo" замість "nombreDelMetodo".</p>
+<p>Крім того, дуже важливо, щоб ваш редактор був налаштований на автоматичне використання Prettier (<a href="https://prettier.io/" class="uri">https://prettier.io/</a>).</p>
+<h2 id="tests">Тести</h2>
+<p>Проєкт включає тести. Тести зберігаються в каталозі "tests", і кожен з них призначений для забезпечення роботи певної функції.</p>
+<p>Наприклад, файл <code>tests/acceptance/puede-ingresar-al-editor-test.js</code> відповідає за імітацію поведінки користувача, який входить у застосунок та починає взаємодіяти з інтерфейсом.</p>
+<p>Кожен оператор у файлі намагається імітувати дію користувача та супроводжується деякою перевіркою:</p>
 <p><img src="imagenes/assets/pilas-engine%202018-03-20%2023-44-00.png" /></p>
-<p>De esta forma, tenemos la seguridad de que podemos validar el funcionamiento de toda la herramienta de forma automatizada. Nos permite detectar errores y darnos confianza para re-estructurar o mejorar partes internas de la aplicación sabiendo qué funcionalidad podría comprometer.</p>
-<p>Si ejecutas el comando “make ejecutar”, y abrís la aplicación con un navegador desde “http://localhost:4200”, también vas a poder ejecutar los tests directamente en el navegador.</p>
-<p>Tendrías que ingresar a la dirección “http://localhost:4200/tests”:</p>
+<p>Так, ми впевнені, що зможемо перевірити роботу усіх інструментів автоматизовано. Це дозволяє нам виявляти помилки та дає нам впевненість у реструктуризації або покращенні внутрішніх частин застосунку, знаючи, які функції можуть працювати некоректно.</p>
+<p>Якщо ви запустите команду "make ejecutar" і відкриєте програму у вебпереглядачі за адресою "http://localhost:4200", ви також зможете запустити тести безпосередньо у вебпереглядачі.</p>
+<p>Вам потрібно буде ввести адресу: "http://localhost:4200/tests":</p>
 <p><img src="imagenes/assets/PilasEngine%20Tests%202018-03-20%2023-48-34.png" /></p>
-<p>En la imagen marqué dos opciones que me parecen útiles para todas las personas, la primera evita que la pantalla se llene con detalles de tests que corren bien y la segunda es simplemente estética: sirve para ver cómo se ven los tests visualmente al costado de la pantalla.</p>
-<h2 id="automatización-e-integración-contínua">Automatización e integración contínua</h2>
-<p>Hay varias tareas que se realizan de forma automática cada vez que realizamos un push al repositorio.</p>
-<p>Por ejemplo, cada vez que se ejecuta un push sobre github, un servicio llamado “circle-ci” se encarga de correr todos los tests del proyecto desde cero.</p>
-<p>Este servicio no solo ejecuta los tests, sino que nos avisa por email si alguna de las pruebas falló o si alguna fase de la instalación tuvo problemas. Además nos genera un listado histórico para corroborar si un cambio introduce algún tipo de error:</p>
+<p>На зображенні позначено дві опції, які є дуже корисними. Перша запобігає заповненню екрана деталями добре виконаних тестів, а друга є просто естетичною: вона використовується, щоб побачити, як тести виглядають візуально.</p>
+<h2 id="automatización-e-integración-contínua">Автоматизація та безперервна інтеграція</h2>
+<p>Є кілька завдань, які виконуються автоматично кожного разу, коли ми надсилаємо до сховища GitHub.</p>
+<p>Наприклад, кожного разу, коли на github виконується push, служба під назвою "circle-ci" відповідає за виконання всіх тестів проєкту з нуля.</p>
+<p>Ця служба не лише запускає тести, але й сповіщає нас електронною поштою, якщо будь-який із тестів не пройшов або виникли проблеми на будь-якому етапі інсталяції. Служба також генерує список історії, щоб перевірити, чи вносились зміни про якийсь тип помилки:</p>
 <p><img src="imagenes/assets/CircleCI%202018-03-20%2023-53-29.png" /></p>
-<p>También usamos “circle-ci” cada vez que hacemos un lanzamiento estable de la herramienta para que se generen los binarios y las versiones web de la aplicación.</p>
-<p>La forma que utilizamos para marcar que Pilas se puede publicar es realizando un tag. Los tags los va a detectar circle CI para generar binarios y subir una versión actualizada de la aplicación a la web.</p>
-<p><img src="imagenes/assets/pilas-engine%202018-03-20%2023-56-30.png" />Por ejemplo, en la imagen se ve el tag de la versión v2.0.25. Cuando eso sucedió, “circle-ci” generó estos archivos para que esa versión de pilas esté compilada y disponible para descargar desde aquí:</p>
+<p>Ми також використовуємо "circle-ci" щоразу, коли робимо стабільний випуск, щоб створювати бінарні файли та вебверсії ігрового рушія.</p>
+<p>Ми використовуємо тег, щоб позначити, що Pilas можна публікувати. Теги будуть виявлені Circle CI для створення бінарних файлів і завантаження оновленої версії ігрового рушія в Інтернет.</p>
+<p><img src="imagenes/assets/pilas-engine%202018-03-20%2023-56-30.png" />Наприклад, на зображенні ви бачите тег версії v2.0.25. Коли це сталося, "circle-ci" згенерував ці файли, щоб версія була скомпільована та доступна для завантаження звідси:</p>
 <p><img src="imagenes/assets/pilas-engine%202018-03-21%2000-00-56.png" /></p>
-<p>Si bien estos pasos son automáticos, todo el detalle de lo que se debe ejecutar está en el archivo <code>.circleci/config.yml</code>.</p>  <div class="tc navegacion">
+<p>Хоча ці кроки є автоматичними, усі деталі того, що потрібно виконати, містяться у файлі <code>.circleci/config.yml</code>.</p>  <div class="tc navegacion">
   <div>
-    <a href="#" onclick="document.documentElement.scrollTo(0, 0);">Subir</a>
+    <a href="#" onclick="document.documentElement.scrollTo(0, 0);">Нагору</a>
   </div>
 
   <div>
-    <a href="index.html">Regresar al índice</a>
+    <a href="index.html">Повернутися до змісту</a>
   </div>
 </div> 
   </body>

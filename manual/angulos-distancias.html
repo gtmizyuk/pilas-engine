@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="generator" content="pandoc" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-          <title>Ángulos y distancias</title>
+          <title>Кути і відстані</title>
     <style>
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
@@ -77,54 +77,54 @@
         <link rel="stylesheet" href="estilo.css" />
         <script src="./manual.js" charset="utf-8"></script>
       <div class="tc navegacion">
-  <a href="index.html">Regresar al índice</a>
+  <a href="index.html">Повернутися до змісту</a>
 </div> 
   </head>
   <body>
          <header id="title-block-header">
-      <h1 class="title">Ángulos y distancias</h1>
+      <h1 class="title">Кути і відстані</h1>
             </header>
-      <p>Pilas trae varias funciones para realizar cálculos geométricos sencillos, como obtener la distancia entre actores o incluso el ángulo entre ellos.</p>
-<h2 id="ángulo-entre-actores-o-puntos">Ángulo entre actores o puntos</h2>
-<p>Un ejemplo práctico sería poder mirar en dirección a donde está el puntero del mouse: Observa uno de los ejemplos que trae pilas, el usuario puede mover el puntero del mouse y observar cómo el cañon ajusta su rotación correctamente:</p>
+      <p>Pilas Engine пропонує кілька функцій для виконання простих геометричних обчислень, наприклад, визначення відстані між акторами або кута між ними.</p>
+<h2 id="ángulo-entre-actores-o-puntos">Кут між акторами або точками</h2>
+<p>Практичним прикладом може бути можливість дивитися в напрямку, де знаходиться вказівник миші: подивіться на один із прикладів, в якому гравець може рухати вказівник миші та спостерігати, як гармата правильно регулює своє обертання:</p>
 <p><img src="imagenes/angulos/angulo.gif" /></p>
-<p>Este ejemplo hace uso de la función <code>obtener_angulo_entre_puntos</code> así:</p>
+<p>У цьому прикладі використовується функція <code>obtener_angulo_entre_puntos</code>:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb1-1"><a href="#cb1-1"></a>let x <span class="op">=</span> actor_cañon<span class="op">.</span><span class="at">x</span><span class="op">;</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a>let y <span class="op">=</span> actor_cañon<span class="op">.</span><span class="at">y</span><span class="op">;</span></span>
 <span id="cb1-3"><a href="#cb1-3"></a>let cx <span class="op">=</span> pilas<span class="op">.</span><span class="at">cursor_x</span><span class="op">;</span></span>
 <span id="cb1-4"><a href="#cb1-4"></a>let cy <span class="op">=</span> pilas<span class="op">.</span><span class="at">cursor_y</span><span class="op">;</span></span>
 <span id="cb1-5"><a href="#cb1-5"></a></span>
 <span id="cb1-6"><a href="#cb1-6"></a>actor_cañon<span class="op">.</span><span class="at">rotacion</span> <span class="op">=</span> pilas<span class="op">.</span><span class="fu">obtener_angulo_entre_puntos</span>(x<span class="op">,</span> y<span class="op">,</span> cx<span class="op">,</span> cy)<span class="op">;</span></span></code></pre></div>
-<p>La función <code>obtener_angulo_entre_puntos</code> espera que le enviemos 4 parámetros, correspondientes a los dos puntos que nos interesan. El resutado de la función es el ángulo en grados esperado.</p>
-<p>También existe una función llamada <code>obtener_angulo_entre_actores</code>, que hace algo muy similar, solamente que espera que le enviemos dos actores en lugar de 4 números.</p>
-<p>Un ejemplo que muestra esto es <code>angulo-entre-actores</code>, que nos muestra una nave mirando constantemente al centro de la pantalla, donde está el actor planeta:</p>
+<p>Функція <code>obtener_angulo_entre_puntos</code> отримує 4 числа, що є парами координат двох точок, в яких перебувають актор і вказівник миші відповідно. Результатом функції є значення кута в градусах.</p>
+<p>Також є функція під назвою <code>obtener_angulo_entre_actores</code>, яка виконує дії, подібно вищезгаданій функції, але отримує два об'єкти - двох акторів.</p>
+<p>Приклад, який показує це називається <code>angulo-entre-actores</code>. У прикладі використовується актор у вигляді космічного корабля, який постійно дивиться в центр екрану, де знаходиться актор у вигляді планети:</p>
 <p><img src="imagenes/angulos/angulo-entre-actores.jpg" /></p>
-<p>Si observas el código, vas a encontrar una llamada a <code>obtener_angulo_entre_actores</code> similar a la siguiente:</p>
+<p>Якщо ви проаналізуєте код прикладу, то знайдете виклик <code>obtener_angulo_entre_actores</code>, подібний до наступного:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb2-1"><a href="#cb2-1"></a>let nave <span class="op">=</span> pilas<span class="op">.</span><span class="at">actores</span><span class="op">.</span><span class="fu">nave</span>()<span class="op">;</span></span>
 <span id="cb2-2"><a href="#cb2-2"></a>let planeta <span class="op">=</span> pilas<span class="op">.</span><span class="fu">obtener_actor_por_nombre</span>(<span class="st">&quot;planeta&quot;</span>)<span class="op">;</span></span>
 <span id="cb2-3"><a href="#cb2-3"></a>nave<span class="op">.</span><span class="at">rotacion</span> <span class="op">=</span> pilas<span class="op">.</span><span class="fu">obtener_angulo_entre_actores</span>(nave<span class="op">,</span> planeta)<span class="op">;</span></span></code></pre></div>
-<h2 id="distancia-entre-puntos-y-actores">Distancia entre puntos y actores</h2>
-<p>Otras dos funciones útiles en esta categoría son las funciones <code>obtener_distancia_entre_puntos</code> y <code>obtener_distancia_entre_actores</code>. Ambas reciben los argumentos de manera muy similar a las funciones de ángulos anteriores. Aquí unos ejemplos:</p>
+<h2 id="distancia-entre-puntos-y-actores">Відстань між точками та акторами</h2>
+<p>Двома іншими корисними функціями в цій категорії є функції <code>obtener_distancia_entre_puntos</code> та <code>obtener_distancia_entre_actores</code>. Обидві отримують аргументи майже так само, як кутові функції вище. Відстань між актором і вказівником миші:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb3-1"><a href="#cb3-1"></a>let actor <span class="op">=</span> pilas<span class="op">.</span><span class="at">actores</span><span class="op">.</span><span class="fu">aceituna</span>()<span class="op">;</span></span>
 <span id="cb3-2"><a href="#cb3-2"></a>let cx <span class="op">=</span> pilas<span class="op">.</span><span class="at">cursor_x</span><span class="op">;</span></span>
 <span id="cb3-3"><a href="#cb3-3"></a>let cy <span class="op">=</span> pilas<span class="op">.</span><span class="at">cursor_y</span><span class="op">;</span></span>
 <span id="cb3-4"><a href="#cb3-4"></a></span>
 <span id="cb3-5"><a href="#cb3-5"></a>let distancia <span class="op">=</span> pilas<span class="op">.</span><span class="fu">obtener_distancia_entre_puntos</span>(actor<span class="op">.</span><span class="at">x</span><span class="op">,</span> actor<span class="op">.</span><span class="at">y</span><span class="op">,</span> cx<span class="op">,</span> cy)<span class="op">;</span></span>
-<span id="cb3-6"><a href="#cb3-6"></a>actor<span class="op">.</span><span class="fu">decir</span>(<span class="vs">`la distancia al mouse es </span><span class="sc">${</span>distancia<span class="sc">}</span><span class="vs">`</span>)<span class="op">;</span></span></code></pre></div>
-<p>o entre actores:</p>
+<span id="cb3-6"><a href="#cb3-6"></a>actor<span class="op">.</span><span class="fu">decir</span>(<span class="vs">`відстань до вказівника миші становить </span><span class="sc">${</span>distancia<span class="sc">}</span><span class="vs">`</span>)<span class="op">;</span></span></code></pre></div>
+<p>Відстань між акторами:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb4-1"><a href="#cb4-1"></a>let actor <span class="op">=</span> pilas<span class="op">.</span><span class="at">actores</span><span class="op">.</span><span class="fu">aceituna</span>()<span class="op">;</span></span>
 <span id="cb4-2"><a href="#cb4-2"></a>actor<span class="op">.</span><span class="at">x</span> <span class="op">=</span> <span class="dv">100</span><span class="op">;</span></span>
 <span id="cb4-3"><a href="#cb4-3"></a></span>
 <span id="cb4-4"><a href="#cb4-4"></a>let nave <span class="op">=</span> pilas<span class="op">.</span><span class="at">actores</span><span class="op">.</span><span class="fu">nave</span>()<span class="op">;</span></span>
 <span id="cb4-5"><a href="#cb4-5"></a></span>
 <span id="cb4-6"><a href="#cb4-6"></a>let distancia <span class="op">=</span> pilas<span class="op">.</span><span class="fu">obtener_distancia_entre_actores</span>(actor<span class="op">,</span> nave)<span class="op">;</span></span>
-<span id="cb4-7"><a href="#cb4-7"></a>nave<span class="op">.</span><span class="fu">decir</span>(<span class="vs">`la distancia al otro actor es </span><span class="sc">${</span>distancia<span class="sc">}</span><span class="vs">`</span>)<span class="op">;</span></span></code></pre></div>  <div class="tc navegacion">
+<span id="cb4-7"><a href="#cb4-7"></a>nave<span class="op">.</span><span class="fu">decir</span>(<span class="vs">`відстань до іншого актора становить </span><span class="sc">${</span>distancia<span class="sc">}</span><span class="vs">`</span>)<span class="op">;</span></span></code></pre></div>  <div class="tc navegacion">
   <div>
-    <a href="#" onclick="document.documentElement.scrollTo(0, 0);">Subir</a>
+    <a href="#" onclick="document.documentElement.scrollTo(0, 0);">Нагору</a>
   </div>
 
   <div>
-    <a href="index.html">Regresar al índice</a>
+    <a href="index.html">Повернутися до змісту</a>
   </div>
 </div> 
   </body>

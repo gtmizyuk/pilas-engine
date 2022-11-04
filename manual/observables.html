@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="generator" content="pandoc" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-          <title>Observables</title>
+          <title>Візуалізація значень на екрані</title>
     <style>
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
@@ -77,25 +77,25 @@
         <link rel="stylesheet" href="estilo.css" />
         <script src="./manual.js" charset="utf-8"></script>
       <div class="tc navegacion">
-  <a href="index.html">Regresar al índice</a>
+  <a href="index.html">Повернутися до змісту</a>
 </div> 
   </head>
   <body>
          <header id="title-block-header">
-      <h1 class="title">Observables</h1>
+      <h1 class="title">Візуалізація значень на екрані</h1>
             </header>
-      <p>Los observables te permiten visualizar rápidamente en pantalla qué valor tienen los atributos, variables o expresiones dentro de un juego.</p>
-<p>Por ejemplo, imagina que tu juego tiene un personaje que interactúa con la posición <code>x</code> e <code>y</code> del cursor del mouse. Mediante observables vas a poder agregar un visor de variables como este:</p>
+      <p>На екрані ми можемо швидко візуалізувати значення атрибутів, змінних або виразів у грі.</p>
+<p>Наприклад, уявіть, що у вашій грі є персонаж, який взаємодіє з положеннями <code>x</code> і <code>y</code> вказівника миші. Значення координат вказівника миші можна вивести на екран:</p>
 <p><img src="imagenes/observables.assets/observables.png" /></p>
-<p>Es super importante poder visualizar rápidamente variables en un juego, no solo para informarse sino también para detectar errores o incluso saber si estamos accediendo a la información correcta.</p>
-<p>Los observables se pueden crear mediante una llamada a la función <code>pilas.observable</code> enviando un nombre (a elección tuya) y una variable para observar, por ejemplo:</p>
+<p>Надзвичайно важливо мати можливість швидко візуалізувати змінні в грі, щоб не тільки бути поінформованими, але й виявляти помилки або навіть знати, чи ми отримуємо доступ до правильної інформації.</p>
+<p>Для цих цілей викликається фукнція <code>pilas.observar</code>, аргументами якої є ім'я, що буде відображатися на екрані (на ваш вибір) і назва змінної? за якою ми будемо "спостерігати":</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb1-1"><a href="#cb1-1"></a>actualizar() {</span>
 <span id="cb1-2"><a href="#cb1-2"></a>  this<span class="op">.</span><span class="at">pilas</span><span class="op">.</span><span class="fu">observar</span>(<span class="st">&quot;cursor_x&quot;</span><span class="op">,</span> this<span class="op">.</span><span class="at">pilas</span><span class="op">.</span><span class="at">cursor_x</span>)<span class="op">;</span></span>
 <span id="cb1-3"><a href="#cb1-3"></a>  this<span class="op">.</span><span class="at">pilas</span><span class="op">.</span><span class="fu">observar</span>(<span class="st">&quot;cursor_y&quot;</span><span class="op">,</span> this<span class="op">.</span><span class="at">pilas</span><span class="op">.</span><span class="at">cursor_y</span>)<span class="op">;</span></span>
-<span id="cb1-4"><a href="#cb1-4"></a>  this<span class="op">.</span><span class="at">pilas</span><span class="op">.</span><span class="fu">observar</span>(<span class="st">&quot;¿pulsa la tecla arriba?&quot;</span><span class="op">,</span> this<span class="op">.</span><span class="at">pilas</span><span class="op">.</span><span class="at">control</span><span class="op">.</span><span class="at">arriba</span>)<span class="op">;</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a>  this<span class="op">.</span><span class="at">pilas</span><span class="op">.</span><span class="fu">observar</span>(<span class="st">&quot;do you press the up key&quot;</span><span class="op">,</span> this<span class="op">.</span><span class="at">pilas</span><span class="op">.</span><span class="at">control</span><span class="op">.</span><span class="at">arriba</span>)<span class="op">;</span></span>
 <span id="cb1-5"><a href="#cb1-5"></a>}</span></code></pre></div>
-<p>Ten en cuenta que los observables se tienen que crear siempre desde funciones <code>actualizar</code>, ya sea de actores o de la escena, porque esa es la única forma de que pilas pueda saber el valor más reciente de esas variables.</p>
-<p>Otro ejemplo útil, sería poder saber la posición exacta de un actor que hemos creado. Incluso podemos imprimir otros atributos menos visibles como la rotación o la velocidad vertical:</p>
+<p>Зверніть увагу, що змінні, за якими потрібно "спостерігати", завжди повинні створюватися з функції <code>actualizar</code>, або від акторів, або зі сцени, тому що це єдиний спосіб, який дозволяє знати останнє значення цих змінних.</p>
+<p>Іншим корисним прикладом може бути можливість знати точну позицію актора, якого ми створили. Ми навіть можемо надрукувати на екрані й інші параметри, такі як обертання або вертикальна швидкість:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb2-1"><a href="#cb2-1"></a>class un_actor extends Actor {</span>
 <span id="cb2-2"><a href="#cb2-2"></a>  iniciar() {</span>
 <span id="cb2-3"><a href="#cb2-3"></a>    this<span class="op">.</span><span class="at">x</span> <span class="op">=</span> <span class="op">-</span><span class="dv">100</span><span class="op">;</span></span>
@@ -107,14 +107,14 @@
 <span id="cb2-9"><a href="#cb2-9"></a>    this<span class="op">.</span><span class="at">pilas</span><span class="op">.</span><span class="fu">observar</span>(<span class="st">&quot;rotación&quot;</span><span class="op">,</span> this<span class="op">.</span><span class="at">rotacion</span>)</span>
 <span id="cb2-10"><a href="#cb2-10"></a>  }</span>
 <span id="cb2-11"><a href="#cb2-11"></a>}</span></code></pre></div>
-<p>Si buscas un ejemplo aplicado de observables abrí el ejemplo angulos:</p>
+<p>Якщо ви бажаєте детальніше розібратися, як візуалізувати значення змінних на екрані, відкрийте приклад з назвою "angulo":</p>
 <p><img src="imagenes/observables.assets/ejemplo-observable.png" /></p>  <div class="tc navegacion">
   <div>
-    <a href="#" onclick="document.documentElement.scrollTo(0, 0);">Subir</a>
+    <a href="#" onclick="document.documentElement.scrollTo(0, 0);">Нагору</a>
   </div>
 
   <div>
-    <a href="index.html">Regresar al índice</a>
+    <a href="index.html">Повернутися до змісту</a>
   </div>
 </div> 
   </body>
