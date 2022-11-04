@@ -104625,6 +104625,7 @@ module.exports = typeof setImmediate === 'function' ? setImmediate :
   _exports.default = void 0;
   var _default = [["en", {
     "about": {
+      "Ukrainian.translation": "",
       "end": "Visit the PilasEngine web site to learn more about this project, or write to us\ndirectly in our message board if you have any questions.",
       "forum.link": "Message board",
       "text": "Pilas is a tool for making video games in a fun and simple way.\n\nWe made this tool for so that young people can discover and learn to program\ncomputers. We believe that learning to program video games is something so\nspectacular that all people should be able to do it. Learn to code lets you\ntake control of computers to invent, share and develop any type of software.\n\nThe interface icons have been created by Icons8, while the game graphics have\nbeen created by Walter Velazquez and the kenney project.",
@@ -104886,6 +104887,7 @@ module.exports = typeof setImmediate === 'function' ? setImmediate :
     "zoom.tooltip": "Editor zoom"
   }], ["es", {
     "about": {
+      "Ukrainian.translation": "",
       "end": "Visitá el sitio de PilasEngine para conocer más sobre acerca de este proyecto, o\nescribinos directamente en en nuestro foro de mensajes si te surge alguna duda.",
       "forum.link": "Foro de mensajes",
       "text": "Pilas es una herramienta para construir videojuegos de manera sencilla y divertida.\n\nIdeamos esta herramienta para que los jóvenes puedan descubrir y aprender a programar\ncomputadoras. Creemos que aprender a programar videojuegos es algo tan espectacular que todas\nlas personas deberían tener la posibilidad de hacerlo. Programar te permite tomar el control de\nlas computadoras para inventar, compartir y desarrollar cualquier tipo de software.\n\nLos íconos de la interfaz han sido creados por Icons8, mientras que los gráficos de juegos de\nincluidos han sido desarrollados por Walter Velazquez y el proyecto kenney.",
@@ -105409,6 +105411,7 @@ module.exports = typeof setImmediate === 'function' ? setImmediate :
     "zoom.tooltip": "Масштаб"
   }], ["zh", {
     "about": {
+      "Ukrainian.translation": "",
       "end": "访问PilasEngine网站以了解更多关于这个项目的信息，或\n如果您有任何问题，请直接在我们的留言板上给我们写信。",
       "forum.link": "留言板",
       "text": "Pilas是以简单而有趣的方式构建视频游戏的工具。\n我们设计了这个工具，让年轻人能够发现和学习如何编程。\n计算机。我们认为，学习电子游戏编程是一件非常壮观的事情，所有\n人们应该能够做到这一点。编程允许你控制\n计算机来发明、分享和开发任何一种软件。\n界面图标是由Icons8制作的，而游戏画面则是由Icons8制作的。\n包括由Walter Velazquez和Kenney项目开发的。\n中文翻译由街头艺术家工作室提供，如有不恰当的地方，请联系QQ494033201。",
@@ -111944,34 +111947,34 @@ var __ember_auto_import__ =
 
 /***/ 0:
 /*!***************************************************************************************************************************************************************************************************!*\
-  !*** multi C:/Users/user/AppData/Local/Temp/broccoli-2952iwkN4ec56MLd/cache-312-bundler/staging/l.js C:/Users/user/AppData/Local/Temp/broccoli-2952iwkN4ec56MLd/cache-312-bundler/staging/app.js ***!
+  !*** multi C:/Users/user/AppData/Local/Temp/broccoli-65523CE0c87pCn9p/cache-312-bundler/staging/l.js C:/Users/user/AppData/Local/Temp/broccoli-65523CE0c87pCn9p/cache-312-bundler/staging/app.js ***!
   \***************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("__webpack_require__(/*! C:\\Users\\user\\AppData\\Local\\Temp\\broccoli-2952iwkN4ec56MLd\\cache-312-bundler\\staging\\l.js */\"C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\broccoli-2952iwkN4ec56MLd\\\\cache-312-bundler\\\\staging\\\\l.js\");\nmodule.exports = __webpack_require__(/*! C:\\Users\\user\\AppData\\Local\\Temp\\broccoli-2952iwkN4ec56MLd\\cache-312-bundler\\staging\\app.js */\"C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\broccoli-2952iwkN4ec56MLd\\\\cache-312-bundler\\\\staging\\\\app.js\");\n\n\n//# sourceURL=webpack://__ember_auto_import__/multi_C:/Users/user/AppData/Local/Temp/broccoli-2952iwkN4ec56MLd/cache-312-bundler/staging/l.js_C:/Users/user/AppData/Local/Temp/broccoli-2952iwkN4ec56MLd/cache-312-bundler/staging/app.js?");
+eval("__webpack_require__(/*! C:\\Users\\user\\AppData\\Local\\Temp\\broccoli-65523CE0c87pCn9p\\cache-312-bundler\\staging\\l.js */\"C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\broccoli-65523CE0c87pCn9p\\\\cache-312-bundler\\\\staging\\\\l.js\");\nmodule.exports = __webpack_require__(/*! C:\\Users\\user\\AppData\\Local\\Temp\\broccoli-65523CE0c87pCn9p\\cache-312-bundler\\staging\\app.js */\"C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\broccoli-65523CE0c87pCn9p\\\\cache-312-bundler\\\\staging\\\\app.js\");\n\n\n//# sourceURL=webpack://__ember_auto_import__/multi_C:/Users/user/AppData/Local/Temp/broccoli-65523CE0c87pCn9p/cache-312-bundler/staging/l.js_C:/Users/user/AppData/Local/Temp/broccoli-65523CE0c87pCn9p/cache-312-bundler/staging/app.js?");
 
 /***/ }),
 
-/***/ "C:\\Users\\user\\AppData\\Local\\Temp\\broccoli-2952iwkN4ec56MLd\\cache-312-bundler\\staging\\app.js":
+/***/ "C:\\Users\\user\\AppData\\Local\\Temp\\broccoli-65523CE0c87pCn9p\\cache-312-bundler\\staging\\app.js":
 /*!***************************************************************************************************!*\
-  !*** C:/Users/user/AppData/Local/Temp/broccoli-2952iwkN4ec56MLd/cache-312-bundler/staging/app.js ***!
+  !*** C:/Users/user/AppData/Local/Temp/broccoli-65523CE0c87pCn9p/cache-312-bundler/staging/app.js ***!
   \***************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("\nif (typeof document !== 'undefined') {\n  __webpack_require__.p = (function(){\n    var scripts = document.querySelectorAll('script');\n    return scripts[scripts.length - 1].src.replace(/\\/[^/]*$/, '/');\n  })();\n}\n\nmodule.exports = (function(){\n  var d = _eai_d;\n  var r = _eai_r;\n  window.emberAutoImportDynamic = function(specifier) {\n    return r('_eai_dyn_' + specifier);\n  };\n    d('fast-memoize', [], function() { return __webpack_require__(/*! ./node_modules/fast-memoize/src/index.js */ \"./node_modules/fast-memoize/src/index.js\"); });\n    d('intl-messageformat', [], function() { return __webpack_require__(/*! ./node_modules/intl-messageformat/lib/index.js */ \"./node_modules/intl-messageformat/lib/index.js\"); });\n    d('intl-messageformat-parser', [], function() { return __webpack_require__(/*! ./node_modules/intl-messageformat-parser/lib/index.js */ \"./node_modules/intl-messageformat-parser/lib/index.js\"); });\n})();\n\n\n//# sourceURL=webpack://__ember_auto_import__/C:/Users/user/AppData/Local/Temp/broccoli-2952iwkN4ec56MLd/cache-312-bundler/staging/app.js?");
+eval("\nif (typeof document !== 'undefined') {\n  __webpack_require__.p = (function(){\n    var scripts = document.querySelectorAll('script');\n    return scripts[scripts.length - 1].src.replace(/\\/[^/]*$/, '/');\n  })();\n}\n\nmodule.exports = (function(){\n  var d = _eai_d;\n  var r = _eai_r;\n  window.emberAutoImportDynamic = function(specifier) {\n    return r('_eai_dyn_' + specifier);\n  };\n    d('fast-memoize', [], function() { return __webpack_require__(/*! ./node_modules/fast-memoize/src/index.js */ \"./node_modules/fast-memoize/src/index.js\"); });\n    d('intl-messageformat', [], function() { return __webpack_require__(/*! ./node_modules/intl-messageformat/lib/index.js */ \"./node_modules/intl-messageformat/lib/index.js\"); });\n    d('intl-messageformat-parser', [], function() { return __webpack_require__(/*! ./node_modules/intl-messageformat-parser/lib/index.js */ \"./node_modules/intl-messageformat-parser/lib/index.js\"); });\n})();\n\n\n//# sourceURL=webpack://__ember_auto_import__/C:/Users/user/AppData/Local/Temp/broccoli-65523CE0c87pCn9p/cache-312-bundler/staging/app.js?");
 
 /***/ }),
 
-/***/ "C:\\Users\\user\\AppData\\Local\\Temp\\broccoli-2952iwkN4ec56MLd\\cache-312-bundler\\staging\\l.js":
+/***/ "C:\\Users\\user\\AppData\\Local\\Temp\\broccoli-65523CE0c87pCn9p\\cache-312-bundler\\staging\\l.js":
 /*!*************************************************************************************************!*\
-  !*** C:/Users/user/AppData/Local/Temp/broccoli-2952iwkN4ec56MLd/cache-312-bundler/staging/l.js ***!
+  !*** C:/Users/user/AppData/Local/Temp/broccoli-65523CE0c87pCn9p/cache-312-bundler/staging/l.js ***!
   \*************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("\nwindow._eai_r = require;\nwindow._eai_d = define;\n\n\n//# sourceURL=webpack://__ember_auto_import__/C:/Users/user/AppData/Local/Temp/broccoli-2952iwkN4ec56MLd/cache-312-bundler/staging/l.js?");
+eval("\nwindow._eai_r = require;\nwindow._eai_d = define;\n\n\n//# sourceURL=webpack://__ember_auto_import__/C:/Users/user/AppData/Local/Temp/broccoli-65523CE0c87pCn9p/cache-312-bundler/staging/l.js?");
 
 /***/ })
 
