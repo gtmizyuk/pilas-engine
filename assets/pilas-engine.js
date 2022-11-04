@@ -16621,8 +16621,8 @@
   _exports.default = void 0;
 
   var _default = Ember.HTMLBars.template({
-    "id": "4fuPaOLj",
-    "block": "{\"symbols\":[],\"statements\":[[7,\"div\"],[11,\"class\",\"flex\"],[9],[0,\"\\n\\n  \"],[7,\"div\"],[11,\"class\",\"w-50\"],[9],[0,\"\\n    \"],[7,\"div\"],[11,\"class\",\"texto pv1 lh-title\"],[9],[0,\"\\n      \"],[1,[29,\"etiqueta\",[[25,[\"propiedad\",\"propiedad\"]]],null],false],[0,\"\\n    \"],[10],[0,\"\\n  \"],[10],[0,\"\\n\\n  \"],[7,\"div\"],[11,\"class\",\"w-50\"],[9],[0,\"\\n    \"],[7,\"input\"],[11,\"class\",\"input w-input-inspector v-top pa1 br2 verdana\"],[12,\"value\",[29,\"get\",[[25,[\"objeto\"]],[25,[\"propiedad\",\"propiedad\"]]],null]],[12,\"oninput\",[29,\"action\",[[24,0,[]],\"al_cambiar\"],[[\"value\"],[\"target.value\"]]]],[12,\"onblur\",[29,\"action\",[[24,0,[]],\"cuando_pierde_foco\"],null]],[12,\"onkeyup\",[29,\"action\",[[24,0,[]],\"cuando_suelta_tecla\"],null]],[9],[10],[0,\"\\n  \"],[10],[0,\"\\n\\n\"],[10],[0,\"\\n\"]],\"hasEval\":false}",
+    "id": "GqfAJrXT",
+    "block": "{\"symbols\":[],\"statements\":[[7,\"div\"],[11,\"class\",\"flex\"],[9],[0,\"\\n  \"],[7,\"div\"],[11,\"class\",\"w-50\"],[9],[0,\"\\n    \"],[7,\"div\"],[11,\"class\",\"texto pv1 lh-title\"],[9],[0,\"\\n      \"],[1,[29,\"etiqueta\",[\"Мітка\",[25,[\"propiedad\",\"propiedad\"]]],null],false],[0,\"\\n      \\n    \"],[10],[0,\"\\n  \"],[10],[0,\"\\n\\n  \"],[7,\"div\"],[11,\"class\",\"w-50\"],[9],[0,\"\\n    \"],[7,\"input\"],[11,\"class\",\"input w-input-inspector v-top pa1 br2 verdana\"],[12,\"value\",[29,\"get\",[[25,[\"objeto\"]],[25,[\"propiedad\",\"propiedad\"]]],null]],[12,\"oninput\",[29,\"action\",[[24,0,[]],\"al_cambiar\"],[[\"value\"],[\"target.value\"]]]],[12,\"onblur\",[29,\"action\",[[24,0,[]],\"cuando_pierde_foco\"],null]],[12,\"onkeyup\",[29,\"action\",[[24,0,[]],\"cuando_suelta_tecla\"],null]],[9],[10],[0,\"\\n  \"],[10],[0,\"\\n\\n\"],[10],[0,\"\\n\"]],\"hasEval\":false}",
     "meta": {
       "moduleName": "pilas-engine/templates/components/pilas-propiedad/cadena.hbs"
     }
@@ -16873,8 +16873,8 @@
   _exports.default = void 0;
 
   var _default = Ember.HTMLBars.template({
-    "id": "whODQTFf",
-    "block": "{\"symbols\":[\"&default\"],\"statements\":[[7,\"div\"],[11,\"class\",\"texto mt3 mb2 b\"],[9],[1,[29,\"t\",[[25,[\"etiqueta\"]]],null],false],[0,\":\"],[10],[0,\"\\n\\n\"],[15,1],[0,\"\\n\"]],\"hasEval\":false}",
+    "id": "QS/YHshQ",
+    "block": "{\"symbols\":[\"&default\"],\"statements\":[[7,\"div\"],[11,\"class\",\"texto mt3 mb2 b\"],[9],[1,[29,\"t\",[[25,[\"etiqueta\"]]],null],false],[0,\":\"],[10],[0,\"\\n\\n\"],[15,1],[0,\" \\n\\n\"]],\"hasEval\":false}",
     "meta": {
       "moduleName": "pilas-engine/templates/components/pilas-propiedad/separador.hbs"
     }
